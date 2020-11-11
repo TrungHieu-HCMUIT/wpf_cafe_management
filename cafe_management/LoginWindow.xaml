@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cafe_management"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        DataContext="{StaticResource MainVM}"
         Title="LoginWindow" Height="500" Width="750">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -62,6 +64,7 @@
                 <Grid Grid.Row="2" Margin="0,30,0,0">
                     <Grid >
                         <Button 
+                                Command="{Binding StaffCommand}" 
                                 FontSize="24"
                                 Foreground="#000000"
                                 Content="ĐĂNG NHẬP"

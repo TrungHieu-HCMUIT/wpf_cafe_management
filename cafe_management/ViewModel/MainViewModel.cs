@@ -3,21 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace cafe_management.ViewModel
-{
-
+{ 
     public class MainViewModel : BaseViewModel
     {
-        //public bool Isloaded = false;
+        public ICommand StaffCommand { get; set; }
         public MainViewModel()
         {
-            //if (!Isloaded)
-            //{
-            //    Isloaded = true;
-            //    LoginWindow loginWindow = new LoginWindow();
-            //    loginWindow.ShowDialog();
-            //}
+            StaffCommand = new RelayCommand<object>((p) => { return true; }, (p) => { StaffWindow wd = new StaffWindow(); wd.ShowDialog(); });
         }
     }
 }
