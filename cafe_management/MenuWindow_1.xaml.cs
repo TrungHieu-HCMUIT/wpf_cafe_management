@@ -24,12 +24,6 @@ namespace cafe_management
             InitializeComponent();
         }
 
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_DpiChanged(object sender, DpiChangedEventArgs e)
         {
 

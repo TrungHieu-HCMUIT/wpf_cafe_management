@@ -36,7 +36,7 @@
                         FontFamily="Roboto"
                         VerticalAlignment="Top"
                         Background="Transparent"
-                        Width="230" Click="Button_Click" 
+                        Width="230" 
                         ></Button>
             </Grid>
             <Grid Grid.Row="1">
@@ -51,7 +51,7 @@
                         FontFamily="Roboto"
                         VerticalAlignment="Top"
                         Background="Transparent"
-                        Width="230" Click="Button_Click" Grid.ColumnSpan="2" 
+                        Width="230" Grid.ColumnSpan="2" 
                         ></Button>
             </Grid>
             <Grid Grid.Row="2">
@@ -64,7 +64,7 @@
                         BorderThickness="0"
                         VerticalAlignment="Top"
                         Background="Transparent"
-                        Width="230" Click="Button_Click" 
+                        Width="230"
                         FontSize="24"
                         FontFamily="Roboto"
                         ></Button>
@@ -81,7 +81,7 @@
                         BorderThickness="0"
                         VerticalAlignment="Top"
                         Background="Transparent"
-                        Width="230" Click="Button_Click" 
+                        Width="230"
                         ></Button>
             </Grid>
             <Grid Grid.Row="4">
@@ -96,7 +96,7 @@
                         FontFamily="Roboto"
                         VerticalAlignment="Top"
                         Background="Transparent"
-                        Width="230" Click="Button_Click" 
+                        Width="230"
                         ></Button>
             </Grid>
         </Grid>
@@ -1125,7 +1125,7 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="2">
-                <ScrollViewer>
+                <ScrollViewer Margin="0,0,0.2,0.4" Height="470" VerticalAlignment="Bottom">
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -1140,18 +1140,8 @@
                                 <Button Width="40"
                                         BorderThickness="0">
                                     <Button.Background>
-                                        <ImageBrush  
-                                            ImageSource="Garbage_icon.png" 
-                                            Stretch="Uniform"/>
-                                    </Button.Background>
-                                </Button>
-                            </Grid>
-                            <Grid Grid.Column="0">
-                                <Button Width="40"
-                                        BorderThickness="0">
-                                    <Button.Background>
-                                        <ImageBrush  
-                                            ImageSource="Garbage_icon.png" 
+                                        <ImageBrush
+                                            ImageSource="/Resource/MenuWindow/Garbage_icon.png" 
                                             Stretch="Uniform"/>
                                     </Button.Background>
                                 </Button>
@@ -1162,7 +1152,7 @@
                             <Grid Grid.Column="2">
                                 <Button BorderBrush="Transparent">
                                     <Button.Background>
-                                        <ImageBrush ImageSource="Minus_icon.png" Stretch="Uniform"/>
+                                        <ImageBrush ImageSource="/Resource/MenuWindow/Minus_icon.png" Stretch="Uniform"/>
                                     </Button.Background>
                                 </Button>
                             </Grid>
@@ -1170,13 +1160,10 @@
                                 <TextBlock></TextBlock>
                             </Grid>
                             <Grid Grid.Column="4">
-                                <Button>
+                                <Button BorderBrush="Transparent">
                                     <Button.Background>
-                                        <ImageBrush ImageSource="Add_icon.png" Stretch="Uniform"/>
+                                        <ImageBrush ImageSource="/Resource/MenuWindow/Add_icon.png" Stretch="Uniform"/>
                                     </Button.Background>
-                                    <Button.BorderBrush>
-                                        <ImageBrush ImageSource="Add_icon.png" Stretch="Uniform"/>
-                                    </Button.BorderBrush>
                                 </Button>
                             </Grid>
                             <Grid Grid.Column="5 ">

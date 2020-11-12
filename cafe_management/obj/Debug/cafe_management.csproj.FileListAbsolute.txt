@@ -132,3 +132,5 @@ C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\cafe_management.ex
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\cafe_management.pdb
 E:\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow_1.g.cs
 E:\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow_1.baml
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow_1.g.cs
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow_1.baml
