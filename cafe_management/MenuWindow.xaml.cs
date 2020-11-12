@@ -17,16 +17,11 @@ namespace cafe_management
     /// <summary>
     /// Interaction logic for MenuWindow_1.xaml
     /// </summary>
-    public partial class MenuWindow_1 : Window
+    public partial class MenuWindow : Window
     {
-        public MenuWindow_1()
+        public MenuWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_DpiChanged(object sender, DpiChangedEventArgs e)
-        {
-
         }
     }
 }

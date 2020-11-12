@@ -1,4 +1,4 @@
-﻿<Window x:Class="cafe_management.MenuWindow_1"
+﻿<Window x:Class="cafe_management.MenuWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -36,7 +36,7 @@
                         FontFamily="Roboto"
                         VerticalAlignment="Top"
                         Background="Transparent"
-                        Width="230" 
+                        Width="230"
                         ></Button>
             </Grid>
             <Grid Grid.Row="1">
