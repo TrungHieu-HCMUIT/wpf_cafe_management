@@ -23,5 +23,30 @@ namespace cafe_management
         {
             InitializeComponent();
         }
+
+        private void CaPheVietNam_Click(object sender, RoutedEventArgs e)
+        {
+            scrollViewer.ScrollToVerticalOffset(rectCaPheVietNam.TransformToVisual(scrollViewer).TransformBounds(new Rect(0, 0, 0, 0)).Top);
+        }
+
+        private void CaPheMay_Click(object sender, RoutedEventArgs e)
+        {
+            scrollViewer.ScrollToVerticalOffset(rectCaPheMay.TransformToVisual(scrollViewer).TransformBounds(new Rect(0, 0, 0, 0)).Top);
+        }
+
+        private void DaXay_Click(object sender, RoutedEventArgs e)
+        {
+            scrollViewer.ScrollToVerticalOffset(rectDaXay.TransformToVisual(scrollViewer).TransformBounds(new Rect(0, 0, 0, 0)).Top);
+        }
+
+        private void TraTraiCay_Click(object sender, RoutedEventArgs e)
+        {
+            scrollViewer.ScrollToVerticalOffset(rectTraTraiCay.TransformToVisual(scrollViewer).TransformBounds(new Rect(0, 0, 0, 0)).Top);
+        }
+
+        private void TraSuaMacchiato_Click(object sender, RoutedEventArgs e)
+        {
+            scrollViewer.ScrollToVerticalOffset(rectTraSuaMacchiato.TransformToVisual(scrollViewer).TransformBounds(new Rect(0, 0, 0, 0)).Top);
+        }
     }
 }

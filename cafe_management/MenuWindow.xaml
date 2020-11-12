@@ -27,6 +27,7 @@
                 <Button 
                     Height="35"
                     Content="CÀ PHÊ VIỆT NAM"
+                    Click="CaPheVietNam_Click"
                         HorizontalContentAlignment="Left"
                         Foreground="#000000"
                         materialDesign:ButtonAssist.CornerRadius="10" 
@@ -42,6 +43,7 @@
             </Grid>
             <Grid Grid.Row="1">
                 <Button Content="CÀ PHÊ MÁY"
+                        Click="CaPheMay_Click"
                         HorizontalContentAlignment="Left"
                         Foreground="#000000"
                         materialDesign:ButtonAssist.CornerRadius="10" 
@@ -57,9 +59,10 @@
             </Grid>
             <Grid Grid.Row="2">
                 <Button Content="ĐÁ XAY"
+                        Click="DaXay_Click"
                         HorizontalContentAlignment="Left"
                         Foreground="#000000"
-                        materialDesign:ButtonAssist.CornerRadius="10" 
+                        materialDesign:ButtonAssist.CornerRadius="10"                         
                         Margin="0,6,0,0" 
                         BorderBrush="#EA8025"
                         BorderThickness="0"
@@ -72,6 +75,7 @@
             </Grid>
             <Grid Grid.Row="3">
                 <Button Content="TRÀ TRÁI CÂY"
+                        Click="TraTraiCay_Click"
                         HorizontalContentAlignment="Left"
                         Foreground="#000000"
                         materialDesign:ButtonAssist.CornerRadius="10" 
@@ -87,6 +91,7 @@
             </Grid>
             <Grid Grid.Row="4">
                 <Button Content="TRÀ SỮA MACCHIATO"
+                        Click="TraSuaMacchiato_Click"
                         HorizontalContentAlignment="Left"
                         Foreground="#000000"
                         materialDesign:ButtonAssist.CornerRadius="10" 
@@ -102,20 +107,15 @@
             </Grid>
         </Grid>
         <Grid Grid.Column="1">
-            <ScrollViewer>
+            <ScrollViewer Name="scrollViewer">
                 <StackPanel>
-                    <Grid>
+                    <Grid Name="rectCaPheVietNam">
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
+                            <RowDefinition Height="325"></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition Height="325"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock 
+                            <TextBlock 
                             Text="CÀ PHÊ VIỆT NAM" 
                             Margin="30,30,0,0"
                             FontSize="40"
@@ -123,28 +123,28 @@
                             FontWeight="Bold"
                             FontStyle="Normal"
                             >
-                                </TextBlock>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="230"></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Image Source="/Resource/MenuWindow/Cà phê Việt Nam/Cà phê đen.jpg" 
+                            </TextBlock>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="230"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Source="/Resource/MenuWindow/Cà phê Việt Nam/Cà phê đen.jpg" 
                                    Height="210"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Top"
                                    Margin="0,15,0,0"
                                    Grid.Row="0">
-                                    </Image>
-                                    <TextBlock Grid.Row="1"
+                                </Image>
+                                <TextBlock Grid.Row="1"
                                        Text="Cà phê đen"
                                        FontSize="27"
                                        FontWeight="Bold"
@@ -153,8 +153,8 @@
                                        VerticalAlignment="Top"
                                        Margin="0,9,0,0"
                                        >
-                                    </TextBlock>
-                                    <TextBlock Grid.Row="2"
+                                </TextBlock>
+                                <TextBlock Grid.Row="2"
                                        Text="20.000 Đ"
                                        FontSize="27"
                                        FontWeight="Bold"
@@ -163,22 +163,22 @@
                                        VerticalAlignment="Top"
                                        Foreground="#EA8025"
                                        >
-                                    </TextBlock>
-                                </Grid>
-                                <Grid Grid.Column="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="230"></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Image Source="/Resource/MenuWindow/Cà phê Việt Nam/Cà phê sữa.jpg" 
+                                </TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="230"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Source="/Resource/MenuWindow/Cà phê Việt Nam/Cà phê sữa.jpg" 
                                    Height="210"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Top"
                                    Margin="0,15,0,0"
                                    Grid.Row="0"/>
 
-                                    <TextBlock Grid.Row="1"
+                                <TextBlock Grid.Row="1"
                                        Text="Cà phê sữa"
                                        FontSize="27"
                                        FontWeight="Bold"
@@ -187,8 +187,8 @@
                                        VerticalAlignment="Top"
                                        Margin="0,9,0,0"
                                        >
-                                    </TextBlock>
-                                    <TextBlock Grid.Row="2"
+                                </TextBlock>
+                                <TextBlock Grid.Row="2"
                                        Text="25.000 Đ"
                                        FontSize="27"
                                        FontWeight="Bold"
@@ -197,22 +197,22 @@
                                        VerticalAlignment="Top"
                                        Foreground="#EA8025"
                                        >
-                                    </TextBlock>
-                                </Grid>
-                                <Grid Grid.Column="2">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="230"></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Image Source="/Resource/MenuWindow/Cà phê Việt Nam/Bạc xỉu.jpg" 
+                                </TextBlock>
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="230"></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Image Source="/Resource/MenuWindow/Cà phê Việt Nam/Bạc xỉu.jpg" 
                                    Height="210"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Top"
                                    Margin="0,15,0,0"
                                    Grid.Row="0"/>
 
-                                    <TextBlock Grid.Row="1"
+                                <TextBlock Grid.Row="1"
                                        Text="Bạc xỉu"
                                        FontSize="27"
                                        FontWeight="Bold"
@@ -221,8 +221,8 @@
                                        VerticalAlignment="Top"
                                        Margin="0,9,0,0"
                                        >
-                                    </TextBlock>
-                                    <TextBlock Grid.Row="2"
+                                </TextBlock>
+                                <TextBlock Grid.Row="2"
                                        Text="29.000 Đ"
                                        FontSize="27"
                                        FontWeight="Bold"
@@ -231,11 +231,16 @@
                                        VerticalAlignment="Top"
                                        Foreground="#EA8025"
                                        >
-                                    </TextBlock>
-                                </Grid>
+                                </TextBlock>
                             </Grid>
                         </Grid>
-                        <Grid Grid.Row="1">
+                    </Grid>
+                    <Grid Name="rectCaPheMay">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" >
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition Height="325"></RowDefinition>
@@ -363,13 +368,7 @@
                                 </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
+                        <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition Height="325"></RowDefinition>
@@ -484,7 +483,13 @@
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid Grid.Row="1">
+                    </Grid>
+                    <Grid Name="rectDaXay">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition Height="325"></RowDefinition>
@@ -612,13 +617,7 @@
                                 </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
+                        <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition Height="325"></RowDefinition>
@@ -671,222 +670,13 @@
                                 </Grid>
                             </Grid>
                         </Grid>
-                        <Grid Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition Height="325"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                                <TextBlock 
-                            Text="TRÀ SỮA MACCHIATO"
-                            Margin="30,30,0,0"
-                            FontSize="40"
-                            FontFamily="Roboto"
-                            FontWeight="Bold"
-                            FontStyle="Normal"
-                            >
-                                </TextBlock>
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="230"></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Image Source="/Resource/MenuWindow/Trà sữa Macchiato/Trà đen Macchiato.jpg"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Top"
-                                   Margin="0,15,0,0"
-                                   Grid.Row="0"/>
-
-                                    <TextBlock Grid.Row="1"
-                                       Text="Trà đen Macchiato"
-                                       FontSize="27"
-                                       FontWeight="Bold"
-                                       FontFamily="Roboto"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Top"
-                                       Margin="0,9,0,0"
-                                       >
-                                    </TextBlock>
-                                    <TextBlock Grid.Row="2"
-                                       Text="20.000 Đ"
-                                       FontSize="27"
-                                       FontWeight="Bold"
-                                       FontFamily="Comfortaa"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Top"
-                                       Foreground="#EA8025"
-                                       >
-                                    </TextBlock>
-                                </Grid>
-                                <Grid Grid.Column="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="230"></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Image Source="/Resource/MenuWindow/Trà sữa Macchiato/Trà lài Macchiato.jpg"
-                                         HorizontalAlignment="Center"
-                                            VerticalAlignment="Top"
-                                        Margin="0,15,0,0"
-                                   Grid.Row="0"/>
-
-
-                                    <TextBlock Grid.Row="1"
-                                       Text="Trà lài Macchiato"
-                                       FontSize="27"
-                                       FontWeight="Bold"
-                                       FontFamily="Roboto"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Top"
-                                       Margin="0,9,0,0"
-                                       >
-                                    </TextBlock>
-                                    <TextBlock Grid.Row="2"
-                                       Text="25.000 Đ"
-                                       FontSize="27"
-                                       FontWeight="Bold"
-                                       FontFamily="Comfortaa"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Top"
-                                       Foreground="#EA8025"
-                                       >
-                                    </TextBlock>
-                                </Grid>
-                                <Grid Grid.Column="2">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="230"></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Image Source="/Resource/MenuWindow/Trà sữa Macchiato/Trà Matcha Macchiato.jpg" 
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Top"
-                                   Margin="0,15,0,0"
-                                   Grid.Row="0"/>
-
-
-                                    <TextBlock Grid.Row="1"
-                                       Text="Trà Matcha Macchiato"
-                                       FontSize="27"
-                                       FontWeight="Bold"
-                                       FontFamily="Roboto"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Top"
-                                       Margin="0,9,0,0"
-                                       >
-                                    </TextBlock>
-                                    <TextBlock Grid.Row="2"
-                                       Text="29.000 Đ"
-                                       FontSize="27"
-                                       FontWeight="Bold"
-                                       FontFamily="Comfortaa"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Top"
-                                       Foreground="#EA8025"
-                                       >
-                                    </TextBlock>
-                                </Grid>
-                            </Grid>
-                        </Grid>
                     </Grid>
-                    <Grid>
+                    <Grid Name="rectTraTraiCay">
                         <Grid.RowDefinitions>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <Grid Grid.Row="0">
-                            <Grid.RowDefinitions>
-                                <RowDefinition></RowDefinition>
-                                <RowDefinition Height="325"></RowDefinition>
-                            </Grid.RowDefinitions>
-                            <Grid Grid.Row="0">
-                            </Grid>
-                            <Grid Grid.Row="1">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                    <ColumnDefinition></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Grid Grid.Column="0">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="230"></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Image Source="/Resource/MenuWindow/Trà sữa Macchiato/Trà sữa trân châu .jpg"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Top"
-                                   Margin="0,15,0,0"
-                                   Grid.Row="0"/>
-
-                                    <TextBlock Grid.Row="1"
-                                       Text="Trà sữa trân châu"
-                                       FontSize="27"
-                                       FontWeight="Bold"
-                                       FontFamily="Roboto"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Top"
-                                       Margin="0,9,0,0"
-                                       >
-                                    </TextBlock>
-                                    <TextBlock Grid.Row="2"
-                                       Text="20.000 Đ"
-                                       FontSize="27"
-                                       FontWeight="Bold"
-                                       FontFamily="Comfortaa"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Top"
-                                       Foreground="#EA8025"
-                                       >
-                                    </TextBlock>
-                                </Grid>
-                                <Grid Grid.Column="1">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="230"></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <Image Source="/Resource/MenuWindow/Trà sữa Macchiato/Trà xoài Macchiato.jpg" 
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Top"
-                                   Margin="0,15,0,0"
-                                   Grid.Row="0"/>
-
-
-                                    <TextBlock Grid.Row="1"
-                                       Text="Trà xoài Macchiato"
-                                       FontSize="27"
-                                       FontWeight="Bold"
-                                       FontFamily="Roboto"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Top"
-                                       Margin="0,9,0,0"
-                                       >
-                                    </TextBlock>
-                                    <TextBlock Grid.Row="2"
-                                       Text="25.000 Đ"
-                                       FontSize="27"
-                                       FontWeight="Bold"
-                                       FontFamily="Comfortaa"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Top"
-                                       Foreground="#EA8025"
-                                       >
-                                    </TextBlock>
-                                </Grid>
-                                <Grid Grid.Column="2">
-                                </Grid>
-                            </Grid>
-                        </Grid>
-                        <Grid Grid.Row="1">
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
                                 <RowDefinition Height="325"></RowDefinition>
@@ -1011,33 +801,32 @@
                                 </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
-                    <Grid >
-                        <Grid.RowDefinitions>
-                            <RowDefinition></RowDefinition>
-                            <RowDefinition Height="325"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Grid Grid.Row="0">
-                        </Grid>
                         <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                                <ColumnDefinition></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="230"></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <Image Source="/Resource/MenuWindow/Trà trái cây/Trà vải.jpg"
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="325"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="230"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="/Resource/MenuWindow/Trà trái cây/Trà vải.jpg"
                                    HorizontalAlignment="Center"
                                    VerticalAlignment="Top"
                                    Margin="0,15,0,0"
                                    Grid.Row="0"/>
 
-                                <TextBlock Grid.Row="1"
+                                    <TextBlock Grid.Row="1"
                                        Text="Trà vải"
                                        FontSize="27"
                                        FontWeight="Bold"
@@ -1046,8 +835,8 @@
                                        VerticalAlignment="Top"
                                        Margin="0,9,0,0"
                                        >
-                                </TextBlock>
-                                <TextBlock Grid.Row="2"
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="2"
                                        Text="20.000 Đ"
                                        FontSize="27"
                                        FontWeight="Bold"
@@ -1056,11 +845,227 @@
                                        VerticalAlignment="Top"
                                        Foreground="#EA8025"
                                        >
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <Grid Name="rectTraSuaMacchiato">
+                        <Grid.RowDefinitions>
+                            <RowDefinition></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="325"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <TextBlock 
+                            Text="TRÀ SỮA MACCHIATO"
+                            Margin="30,30,0,0"
+                            FontSize="40"
+                            FontFamily="Roboto"
+                            FontWeight="Bold"
+                            FontStyle="Normal"
+                            >
                                 </TextBlock>
                             </Grid>
-                            <Grid Grid.Column="1">
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="230"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="/Resource/MenuWindow/Trà sữa Macchiato/Trà đen Macchiato.jpg"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   Margin="0,15,0,0"
+                                   Grid.Row="0"/>
+
+                                    <TextBlock Grid.Row="1"
+                                       Text="Trà đen Macchiato"
+                                       FontSize="27"
+                                       FontWeight="Bold"
+                                       FontFamily="Roboto"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Margin="0,9,0,0"
+                                       >
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="2"
+                                       Text="20.000 Đ"
+                                       FontSize="27"
+                                       FontWeight="Bold"
+                                       FontFamily="Comfortaa"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Foreground="#EA8025"
+                                       >
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="230"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="/Resource/MenuWindow/Trà sữa Macchiato/Trà lài Macchiato.jpg"
+                                         HorizontalAlignment="Center"
+                                            VerticalAlignment="Top"
+                                        Margin="0,15,0,0"
+                                   Grid.Row="0"/>
+
+
+                                    <TextBlock Grid.Row="1"
+                                       Text="Trà lài Macchiato"
+                                       FontSize="27"
+                                       FontWeight="Bold"
+                                       FontFamily="Roboto"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Margin="0,9,0,0"
+                                       >
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="2"
+                                       Text="25.000 Đ"
+                                       FontSize="27"
+                                       FontWeight="Bold"
+                                       FontFamily="Comfortaa"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Foreground="#EA8025"
+                                       >
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="230"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="/Resource/MenuWindow/Trà sữa Macchiato/Trà Matcha Macchiato.jpg" 
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   Margin="0,15,0,0"
+                                   Grid.Row="0"/>
+
+
+                                    <TextBlock Grid.Row="1"
+                                       Text="Trà Matcha Macchiato"
+                                       FontSize="27"
+                                       FontWeight="Bold"
+                                       FontFamily="Roboto"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Margin="0,9,0,0"
+                                       >
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="2"
+                                       Text="29.000 Đ"
+                                       FontSize="27"
+                                       FontWeight="Bold"
+                                       FontFamily="Comfortaa"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Foreground="#EA8025"
+                                       >
+                                    </TextBlock>
+                                </Grid>
                             </Grid>
-                            <Grid Grid.Column="2">
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition></RowDefinition>
+                                <RowDefinition Height="325"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="230"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="/Resource/MenuWindow/Trà sữa Macchiato/Trà sữa trân châu .jpg"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   Margin="0,15,0,0"
+                                   Grid.Row="0"/>
+
+                                    <TextBlock Grid.Row="1"
+                                       Text="Trà sữa trân châu"
+                                       FontSize="27"
+                                       FontWeight="Bold"
+                                       FontFamily="Roboto"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Margin="0,9,0,0"
+                                       >
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="2"
+                                       Text="20.000 Đ"
+                                       FontSize="27"
+                                       FontWeight="Bold"
+                                       FontFamily="Comfortaa"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Foreground="#EA8025"
+                                       >
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="230"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="/Resource/MenuWindow/Trà sữa Macchiato/Trà xoài Macchiato.jpg" 
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   Margin="0,15,0,0"
+                                   Grid.Row="0"/>
+
+
+                                    <TextBlock Grid.Row="1"
+                                       Text="Trà xoài Macchiato"
+                                       FontSize="27"
+                                       FontWeight="Bold"
+                                       FontFamily="Roboto"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Margin="0,9,0,0"
+                                       >
+                                    </TextBlock>
+                                    <TextBlock Grid.Row="2"
+                                       Text="25.000 Đ"
+                                       FontSize="27"
+                                       FontWeight="Bold"
+                                       FontFamily="Comfortaa"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Foreground="#EA8025"
+                                       >
+                                    </TextBlock>
+                                </Grid>
+                                <Grid Grid.Column="2">
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Grid>
