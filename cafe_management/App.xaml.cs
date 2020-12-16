@@ -13,5 +13,6 @@ namespace cafe_management
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

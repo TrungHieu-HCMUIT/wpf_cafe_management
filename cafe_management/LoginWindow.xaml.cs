@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Windows.Navigation;
 
 namespace cafe_management
 {
@@ -23,6 +22,16 @@ namespace cafe_management
         public LoginWindow()
         {
             InitializeComponent();
+        }
+
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                StaffWindow staffWindow = new StaffWindow();
+                this.Close();
+                staffWindow.ShowDialog();
+            }
         }
     }
 }
