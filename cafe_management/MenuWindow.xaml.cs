@@ -23,6 +23,12 @@ namespace cafe_management
         public MenuWindow()
         {
             InitializeComponent();
+
+            List<Coffee> coffee = new List<Coffee>();
+            coffee.Add(new Coffee() { Name = "Cà phê sữa", Quantity = 1, Price = 25000 });
+            coffee.Add(new Coffee() { Name = "Cà phê đen", Quantity = 2, Price = 20000 });
+            coffee.Add(new Coffee() { Name = "Bạc xỉu", Quantity = 1, Price = 27000 });
+            dgCoffee.ItemsSource = coffee;
         }
 
         private void changeColorAnimation(Button btn)
@@ -84,9 +90,22 @@ namespace cafe_management
             scrollViewer.ScrollToVerticalOffset(rectTraSuaMacchiato.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
         }
 
+        //Item change event
         private void dgCoffee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+
+        //Test
+
+    }
+
+    public class Coffee
+    {
+        public string Name { get; set; }
+
+        public int Quantity { get; set; }
+
+        public int Price { get; set; }
     }
 }
