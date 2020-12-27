@@ -99,7 +99,7 @@
             <Grid Grid.Row="4">
                 <Button
                         Name="btnTraSuaMacchiato"
-                        Content="TRÀ SỮA MACCHIATO"
+                        Content="MACCHIATO"
                         Click="TraSuaMacchiato_Click"
                         HorizontalContentAlignment="Left"
                         Foreground="#000000"
@@ -1102,7 +1102,7 @@
             <Grid Grid.Row="1">
                 <DataGrid Name="dgCoffee" 
                                    AutoGenerateColumns="False" 
-                                   GridLinesVisibility="None" 
+                                   GridLinesVisibility="None"
                                    SelectionChanged="dgCoffee_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn IsReadOnly="True">
@@ -1121,16 +1121,13 @@
                                             FontSize="18"
                                             FontFamily="Roboto"
                                             Foreground="#7B7B7B"
-                                            IsReadOnly="True"
-                                            >
+                                            IsReadOnly="True">
                             <DataGridTextColumn.Header>
                                 <HeaderedContentControl  FontSize="20" 
                                                          Header="Tên"
                                                          FontFamily="Roboto"
                                                          Foreground="#7B7B7B"
-                                                         HorizontalAlignment="Center"
-                                                         >
-
+                                                         HorizontalAlignment="Center">
                                 </HeaderedContentControl>
                             </DataGridTextColumn.Header>
                         </DataGridTextColumn>
