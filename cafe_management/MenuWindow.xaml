@@ -1084,7 +1084,6 @@
         <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"></RowDefinition>
-                <RowDefinition Height="60"></RowDefinition>
                 <RowDefinition ></RowDefinition>
                 <RowDefinition Height="140"></RowDefinition>
                 <RowDefinition Height="130"></RowDefinition>
@@ -1100,95 +1099,38 @@
                     VerticalAlignment="Center"
                     ></TextBlock>
             </Grid>
-            <Grid Grid.Row="1" Background="#F1F1F1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
-                    <TextBlock
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Text="Tên"
-                        FontSize="24"
-                        FontFamily="Roboto"
-                        Foreground="#7B7B7B"
-                        Margin="40,0,0,0"
-                        ></TextBlock>
-                </Grid>
-                <Grid Grid.Column="1">
-                    <TextBlock 
-                        Text="Số lượng"
-                        FontSize="24"
-                        FontFamily="Roboto"
-                        Foreground="#7B7B7B"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center">
-                    </TextBlock>
-                </Grid>
-                <Grid Grid.Column="2">
-                    <TextBlock 
-                        Text="Giá"
-                        FontSize="24"
-                        FontFamily="Roboto"
-                        Foreground="#7B7B7B"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Margin="0,0,40,0">
-                    </TextBlock>
-                </Grid>
+            <Grid Grid.Row="1">
+                <DataGrid Name="dgCoffee" AutoGenerateColumns="False" SelectionChanged="dgCoffee_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="/Resource/MenuWindow/Garbage_icon.png"></Image>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Tên" 
+                                            Width="180">
+                        </DataGridTextColumn>
+                        <DataGridTemplateColumn Header="Số lượng"
+                                                Width="100">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <Image Source="/Resource/MenuWindow/Minus_icon.png" />
+                                        <TextBlock Text="{Binding Quantity}" VerticalAlignment="Center"/>
+                                        <Image Source="/Resource/MenuWindow/Add_icon.png" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Giá"
+                                            Width="150"
+                                            ></DataGridTextColumn>
+                    </DataGrid.Columns> 
+                </DataGrid>
             </Grid>
             <Grid Grid.Row="2">
-                <ScrollViewer Margin="0,0,0.2,0.4" Height="470" VerticalAlignment="Bottom">
-                    <StackPanel>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="40"></ColumnDefinition>
-                                <ColumnDefinition Width="125 "></ColumnDefinition>
-                                <ColumnDefinition Width="30"></ColumnDefinition>
-                                <ColumnDefinition Width="40"></ColumnDefinition>
-                                <ColumnDefinition Width="30"></ColumnDefinition>
-                                <ColumnDefinition Width="172"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-                            <Grid Grid.Column="0">
-                                <Button Width="40"
-                                        BorderThickness="0">
-                                    <Button.Background>
-                                        <ImageBrush
-                                            ImageSource="/Resource/MenuWindow/Garbage_icon.png" 
-                                            Stretch="Uniform"/>
-                                    </Button.Background>
-                                </Button>
-                            </Grid>
-                            <Grid Grid.Column="1">
-                                <TextBlock></TextBlock>
-                            </Grid>
-                            <Grid Grid.Column="2">
-                                <Button BorderBrush="Transparent">
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="/Resource/MenuWindow/Minus_icon.png" Stretch="Uniform"/>
-                                    </Button.Background>
-                                </Button>
-                            </Grid>
-                            <Grid Grid.Column="3">
-                                <TextBlock></TextBlock>
-                            </Grid>
-                            <Grid Grid.Column="4">
-                                <Button BorderBrush="Transparent">
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="/Resource/MenuWindow/Add_icon.png" Stretch="Uniform"/>
-                                    </Button.Background>
-                                </Button>
-                            </Grid>
-                            <Grid Grid.Column="5 ">
-                                <TextBlock></TextBlock>
-                            </Grid>
-                        </Grid>
-                    </StackPanel>
-                </ScrollViewer>
-            </Grid>
-            <Grid Grid.Row="3">
                 <Grid.RowDefinitions>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -1250,7 +1192,7 @@
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="4">
+            <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>

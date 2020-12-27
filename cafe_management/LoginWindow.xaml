@@ -21,7 +21,7 @@
         <Grid Grid.Column="1">
             <Grid >
                 <TextBlock
-                    Text="Welcome!"
+                    Text="Welcome!" 
                     FontSize="44"
                     FontFamily="Roboto" 
                     FontStyle="Normal" 

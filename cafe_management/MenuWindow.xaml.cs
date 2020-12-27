@@ -83,5 +83,10 @@ namespace cafe_management
 
             scrollViewer.ScrollToVerticalOffset(rectTraSuaMacchiato.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
         }
+
+        private void dgCoffee_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

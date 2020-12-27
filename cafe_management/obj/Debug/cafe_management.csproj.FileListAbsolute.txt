@@ -130,8 +130,6 @@ C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\cafe_management.cs
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\cafe_management.csproj.CopyComplete
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\cafe_management.exe
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\cafe_management.pdb
-E:\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow_1.g.cs
-E:\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow_1.baml
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow.g.cs
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow.baml
 E:\HOCTAP\Nam2_Ki_1\Lap Trinh Truc Quan\DoAnLTTQ-17h05\DoAnLTTQ-main\cafe_management\bin\Debug\cafe_management.exe.config
@@ -234,3 +232,10 @@ C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.Sq
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.xml
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\cafe_management_Content.g.cs
+E:\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.dll
+E:\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.SqlServer.dll
+E:\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.xml
+E:\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.SqlServer.xml
+E:\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow.g.cs
+E:\DoAnLTTQ\cafe_management\obj\Debug\cafe_management_Content.g.cs
+E:\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow.baml
