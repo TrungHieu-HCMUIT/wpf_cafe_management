@@ -1100,7 +1100,10 @@
                     ></TextBlock>
             </Grid>
             <Grid Grid.Row="1">
-                <DataGrid Name="dgCoffee" AutoGenerateColumns="False" GridLinesVisibility="None" SelectionChanged="dgCoffee_SelectionChanged">
+                <DataGrid Name="dgCoffee" 
+                                   AutoGenerateColumns="False" 
+                                   GridLinesVisibility="None" 
+                                   SelectionChanged="dgCoffee_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn IsReadOnly="True">
                             <DataGridTemplateColumn.CellTemplate>
@@ -1130,11 +1133,6 @@
 
                                 </HeaderedContentControl>
                             </DataGridTextColumn.Header>
-                            <DataGridTextColumn.CellStyle>
-                                <Style>
-                                    <Setter Property="FrameworkElement.VerticalAlignment" Value="Center" />
-                                </Style>
-                            </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>
                         <DataGridTemplateColumn Width="120" 
                                                 IsReadOnly="True">
@@ -1185,11 +1183,6 @@
                                                         Header="Giá" Width="43"
                                                         ></HeaderedContentControl>
                             </DataGridTextColumn.Header>
-                            <DataGridTextColumn.CellStyle>
-                                <Style>
-                                    <Setter Property="FrameworkElement.VerticalAlignment" Value="Center"></Setter>
-                                </Style>
-                            </DataGridTextColumn.CellStyle>
                         </DataGridTextColumn>
                     </DataGrid.Columns>
                 </DataGrid>
