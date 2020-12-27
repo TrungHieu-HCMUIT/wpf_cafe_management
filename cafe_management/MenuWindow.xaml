@@ -24,12 +24,13 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Button 
+                <Button
+                    Name="btnCaPheVietNam"
                     Height="35"
                     Content="CÀ PHÊ VIỆT NAM"
                     Click="CaPheVietNam_Click"
                         HorizontalContentAlignment="Left"
-                        Foreground="#000000"
+                        Foreground="#EA8025"
                         materialDesign:ButtonAssist.CornerRadius="10" 
                         Margin="0,6,0,0" 
                         BorderBrush="#EA8025"
@@ -42,7 +43,9 @@
                         ></Button>
             </Grid>
             <Grid Grid.Row="1">
-                <Button Content="CÀ PHÊ MÁY"
+                <Button 
+                        Name="btnCaPheMay"
+                        Content="CÀ PHÊ MÁY"
                         Click="CaPheMay_Click"
                         HorizontalContentAlignment="Left"
                         Foreground="#000000"
@@ -58,7 +61,9 @@
                         ></Button>
             </Grid>
             <Grid Grid.Row="2">
-                <Button Content="ĐÁ XAY"
+                <Button
+                        Name="btnDaXay"
+                        Content="ĐÁ XAY"
                         Click="DaXay_Click"
                         HorizontalContentAlignment="Left"
                         Foreground="#000000"
@@ -74,7 +79,9 @@
                         ></Button>
             </Grid>
             <Grid Grid.Row="3">
-                <Button Content="TRÀ TRÁI CÂY"
+                <Button 
+                        Name="btnTraTraiCay"
+                        Content="TRÀ TRÁI CÂY"
                         Click="TraTraiCay_Click"
                         HorizontalContentAlignment="Left"
                         Foreground="#000000"
@@ -90,7 +97,9 @@
                         ></Button>
             </Grid>
             <Grid Grid.Row="4">
-                <Button Content="TRÀ SỮA MACCHIATO"
+                <Button
+                        Name="btnTraSuaMacchiato"
+                        Content="TRÀ SỮA MACCHIATO"
                         Click="TraSuaMacchiato_Click"
                         HorizontalContentAlignment="Left"
                         Foreground="#000000"

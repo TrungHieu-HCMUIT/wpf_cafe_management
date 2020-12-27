@@ -229,3 +229,8 @@ C:\Users\ASUS\Downloads\DoAnLTTQ-main\cafe_management\bin\Debug\EntityFramework.
 C:\Users\ASUS\Downloads\DoAnLTTQ-main\cafe_management\bin\Debug\EntityFramework.xml
 C:\Users\ASUS\Downloads\DoAnLTTQ-main\cafe_management\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\ASUS\Downloads\DoAnLTTQ-main\cafe_management\obj\Debug\cafe_management_Content.g.cs
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.dll
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.xml
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\cafe_management_Content.g.cs

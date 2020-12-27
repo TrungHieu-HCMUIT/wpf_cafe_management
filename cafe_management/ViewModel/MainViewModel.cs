@@ -41,7 +41,7 @@ namespace cafe_management.ViewModel
             }, (p) =>
             {
                 menuWindow = new MenuWindow();
-                staffWindow.Hide();
+                staffWindow?.Hide();
                 menuWindow.ShowDialog();
             });
         }
