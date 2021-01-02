@@ -127,14 +127,14 @@
                             FontWeight="Bold"
                             FontStyle="Normal"/>
                     <StackPanel>
-                        <ItemsControl x:Name="CaPheVietNamListView" ItemsSource="{Binding Product}">
+                        <ItemsControl x:Name="CaPheVietNamListView" ItemsSource="{Binding MenuItem}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Border Margin="10" Height="325" Width="250">
                                         <StackPanel>
                                             <Border Height="210" Width="210" Margin="0,15,0,0">
                                                 <Border.Background>
-                                                    <ImageBrush ImageSource="{Binding Image}"/>
+                                                    <ImageBrush ImageSource="{Binding ImagePath}"/>
                                                 </Border.Background>
                                             </Border>
                                             <TextBlock 
@@ -175,14 +175,14 @@
                             FontWeight="Bold"
                             FontStyle="Normal"/>
                         <StackPanel>
-                            <ItemsControl x:Name="CaPheMayListView" ItemsSource="{Binding Product}">
+                            <ItemsControl x:Name="CaPheMayListView" ItemsSource="{Binding MenuItem}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Border Margin="10" Height="325" Width="250">
                                             <StackPanel>
                                                 <Border Height="210" Width="210" Margin="0,15,0,0">
                                                     <Border.Background>
-                                                        <ImageBrush ImageSource="{Binding Image}"/>
+                                                        <ImageBrush ImageSource="{Binding ImagePath}"/>
                                                     </Border.Background>
                                                 </Border>
                                                 <TextBlock 
@@ -223,14 +223,14 @@
                             FontWeight="Bold"
                             FontStyle="Normal"/>
                         <StackPanel>
-                            <ItemsControl x:Name="DaXayListView" ItemsSource="{Binding Product}">
+                            <ItemsControl x:Name="DaXayListView" ItemsSource="{Binding MenuItem}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Border Margin="10" Height="325" Width="250">
                                             <StackPanel>
                                                 <Border Height="210" Width="210" Margin="0,15,0,0">
                                                     <Border.Background>
-                                                        <ImageBrush ImageSource="{Binding Image}"/>
+                                                        <ImageBrush ImageSource="{Binding ImagePath}"/>
                                                     </Border.Background>
                                                 </Border>
                                                 <TextBlock 
@@ -271,14 +271,14 @@
                             FontWeight="Bold"
                             FontStyle="Normal"/>
                         <StackPanel>
-                            <ItemsControl x:Name="TraTraiCayListView" ItemsSource="{Binding Product}">
+                            <ItemsControl x:Name="TraTraiCayListView" ItemsSource="{Binding MenuItem}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Border Margin="10" Height="325" Width="250">
                                             <StackPanel>
                                                 <Border Height="210" Width="210" Margin="0,15,0,0">
                                                     <Border.Background>
-                                                        <ImageBrush ImageSource="{Binding Image}"/>
+                                                        <ImageBrush ImageSource="{Binding ImagePath}"/>
                                                     </Border.Background>
                                                 </Border>
                                                 <TextBlock 
@@ -319,14 +319,14 @@
                             FontWeight="Bold"
                             FontStyle="Normal"/>
                         <StackPanel>
-                            <ItemsControl x:Name="MacchiatoListView" ItemsSource="{Binding Product}">
+                            <ItemsControl x:Name="MacchiatoListView" ItemsSource="{Binding MenuItem}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Border Margin="10" Height="325" Width="250">
                                             <StackPanel>
                                                 <Border Height="210" Width="210" Margin="0,15,0,0">
                                                     <Border.Background>
-                                                        <ImageBrush ImageSource="{Binding Image}"/>
+                                                        <ImageBrush ImageSource="{Binding ImagePath}"/>
                                                     </Border.Background>
                                                 </Border>
                                                 <TextBlock 
@@ -358,7 +358,6 @@
                             </ItemsControl>
                         </StackPanel>
                     </StackPanel>
-
                 </StackPanel>
             </ScrollViewer>
         </Grid>
