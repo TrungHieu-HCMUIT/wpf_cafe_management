@@ -29,15 +29,14 @@ CREATE TABLE PHANLOAI
 )
 CREATE TABLE HOADON 
 (
-	MaHD CHAR(4) NOT NULL,
-	MaNV CHAR(4),
+	MaHD INT IDENTITY(1,1) NOT NULL,
 	NgXuat DATE,
 	TongGia MONEY,
 	MaTB INT
 )
 CREATE TABLE CTHD
 (
-	MaHD CHAR(4) NOT NULL,
+	MaHD INT IDENTITY(1,1) NOT NULL,
 	MaM CHAR(4) NOT NULL,
 	SL INT
 )
@@ -105,12 +104,28 @@ select*from PHANLOAI
 INSERT INTO MON(MaM,TenMon,DonGia,MaLoai)
 VALUES (1001,N'Cà Phê Đen',20000, 1),
 		(1002,N'Cà Phê Sữa',25000, 1),
+		(1003,N'Bạc xỉu',29000, 1),
+
 		(2001,N'Americano',39000, 2),
-		(2002,N'Mocha',39000, 2),
-		(3001,N'Phúc Bồn Tử',30000, 3),
-		(3002,N'Sữa Tươi Macchiato',30000, 3),
-		(4001,N'Trà Đen Macchiato',29000, 4),
-		(4002,N'Trà Lài Macchiato',29000, 4),
-		(5001,N'Trà Đào Cam Sả',29000, 5),
-		(5002,N'Trà Hạt Sen',29000, 5)
+		(2002,N'Cappucino',39000, 2),
+		(2003,N'Caramel Macchiato',39000, 2),
+		(2004,N'Espresso',39000, 2),
+		(2005,N'Latte',39000, 2),
+		(2006,N'Mocha',39000, 2),
+
+		(3001,N'Phúc Bồn Tử',32000, 3),
+		(3002,N'Sữa Tươi Macchiato',32000, 3),
+		(3003,N'Sữa tươi',32000, 3),
+		(3004,N'Truyền thống',32000, 3),
+
+		(4001,N'Trà Đào Cam Sả',30000, 4),
+		(4002,N'Trà Hạt Sen',30000, 4),
+		(4003,N'Trà phúc bồn tử',30000, 4),
+		(4004,N'Trà vải',30000, 4),
+
+		(5001,N'Trà đen Macchiato',35000, 5),
+		(5002,N'Trà lài Macchiato',35000, 5),
+		(5003,N'Matcha Macchiato',35000, 5),
+		(5004,N'Trà sữa trân châu',35000, 5),
+		(5005,N'Trà xoài Macchiato',35000, 5)
 select*from MON
