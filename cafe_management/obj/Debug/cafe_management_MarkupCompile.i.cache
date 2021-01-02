@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\New folder\cafe_management\obj\Debug\
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\
 cafe_management
 none
 false
 DEBUG;TRACE
-E:\New folder\cafe_management\App.xaml
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\App.xaml
 5465380204
 2482335943
 23-826741593
-20-1300223667
+20-1915187376
 LoginWindow.xaml;MainWindow.xaml;MenuWindow.xaml;ResourceXAML\MainResource.xaml;StaffWindow.xaml;
 
-False
+True
 

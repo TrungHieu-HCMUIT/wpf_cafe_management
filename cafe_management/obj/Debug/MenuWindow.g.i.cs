@@ -100,7 +100,7 @@ namespace cafe_management {
         #line hidden
         
         
-        #line 247 "..\..\MenuWindow.xaml"
+        #line 246 "..\..\MenuWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid rectCaPheMay;
         
@@ -108,7 +108,7 @@ namespace cafe_management {
         #line hidden
         
         
-        #line 496 "..\..\MenuWindow.xaml"
+        #line 495 "..\..\MenuWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid rectDaXay;
         
@@ -116,7 +116,7 @@ namespace cafe_management {
         #line hidden
         
         
-        #line 683 "..\..\MenuWindow.xaml"
+        #line 682 "..\..\MenuWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid rectTraTraiCay;
         
@@ -124,7 +124,7 @@ namespace cafe_management {
         #line hidden
         
         
-        #line 866 "..\..\MenuWindow.xaml"
+        #line 865 "..\..\MenuWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Grid rectTraSuaMacchiato;
         
@@ -132,7 +132,7 @@ namespace cafe_management {
         #line hidden
         
         
-        #line 1103 "..\..\MenuWindow.xaml"
+        #line 1102 "..\..\MenuWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.DataGrid dgCoffee;
         
@@ -235,7 +235,7 @@ namespace cafe_management {
             case 12:
             this.dgCoffee = ((System.Windows.Controls.DataGrid)(target));
             
-            #line 1106 "..\..\MenuWindow.xaml"
+            #line 1105 "..\..\MenuWindow.xaml"
             this.dgCoffee.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.dgCoffee_SelectionChanged);
             
             #line default
