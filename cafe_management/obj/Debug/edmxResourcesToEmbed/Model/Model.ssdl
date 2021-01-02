@@ -23,7 +23,6 @@
       <PropertyRef Name="MaHD" />
     </Key>
     <Property Name="MaHD" Type="char" MaxLength="4" Nullable="false" />
-    <Property Name="MaNV" Type="char" MaxLength="4" />
     <Property Name="NgXuat" Type="date" />
     <Property Name="TongGia" Type="money" />
     <Property Name="MaTB" Type="int" />
@@ -37,21 +36,22 @@
     <Property Name="DonGia" Type="smallmoney" />
     <Property Name="MaLoai" Type="int" />
   </EntityType>
-  <EntityType Name="NHANVIEN">
-    <Key>
-      <PropertyRef Name="MaNV" />
-    </Key>
-    <Property Name="MaNV" Type="char" MaxLength="4" Nullable="false" />
-    <Property Name="HoTen" Type="varchar" MaxLength="100" />
-    <Property Name="SoDT" Type="varchar" MaxLength="100" />
-    <Property Name="NgayVaoLam" Type="date" />
-  </EntityType>
   <EntityType Name="PHANLOAI">
     <Key>
       <PropertyRef Name="MaLoai" />
     </Key>
     <Property Name="MaLoai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenLoai" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="THEBAN">
     <Key>
@@ -103,18 +103,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_HOADON_NHANVIEN">
-    <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="0..1" />
-    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="NHANVIEN">
-        <PropertyRef Name="MaNV" />
-      </Principal>
-      <Dependent Role="HOADON">
-        <PropertyRef Name="MaNV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_HOADON_THEBAN">
     <End Role="THEBAN" Type="Self.THEBAN" Multiplicity="0..1" />
     <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
@@ -144,8 +132,8 @@
     <EntitySet Name="CTHD" EntityType="Self.CTHD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MON" EntityType="Self.MON" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHANLOAI" EntityType="Self.PHANLOAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="THEBAN" EntityType="Self.THEBAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USERROLE" EntityType="Self.USERROLE" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_ACCOUNT_USERROLE" Association="Self.FK_ACCOUNT_USERROLE">
@@ -159,10 +147,6 @@
     <AssociationSet Name="FK_CTHD_MON" Association="Self.FK_CTHD_MON">
       <End Role="MON" EntitySet="MON" />
       <End Role="CTHD" EntitySet="CTHD" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HOADON_NHANVIEN" Association="Self.FK_HOADON_NHANVIEN">
-      <End Role="NHANVIEN" EntitySet="NHANVIEN" />
-      <End Role="HOADON" EntitySet="HOADON" />
     </AssociationSet>
     <AssociationSet Name="FK_HOADON_THEBAN" Association="Self.FK_HOADON_THEBAN">
       <End Role="THEBAN" EntitySet="THEBAN" />

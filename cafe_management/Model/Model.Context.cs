@@ -29,8 +29,8 @@ namespace cafe_management.Model
         public virtual DbSet<CTHD> CTHDs { get; set; }
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<MON> MONs { get; set; }
-        public virtual DbSet<NHANVIEN> NHANVIENs { get; set; }
         public virtual DbSet<PHANLOAI> PHANLOAIs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THEBAN> THEBANs { get; set; }
         public virtual DbSet<USERROLE> USERROLEs { get; set; }
     }

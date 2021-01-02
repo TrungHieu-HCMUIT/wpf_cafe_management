@@ -239,3 +239,38 @@ E:\DoAnLTTQ\cafe_management\bin\Debug\EntityFramework.SqlServer.xml
 E:\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow.g.cs
 E:\DoAnLTTQ\cafe_management\obj\Debug\cafe_management_Content.g.cs
 E:\DoAnLTTQ\cafe_management\obj\Debug\MenuWindow.baml
+E:\New folder\cafe_management\bin\Debug\cafe_management.exe.config
+E:\New folder\cafe_management\bin\Debug\cafe_management.exe
+E:\New folder\cafe_management\bin\Debug\cafe_management.pdb
+E:\New folder\cafe_management\bin\Debug\EntityFramework.dll
+E:\New folder\cafe_management\bin\Debug\EntityFramework.SqlServer.dll
+E:\New folder\cafe_management\bin\Debug\MaterialDesignColors.dll
+E:\New folder\cafe_management\bin\Debug\MaterialDesignThemes.Wpf.dll
+E:\New folder\cafe_management\bin\Debug\EntityFramework.xml
+E:\New folder\cafe_management\bin\Debug\EntityFramework.SqlServer.xml
+E:\New folder\cafe_management\bin\Debug\MaterialDesignColors.pdb
+E:\New folder\cafe_management\bin\Debug\MaterialDesignThemes.Wpf.pdb
+E:\New folder\cafe_management\bin\Debug\MaterialDesignThemes.Wpf.xml
+E:\New folder\cafe_management\obj\Debug\cafe_management.csprojAssemblyReference.cache
+E:\New folder\cafe_management\obj\Debug\LoginWindow.g.cs
+E:\New folder\cafe_management\obj\Debug\MainWindow.g.cs
+E:\New folder\cafe_management\obj\Debug\MenuWindow.g.cs
+E:\New folder\cafe_management\obj\Debug\StaffWindow.g.cs
+E:\New folder\cafe_management\obj\Debug\App.g.cs
+E:\New folder\cafe_management\obj\Debug\cafe_management_Content.g.cs
+E:\New folder\cafe_management\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\New folder\cafe_management\obj\Debug\cafe_management_MarkupCompile.cache
+E:\New folder\cafe_management\obj\Debug\cafe_management_MarkupCompile.lref
+E:\New folder\cafe_management\obj\Debug\App.baml
+E:\New folder\cafe_management\obj\Debug\LoginWindow.baml
+E:\New folder\cafe_management\obj\Debug\MainWindow.baml
+E:\New folder\cafe_management\obj\Debug\MenuWindow.baml
+E:\New folder\cafe_management\obj\Debug\ResourceXAML\MainResource.baml
+E:\New folder\cafe_management\obj\Debug\StaffWindow.baml
+E:\New folder\cafe_management\obj\Debug\cafe_management.g.resources
+E:\New folder\cafe_management\obj\Debug\cafe_management.Properties.Resources.resources
+E:\New folder\cafe_management\obj\Debug\cafe_management.csproj.GenerateResource.cache
+E:\New folder\cafe_management\obj\Debug\cafe_management.csproj.CoreCompileInputs.cache
+E:\New folder\cafe_management\obj\Debug\cafe_management.csproj.CopyComplete
+E:\New folder\cafe_management\obj\Debug\cafe_management.exe
+E:\New folder\cafe_management\obj\Debug\cafe_management.pdb

@@ -4,74 +4,74 @@
     <EntitySetMapping Name="ACCOUNTs">
       <EntityTypeMapping TypeName="QLCFModel.ACCOUNT">
         <MappingFragment StoreEntitySet="ACCOUNT">
-          <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="TK" ColumnName="TK" />
-          <ScalarProperty Name="MK" ColumnName="MK" />
           <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+          <ScalarProperty Name="MK" ColumnName="MK" />
+          <ScalarProperty Name="TK" ColumnName="TK" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="CTHDs">
       <EntityTypeMapping TypeName="QLCFModel.CTHD">
         <MappingFragment StoreEntitySet="CTHD">
-          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
-          <ScalarProperty Name="MaM" ColumnName="MaM" />
           <ScalarProperty Name="SL" ColumnName="SL" />
+          <ScalarProperty Name="MaM" ColumnName="MaM" />
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="HOADONs">
       <EntityTypeMapping TypeName="QLCFModel.HOADON">
         <MappingFragment StoreEntitySet="HOADON">
-          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
-          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
-          <ScalarProperty Name="NgXuat" ColumnName="NgXuat" />
-          <ScalarProperty Name="TongGia" ColumnName="TongGia" />
           <ScalarProperty Name="MaTB" ColumnName="MaTB" />
+          <ScalarProperty Name="TongGia" ColumnName="TongGia" />
+          <ScalarProperty Name="NgXuat" ColumnName="NgXuat" />
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="MONs">
       <EntityTypeMapping TypeName="QLCFModel.MON">
         <MappingFragment StoreEntitySet="MON">
-          <ScalarProperty Name="MaM" ColumnName="MaM" />
-          <ScalarProperty Name="TenMon" ColumnName="TenMon" />
-          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
           <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="NHANVIENs">
-      <EntityTypeMapping TypeName="QLCFModel.NHANVIEN">
-        <MappingFragment StoreEntitySet="NHANVIEN">
-          <ScalarProperty Name="MaNV" ColumnName="MaNV" />
-          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
-          <ScalarProperty Name="SoDT" ColumnName="SoDT" />
-          <ScalarProperty Name="NgayVaoLam" ColumnName="NgayVaoLam" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+          <ScalarProperty Name="MaM" ColumnName="MaM" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PHANLOAIs">
       <EntityTypeMapping TypeName="QLCFModel.PHANLOAI">
         <MappingFragment StoreEntitySet="PHANLOAI">
-          <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
           <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
+          <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QLCFModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="THEBANs">
       <EntityTypeMapping TypeName="QLCFModel.THEBAN">
         <MappingFragment StoreEntitySet="THEBAN">
-          <ScalarProperty Name="MaTB" ColumnName="MaTB" />
           <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+          <ScalarProperty Name="MaTB" ColumnName="MaTB" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="USERROLEs">
       <EntityTypeMapping TypeName="QLCFModel.USERROLE">
         <MappingFragment StoreEntitySet="USERROLE">
-          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
           <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

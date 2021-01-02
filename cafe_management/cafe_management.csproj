@@ -84,6 +84,7 @@
     <Compile Include="Model\CTHD.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\HOADON.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -105,10 +106,10 @@
     <Compile Include="Model\MON.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\NHANVIEN.cs">
+    <Compile Include="Model\PHANLOAI.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\PHANLOAI.cs">
+    <Compile Include="Model\sysdiagram.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\THEBAN.cs">
