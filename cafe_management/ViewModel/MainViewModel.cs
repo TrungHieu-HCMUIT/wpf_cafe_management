@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using cafe_management.Model;
+using System.Collections.ObjectModel;
 
 namespace cafe_management.ViewModel
 {
