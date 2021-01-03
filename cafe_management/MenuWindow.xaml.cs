@@ -32,13 +32,7 @@ namespace cafe_management
         {
             InitializeComponent();
 
-            //CaPheVietNamItems = GetCaPheVietNamItems();
-            //CaPheMayItems = GetCaPheMayItems();
-            //DaXayItems = GetDaXayItems();
-            //TraTraiCayItems = GetTraTraiCayItems();
-            //MacchiatoItems = GetMacchiatoItems();
-
-            //LoadMenuItems();
+            LoadMenuItems();
         }
 
         private void changeColorAnimation(Button btn)
@@ -51,7 +45,7 @@ namespace cafe_management
         {
             foreach (Button button in btn)
             {
-                button.Foreground = (Brush) new System.Windows.Media.BrushConverter().ConvertFromString("#000000");
+                button.Foreground = (Brush)new System.Windows.Media.BrushConverter().ConvertFromString("#000000");
             }
         }
 
@@ -104,80 +98,96 @@ namespace cafe_management
         private void dgCoffee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
         }
-     
-    //    private List<MenuItem> GetCaPheMayItems()
-    //    {
-    //        return new List<MenuItem>
-    //        {
-    //            new MenuItem("1001", "/Resource/MenuWindow/Cà phê máy/Americano.jpg", "Cà phê sữa", 20000),
-    //            new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Cappucino.jpg", "Cà phê sữa", 25000),
-    //            new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Caramel Macchiato.jpg", "Cà phê sữa", 25000),
-    //            new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Espresso.jpg", "Cà phê sữa", 25000),
-    //            new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Latte.jpg", "Cà phê sữa", 25000),
-    //            new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Mocha.jpg", "Cà phê sữa", 25000)
-    //        };
-    //    }
+        private List<MenuItem> GetMenu(int type)
+        {
+            List<MenuItem> list = new List<MenuItem>();
+            var objectList = DataProvider.Ins.DB.MONs;
+            foreach (var iteam in objectList)
+            {
+                if (iteam.MaLoai == type)
+                {
+                    string source = string.Format("/Resource/MenuWindow/{0}/{1}.jpg", iteam.MaLoai, iteam.MaM);
+                    MenuItem menuItem = new MenuItem(iteam.MaM, source, iteam.TenMon, Convert.ToInt64(iteam.DonGia));
+                    list.Add(menuItem);
+                }
+            }
+            return list;
+        }
+        //  private List<MenuItem> GetCaPheMayItems()
+        //{
+        //    return new List<MenuItem>
+        //    {
+        //        new MenuItem("1001", "/Resource/MenuWindow/Cà phê máy/Americano.jpg", "Cà phê sữa", 20000),
+        //        new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Cappucino.jpg", "Cà phê sữa", 25000),
+        //        new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Caramel Macchiato.jpg", "Cà phê sữa", 25000),
+        //        new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Espresso.jpg", "Cà phê sữa", 25000),
+        //        new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Latte.jpg", "Cà phê sữa", 25000),
+        //        new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Mocha.jpg", "Cà phê sữa", 25000)
+        //    };
 
-    //    private List<MenuItem> GetDaXayItems()
-    //    {
-    //        return new List<MenuItem>
-    //        {
-    //            new MenuItem("1001", "/Resource/MenuWindow/Đá xay/Phúc bồn tử.jpg", "Cà phê đen", 20000),
-    //            new MenuItem("1001", "/Resource/MenuWindow/Đá xay/Sữa tươi Macchiato.jpg", "Cà phê đen", 20000),
-    //            new MenuItem("1002", "/Resource/MenuWindow/Đá xay/Sữa tươi.jpg", "Cà phê sữa", 25000),
-    //            new MenuItem("1003", "/Resource/MenuWindow/Đá xay/Truyền thống.jpg", "Bạc xỉu", 29000)
-    //        };
-    //    }
+        //}
 
-    //    private List<MenuItem> GetTraTraiCayItems()
-    //    {
-    //        return new List<MenuItem>
-    //        {
-    //            new MenuItem("1001", "/Resource/MenuWindow/Trà trái cây/Trà đào cam sả.jpg", "Cà phê đen", 20000),
-    //            new MenuItem("1002", "/Resource/MenuWindow/Trà trái cây/Trà hạt sen.jpg", "Cà phê sữa", 25000),
-    //            new MenuItem("1002", "/Resource/MenuWindow/Trà trái cây/Trà phúc bồn tử.jpg", "Cà phê sữa", 25000),
-    //            new MenuItem("1003", "/Resource/MenuWindow/Trà trái cây/Trà vải.jpg", "Bạc xỉu", 29000)
-    //        };
-    //    }
+        //    private List<MenuItem> GetDaXayItems()
+        //    {
+        //        return new List<MenuItem>
+        //        {
+        //            new MenuItem("1001", "/Resource/MenuWindow/Đá xay/Phúc bồn tử.jpg", "Cà phê đen", 20000),
+        //            new MenuItem("1001", "/Resource/MenuWindow/Đá xay/Sữa tươi Macchiato.jpg", "Cà phê đen", 20000),
+        //            new MenuItem("1002", "/Resource/MenuWindow/Đá xay/Sữa tươi.jpg", "Cà phê sữa", 25000),
+        //            new MenuItem("1003", "/Resource/MenuWindow/Đá xay/Truyền thống.jpg", "Bạc xỉu", 29000)
+        //        };
+        //    }
 
-    //    private List<MenuItem> GetMacchiatoItems()
-    //    {
-    //        return new List<MenuItem>
-    //        {
-    //            new MenuItem("1001", "/Resource/MenuWindow/Trà sữa Macchiato/Trà đen Macchiato.jpg", "Cà phê đen", 20000),
-    //            new MenuItem("1001", "/Resource/MenuWindow/Trà sữa Macchiato/Trà lài Macchiato.jpg", "Cà phê đen", 20000),
-    //            new MenuItem("1001", "/Resource/MenuWindow/Trà sữa Macchiato/Trà Matcha Macchiato.jpg", "Cà phê đen", 20000),
-    //            new MenuItem("1002", "/Resource/MenuWindow/Trà sữa Macchiato/Trà sữa trân châu.jpg", "Cà phê sữa", 25000),
-    //            new MenuItem("1003", "/Resource/MenuWindow/Trà sữa Macchiato/Trà xoài Macchiato.jpg", "Bạc xỉu", 29000)
-    //        };
-    //    }
+        //    private List<MenuItem> GetTraTraiCayItems()
+        //    {
+        //        return new List<MenuItem>
+        //        {
+        //            new MenuItem("1001", "/Resource/MenuWindow/Trà trái cây/Trà đào cam sả.jpg", "Cà phê đen", 20000),
+        //            new MenuItem("1002", "/Resource/MenuWindow/Trà trái cây/Trà hạt sen.jpg", "Cà phê sữa", 25000),
+        //            new MenuItem("1002", "/Resource/MenuWindow/Trà trái cây/Trà phúc bồn tử.jpg", "Cà phê sữa", 25000),
+        //            new MenuItem("1003", "/Resource/MenuWindow/Trà trái cây/Trà vải.jpg", "Bạc xỉu", 29000)
+        //        };
+        //    }
 
-    //    private void LoadMenuItems()
-    //    {
-    //        CaPheVietNamListView.ItemsSource = CaPheVietNamItems;
-    //        CaPheMayListView.ItemsSource = CaPheMayItems;
-    //        DaXayListView.ItemsSource = DaXayItems;
-    //        TraTraiCayListView.ItemsSource = TraTraiCayItems;
-    //        MacchiatoListView.ItemsSource = MacchiatoItems;
-    //    }
-    //}
+        //    private List<MenuItem> GetMacchiatoItems()
+        //    {
+        //        return new List<MenuItem>
+        //        {
+        //            new MenuItem("1001", "/Resource/MenuWindow/Trà sữa Macchiato/Trà đen Macchiato.jpg", "Cà phê đen", 20000),
+        //            new MenuItem("1001", "/Resource/MenuWindow/Trà sữa Macchiato/Trà lài Macchiato.jpg", "Cà phê đen", 20000),
+        //            new MenuItem("1001", "/Resource/MenuWindow/Trà sữa Macchiato/Trà Matcha Macchiato.jpg", "Cà phê đen", 20000),
+        //            new MenuItem("1002", "/Resource/MenuWindow/Trà sữa Macchiato/Trà sữa trân châu.jpg", "Cà phê sữa", 25000),
+        //            new MenuItem("1003", "/Resource/MenuWindow/Trà sữa Macchiato/Trà xoài Macchiato.jpg", "Bạc xỉu", 29000)
+        //        };
+        //    }
 
-    //public class MenuItem //Tạo lớp đối tượng riêng dùm má :((
-    //{
-    //    public string Id { get; set; }
+        private void LoadMenuItems()
+        {
+            CaPheVietNamListView.ItemsSource = GetMenu(1);
+            CaPheMayListView.ItemsSource = GetMenu(2);
+            DaXayListView.ItemsSource = GetMenu(3);
+            TraTraiCayListView.ItemsSource = GetMenu(4);
+            MacchiatoListView.ItemsSource = GetMenu(5);
+        }
+    }
 
-    //    public string ImagePath { get; set; }
+    public class MenuItem //Tạo lớp đối tượng riêng dùm má :((
+    {
+        public string Id { get; set; }
 
-    //    public string Name { get; set; }
+        public string ImagePath { get; set; }
 
-    //    public int Price { get; set; }
-    //    public int PhanLoai { get; set; }
-    //    public MenuItem(string id, string imagePath, string name, int price)
-    //    {
-    //        Id = id;
-    //        ImagePath = imagePath;
-    //        Name = name;
-    //        Price = price;
-    //    }
+        public string Name { get; set; }
+
+        public long Price { get; set; }
+        public int PhanLoai { get; set; }
+        public MenuItem(string id, string imagePath, string name, long price)
+        {
+            Id = id;
+            ImagePath = imagePath;
+            Name = name;
+            Price = price;
+        }
     }
 }
+

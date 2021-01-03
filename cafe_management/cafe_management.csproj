@@ -209,32 +209,32 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\MenuWindow\Add_icon.png" />
-    <Resource Include="Resource\MenuWindow\Cà phê máy\Americano.jpg" />
-    <Resource Include="Resource\MenuWindow\Cà phê máy\Cappucino.jpg" />
-    <Resource Include="Resource\MenuWindow\Cà phê máy\Caramel Macchiato.jpg" />
-    <Resource Include="Resource\MenuWindow\Cà phê máy\Espresso.jpg" />
-    <Resource Include="Resource\MenuWindow\Cà phê máy\Latte.jpg" />
-    <Resource Include="Resource\MenuWindow\Cà phê máy\Mocha.jpg" />
-    <Resource Include="Resource\MenuWindow\Cà phê Việt Nam\Bạc xỉu.jpg" />
-    <Resource Include="Resource\MenuWindow\Cà phê Việt Nam\Cà phê sữa.jpg" />
-    <Resource Include="Resource\MenuWindow\Cà phê Việt Nam\Cà phê đen.jpg" />
     <Resource Include="Resource\MenuWindow\Garbage_icon.png" />
     <Resource Include="Resource\MenuWindow\Minus_icon.png" />
-    <Resource Include="Resource\MenuWindow\Trà sữa Macchiato\Trà lài Macchiato.jpg" />
-    <Resource Include="Resource\MenuWindow\Trà sữa Macchiato\Trà Matcha Macchiato.jpg" />
-    <Resource Include="Resource\MenuWindow\Trà sữa Macchiato\Trà sữa trân châu.jpg" />
-    <Resource Include="Resource\MenuWindow\Trà sữa Macchiato\Trà xoài Macchiato.jpg" />
-    <Resource Include="Resource\MenuWindow\Trà sữa Macchiato\Trà đen Macchiato.jpg" />
-    <Resource Include="Resource\MenuWindow\Trà trái cây\Trà hạt sen.jpg" />
-    <Resource Include="Resource\MenuWindow\Trà trái cây\Trà phúc bồn tử.jpg" />
-    <Resource Include="Resource\MenuWindow\Trà trái cây\Trà vải.jpg" />
-    <Resource Include="Resource\MenuWindow\Trà trái cây\Trà đào cam sả.jpg" />
-    <Resource Include="Resource\MenuWindow\Đá xay\Phúc bồn tử.jpg" />
-    <Resource Include="Resource\MenuWindow\Đá xay\Sữa tươi Macchiato.jpg" />
-    <Resource Include="Resource\MenuWindow\Đá xay\Sữa tươi.jpg" />
-    <Resource Include="Resource\MenuWindow\Đá xay\Truyền thống.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resource\MenuWindow\2\2001.jpg" />
+    <Resource Include="Resource\MenuWindow\2\2002.jpg" />
+    <Resource Include="Resource\MenuWindow\2\2003.jpg" />
+    <Resource Include="Resource\MenuWindow\2\2004.jpg" />
+    <Resource Include="Resource\MenuWindow\2\2005.jpg" />
+    <Resource Include="Resource\MenuWindow\2\2006.jpg" />
+    <Resource Include="Resource\MenuWindow\3\3001.jpg" />
+    <Resource Include="Resource\MenuWindow\3\3002.jpg" />
+    <Resource Include="Resource\MenuWindow\3\3003.jpg" />
+    <Resource Include="Resource\MenuWindow\3\3004.jpg" />
+    <Resource Include="Resource\MenuWindow\4\4001.jpg" />
+    <Resource Include="Resource\MenuWindow\4\4002.jpg" />
+    <Resource Include="Resource\MenuWindow\4\4003.jpg" />
+    <Resource Include="Resource\MenuWindow\4\4004.jpg" />
+    <Resource Include="Resource\MenuWindow\5\5001.jpg" />
+    <Resource Include="Resource\MenuWindow\5\5002.jpg" />
+    <Resource Include="Resource\MenuWindow\5\5003.jpg" />
+    <Resource Include="Resource\MenuWindow\5\5004.jpg" />
+    <Resource Include="Resource\MenuWindow\5\5005.jpg" />
+    <Resource Include="Resource\MenuWindow\1\1001.jpg" />
+    <Resource Include="Resource\MenuWindow\1\1002.jpg" />
+    <Resource Include="Resource\MenuWindow\1\1003.jpg" />
     <Resource Include="Garbage_icon.png" />
     <Resource Include="Minus_icon.png" />
     <Resource Include="Add_icon.png" />

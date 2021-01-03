@@ -10,8 +10,8 @@ namespace cafe_management.ViewModel
 {
     class MenuViewModel : BaseViewModel
     {
-        private ObservableCollection<MON> _List;
-        public ObservableCollection<MON> List { get => _List; set { _List = value; OnPropertyChanged(); } }
+        private List<MON> _List;
+        public List<MON> List { get => _List; set { _List = value; OnPropertyChanged(); } }
 
         private MON _SelectedItem;
         public MON SelectedItem
@@ -30,9 +30,9 @@ namespace cafe_management.ViewModel
                 }
             }
         }
-        public void LoadMenuList()
+        public List<MON> CafeList()
         {
-            List = new ObservableCollection<MON>();
+            List = new List<MON>();
 
             var objectList = DataProvider.Ins.DB.MONs;
             foreach (var iteam in objectList)
@@ -40,6 +40,7 @@ namespace cafe_management.ViewModel
                 if (iteam.MaLoai == 1)
                     List.Add(iteam);
             }
+            return List;
         }
         private string _MaM;
         public string MaM { get => _MaM; set { _MaM = value; OnPropertyChanged(); } }
