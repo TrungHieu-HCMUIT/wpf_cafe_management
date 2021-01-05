@@ -202,10 +202,6 @@ namespace cafe_management
             dgPurchase.ItemsSource = PurchaseList;
             displayTotalPrice();
         }
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            displayTotalPrice();
-        }
 
         private bool check_Discount()
         {
@@ -225,7 +221,8 @@ namespace cafe_management
                 {
                     totalPrice += PurchaseList[i].Price;
                 }
-                totalPrice -= int.Parse(Discount.Text) / 100 * totalPrice;
+                double discount = Convert.ToDouble(Discount.Text) / 100;
+                totalPrice -= (int) (discount * totalPrice);
                 TotalPrice.Text = totalPrice.ToString() + " đ";
             }
             else
@@ -239,6 +236,11 @@ namespace cafe_management
         private void btnThanhToan_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void UpdateTotalPrice_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            displayTotalPrice();
         }
     }
 

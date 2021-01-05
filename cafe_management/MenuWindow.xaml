@@ -8,8 +8,8 @@
         WindowStartupLocation="CenterScreen"
         DataContext="{StaticResource MainVM}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MenuWindow" Height="900" Width="1600" ResizeMode="NoResize" MouseDown="Window_MouseDown">
-    <Grid Focusable="True">
+        Title="MenuWindow" Height="900" Width="1600" ResizeMode="NoResize">
+    <Grid Focusable="True" MouseDown="UpdateTotalPrice_MouseDown">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="280"></ColumnDefinition>
             <ColumnDefinition Width="830"></ColumnDefinition>

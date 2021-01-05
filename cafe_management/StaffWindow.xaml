@@ -357,7 +357,7 @@
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
                             <RowDefinition></RowDefinition>
-                            <RowDefinition></RowDefinition>                            
+                            <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
                         <Button Grid.Row="0"
                                 Style="{StaticResource MaterialDesignRaisedButton}"
@@ -585,7 +585,7 @@
                             Width="auto"
                             >
                         </Button>
-                            <Image Source="/Resource/StaffWindow/Revenue_black_icon.png" 
+                        <Image Source="/Resource/StaffWindow/Revenue_black_icon.png" 
                             HorizontalAlignment="Right"
                             Height="50"
                             Width="50"/>
@@ -623,7 +623,7 @@
                             Width="auto"
                             >
                         </Button>
-                            <Image Source="/Resource/StaffWindow/ChangePassword_black_icon.png"
+                        <Image Source="/Resource/StaffWindow/ChangePassword_black_icon.png"
                             HorizontalAlignment="Right"
                             Height="50"
                             Width="50"/>
