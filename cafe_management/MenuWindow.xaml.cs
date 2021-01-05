@@ -89,10 +89,6 @@ namespace cafe_management
             scrollViewer.ScrollToVerticalOffset(rectTraSuaMacchiato.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
         }
 
-        private void dgCoffee_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
         private List<MenuItem> GetMenu(int type)
         {
             List<MenuItem> list = new List<MenuItem>();
@@ -122,16 +118,122 @@ namespace cafe_management
         {
             StackPanel stackPanel = sender as StackPanel;
             var objectList = DataProvider.Ins.DB.MONs;
+
             foreach (var item in objectList)
             {
-                if (item.MaM == stackPanel.Tag.ToString())
+                if (stackPanel.Tag.ToString() == item.MaM)
                 {
+                    for (int i = 0; i < PurchaseList.Count; i++)
+                    {
+                        if (PurchaseList[i].Id == stackPanel.Tag.ToString())
+                        {
+                            PurchaseList[i].Quantity++;
+                            PurchaseList[i].Price += Convert.ToInt32(item.DonGia);
+
+                            dgPurchase.ItemsSource = null;
+                            dgPurchase.ItemsSource = PurchaseList;
+                            displayTotalPrice();
+
+                            return;
+                        }
+                    }
+
                     PurchaseList.Add(new PurchaseItem(item.MaM, item.TenMon, 1, Convert.ToInt32(item.DonGia)));
 
                     dgPurchase.ItemsSource = null;
                     dgPurchase.ItemsSource = PurchaseList;
+                    displayTotalPrice();
                 }
             }
+        }
+
+        private void MinusQuantity_Click(object sender, RoutedEventArgs e)
+        {
+            var index = dgPurchase.SelectedIndex;
+            if (PurchaseList[index].Quantity <= 1)
+                return;
+            PurchaseList[index].Quantity--;
+
+            int price = 0;
+            var objectList = DataProvider.Ins.DB.MONs;
+            foreach (var item in objectList)
+            {
+                if (item.MaM == PurchaseList[index].Id)
+                {
+                    price = Convert.ToInt32(item.DonGia);
+                }
+            }
+
+            PurchaseList[index].Price -= price;
+
+            dgPurchase.ItemsSource = null;
+            dgPurchase.ItemsSource = PurchaseList;
+            displayTotalPrice();
+        }
+
+        private void AddQuantity_Click(object sender, RoutedEventArgs e)
+        {
+            var index = dgPurchase.SelectedIndex;
+            PurchaseList[index].Quantity++;
+
+            int price = 0;
+            var objectList = DataProvider.Ins.DB.MONs;
+            foreach (var item in objectList)
+            {
+                if (item.MaM == PurchaseList[index].Id)
+                {
+                    price = Convert.ToInt32(item.DonGia);
+                }
+            }
+
+            PurchaseList[index].Price += price;
+
+            dgPurchase.ItemsSource = null;
+            dgPurchase.ItemsSource = PurchaseList;
+            displayTotalPrice();
+        }
+
+        private void Garbage_Click(object sender, RoutedEventArgs e)
+        {
+            var index = dgPurchase.SelectedIndex;
+            PurchaseList.RemoveAt(index);
+
+            dgPurchase.ItemsSource = null;
+            dgPurchase.ItemsSource = PurchaseList;
+            displayTotalPrice();
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            displayTotalPrice();
+        }
+
+        private bool check_Discount()
+        {
+            if (!int.TryParse(Discount.Text, out int value) || int.Parse(Discount.Text) < 0 || int.Parse(Discount.Text) > 100)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void displayTotalPrice()
+        {
+            int totalPrice = 0;
+            if (check_Discount())
+            { 
+                for (int i = 0; i < PurchaseList.Count; i++)
+                {
+                    totalPrice += PurchaseList[i].Price;
+                }
+                totalPrice -= int.Parse(Discount.Text) / 100 * totalPrice;
+                TotalPrice.Text = totalPrice.ToString() + " đ";
+            }
+            else
+            {
+                MessageBox.Show("Dữ liệu giảm giá sai");
+                Discount.Text = "0";
+                Discount.Focus();
+            }            
         }
     }
 

@@ -8,8 +8,8 @@
         WindowStartupLocation="CenterScreen"
         DataContext="{StaticResource MainVM}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MenuWindow" Height="900" Width="1600" ResizeMode="NoResize">
-    <Grid>
+        Title="MenuWindow" Height="900" Width="1600" ResizeMode="NoResize" MouseDown="Window_MouseDown">
+    <Grid Focusable="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="280"></ColumnDefinition>
             <ColumnDefinition Width="830"></ColumnDefinition>
@@ -146,7 +146,7 @@
                                                     VerticalAlignment="Top"
                                                     Margin="0,9,0,0"/>
                                                 <TextBlock
-                                                    Text="{Binding Price, StringFormat={}{0:0} Đ}"
+                                                    Text="{Binding Price, StringFormat={}{0:0} đ}"
                                                     Margin="0,10,0,0"
                                                     FontSize="27"
                                                     FontWeight="Bold"
@@ -194,7 +194,7 @@
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
                                                 <TextBlock
-                                    Text="{Binding Price, StringFormat={}{0:0} Đ}"
+                                    Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -242,7 +242,7 @@
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
                                                 <TextBlock
-                                    Text="{Binding Price, StringFormat={}{0:0} Đ}"
+                                    Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -290,7 +290,7 @@
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
                                                 <TextBlock
-                                    Text="{Binding Price, StringFormat={}{0:0} Đ}"
+                                    Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -338,7 +338,7 @@
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
                                                 <TextBlock
-                                    Text="{Binding Price, StringFormat={}{0:0} Đ}"
+                                    Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -382,13 +382,12 @@
             <Grid Grid.Row="1">
                 <DataGrid Name="dgPurchase"
                                    AutoGenerateColumns="False" 
-                                   GridLinesVisibility="None"
-                                   SelectionChanged="dgCoffee_SelectionChanged">
+                                   GridLinesVisibility="None">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn IsReadOnly="True">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Foreground="{x:Null}" BorderBrush="{x:Null}">
+                                    <Button Foreground="{x:Null}" BorderBrush="{x:Null}" Click="Garbage_Click">
                                         <Button.Background>
                                             <ImageBrush ImageSource="Garbage_icon.png" Stretch="Uniform"/>
                                         </Button.Background>
@@ -425,7 +424,8 @@
                                     <StackPanel Orientation="Horizontal">
                                         <Button BorderBrush="{x:Null}"
                                                 Foreground="{x:Null}"
-                                                HorizontalAlignment="Left">
+                                                HorizontalAlignment="Left"
+                                                Click="MinusQuantity_Click">
                                             <Button.Background>
                                                 <ImageBrush ImageSource="Minus_icon.png" Stretch="Uniform"/>
                                             </Button.Background>
@@ -439,7 +439,8 @@
                                                    HorizontalAlignment="Center"/>
                                         <Button BorderBrush="{x:Null}" 
                                                 HorizontalAlignment="Right"
-                                                Foreground="{x:Null}">
+                                                Foreground="{x:Null}"
+                                                Click="AddQuantity_Click">
                                             <Button.Background>
                                                 <ImageBrush ImageSource="Add_icon.png" Stretch="Uniform"/>
                                             </Button.Background>
@@ -448,7 +449,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Width="150" Binding="{Binding Price}"
+                        <DataGridTextColumn Width="150" Binding="{Binding Price, StringFormat = {}{0:0} đ}"
                                             FontSize="18"
                                             FontFamily="Roboto"
                                             Foreground="#7B7B7B"
@@ -484,8 +485,10 @@
                         FontStyle="Normal"
                         Foreground="#7B7B7B"></TextBlock>
                     <TextBox Grid.Column="1"
+                             Name ="Discount"
+                             Text="0"
                              FontSize="24"
-                             Width="50"
+                             Width="120"
                              materialDesign:TextFieldAssist.UnderlineBrush="#EA8025"
                              Foreground="#7B7B7B"
                              FontFamily="Roboto"
@@ -514,9 +517,10 @@
                     </Grid>
                     <Grid Grid.Column="1">
                         <TextBlock
-                            Text="12"
+                             Name="TotalPrice"
+                             Text="0"
                              FontSize="24"
-                             Width="50"
+                             Width="120"
                              Foreground="#7B7B7B"
                              FontFamily="Roboto"
                              HorizontalAlignment="Right"
