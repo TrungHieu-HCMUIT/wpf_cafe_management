@@ -536,8 +536,8 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <Button 
-                                Command="{Binding StaffCommand}" 
+                    <Button
+                                Click="btnThanhToan_Click"
                                 FontSize="24"
                                 Foreground="#000000"
                                 Content="THANH TOÁN"
