@@ -235,6 +235,11 @@ namespace cafe_management
                 Discount.Focus();
             }            
         }
+
+        private void btnThanhToan_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 
     public class MenuItem
