@@ -14,7 +14,7 @@ namespace cafe_management.Model
     
     public partial class CTHD
     {
-        public string MaHD { get; set; }
+        public int MaHD { get; set; }
         public string MaM { get; set; }
         public Nullable<int> SL { get; set; }
     

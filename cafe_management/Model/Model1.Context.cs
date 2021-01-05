@@ -13,10 +13,10 @@ namespace cafe_management.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLCFEntities : DbContext
+    public partial class QLCFEntities1 : DbContext
     {
-        public QLCFEntities()
-            : base("name=QLCFEntities")
+        public QLCFEntities1()
+            : base("name=QLCFEntities1")
         {
         }
     
@@ -30,7 +30,6 @@ namespace cafe_management.Model
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<MON> MONs { get; set; }
         public virtual DbSet<PHANLOAI> PHANLOAIs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<THEBAN> THEBANs { get; set; }
         public virtual DbSet<USERROLE> USERROLEs { get; set; }
     }
