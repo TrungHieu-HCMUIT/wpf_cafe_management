@@ -22,12 +22,7 @@ namespace cafe_management
     /// </summary>
     public partial class MenuWindow : Window
     {
-        //public List<MenuItem> CaPheVietNamItems;
-        //public List<MenuItem> CaPheMayItems;
-        //public List<MenuItem> DaXayItems;
-        //public List<MenuItem> TraTraiCayItems;
-        //public List<MenuItem> MacchiatoItems;
-
+        private List<PurchaseItem> PurchaseList = new List<PurchaseItem>();
         public MenuWindow()
         {
             InitializeComponent();
@@ -51,115 +46,68 @@ namespace cafe_management
 
         private void CaPheVietNam_Click(object sender, RoutedEventArgs e)
         {
-            //changeColorAnimation(btnCaPheVietNam);
-            //Button[] btn = new Button[] { btnCaPheMay, btnDaXay, btnTraTraiCay, btnTraSuaMacchiato };
-            //returnDefaultColor(btn);
+            changeColorAnimation(btnCaPheVietNam);
+            Button[] btn = new Button[] { btnCaPheMay, btnDaXay, btnTraTraiCay, btnTraSuaMacchiato };
+            returnDefaultColor(btn);
 
-            //scrollViewer.ScrollToVerticalOffset(rectCaPheVietNam.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
+            scrollViewer.ScrollToVerticalOffset(rectCaPheVietNam.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
         }
 
         private void CaPheMay_Click(object sender, RoutedEventArgs e)
         {
-            //changeColorAnimation(btnCaPheMay);
-            //Button[] btn = new Button[] { btnCaPheVietNam, btnDaXay, btnTraTraiCay, btnTraSuaMacchiato };
-            //returnDefaultColor(btn);
+            changeColorAnimation(btnCaPheMay);
+            Button[] btn = new Button[] { btnCaPheVietNam, btnDaXay, btnTraTraiCay, btnTraSuaMacchiato };
+            returnDefaultColor(btn);
 
-            //scrollViewer.ScrollToVerticalOffset(rectCaPheMay.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);            
+            scrollViewer.ScrollToVerticalOffset(rectCaPheMay.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);            
         }
 
         private void DaXay_Click(object sender, RoutedEventArgs e)
         {
-            //changeColorAnimation(btnDaXay);
-            //Button[] btn = new Button[] { btnCaPheVietNam, btnCaPheMay, btnTraTraiCay, btnTraSuaMacchiato };
-            //returnDefaultColor(btn);
+            changeColorAnimation(btnDaXay);
+            Button[] btn = new Button[] { btnCaPheVietNam, btnCaPheMay, btnTraTraiCay, btnTraSuaMacchiato };
+            returnDefaultColor(btn);
 
-            //scrollViewer.ScrollToVerticalOffset(rectDaXay.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
+            scrollViewer.ScrollToVerticalOffset(rectDaXay.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
         }
 
         private void TraTraiCay_Click(object sender, RoutedEventArgs e)
         {
-            //changeColorAnimation(btnTraTraiCay);
-            //Button[] btn = new Button[] { btnCaPheVietNam, btnCaPheMay, btnDaXay, btnTraSuaMacchiato };
-            //returnDefaultColor(btn);
+            changeColorAnimation(btnTraTraiCay);
+            Button[] btn = new Button[] { btnCaPheVietNam, btnCaPheMay, btnDaXay, btnTraSuaMacchiato };
+            returnDefaultColor(btn);
 
-            //scrollViewer.ScrollToVerticalOffset(rectTraTraiCay.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
+            scrollViewer.ScrollToVerticalOffset(rectTraTraiCay.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
         }
 
         private void TraSuaMacchiato_Click(object sender, RoutedEventArgs e)
         {
-            //changeColorAnimation(btnTraSuaMacchiato);
-            //Button[] btn = new Button[] { btnCaPheVietNam, btnCaPheMay, btnDaXay, btnTraTraiCay };
-            //returnDefaultColor(btn);
+            changeColorAnimation(btnTraSuaMacchiato);
+            Button[] btn = new Button[] { btnCaPheVietNam, btnCaPheMay, btnDaXay, btnTraTraiCay };
+            returnDefaultColor(btn);
 
-            //scrollViewer.ScrollToVerticalOffset(rectTraSuaMacchiato.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
+            scrollViewer.ScrollToVerticalOffset(rectTraSuaMacchiato.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
         }
 
-        //Item change event
         private void dgCoffee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
         }
         private List<MenuItem> GetMenu(int type)
         {
             List<MenuItem> list = new List<MenuItem>();
             var objectList = DataProvider.Ins.DB.MONs;
-            foreach (var iteam in objectList)
+            foreach (var item in objectList)
             {
-                if (iteam.MaLoai == type)
+                if (item.MaLoai == type)
                 {
-                    string source = string.Format("/Resource/MenuWindow/{0}/{1}.jpg", iteam.MaLoai, iteam.MaM);
-                    MenuItem menuItem = new MenuItem(iteam.MaM, source, iteam.TenMon, Convert.ToInt64(iteam.DonGia));
+                    string source = string.Format("/Resource/MenuWindow/{0}/{1}.jpg", item.MaLoai, item.MaM);
+                    MenuItem menuItem = new MenuItem(item.MaM, source, item.TenMon, Convert.ToInt64(item.DonGia));
                     list.Add(menuItem);
                 }
             }
             return list;
         }
-        //  private List<MenuItem> GetCaPheMayItems()
-        //{
-        //    return new List<MenuItem>
-        //    {
-        //        new MenuItem("1001", "/Resource/MenuWindow/Cà phê máy/Americano.jpg", "Cà phê sữa", 20000),
-        //        new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Cappucino.jpg", "Cà phê sữa", 25000),
-        //        new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Caramel Macchiato.jpg", "Cà phê sữa", 25000),
-        //        new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Espresso.jpg", "Cà phê sữa", 25000),
-        //        new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Latte.jpg", "Cà phê sữa", 25000),
-        //        new MenuItem("1002", "/Resource/MenuWindow/Cà phê máy/Mocha.jpg", "Cà phê sữa", 25000)
-        //    };
-
-        //}
-
-        //    private List<MenuItem> GetDaXayItems()
-        //    {
-        //        return new List<MenuItem>
-        //        {
-        //            new MenuItem("1001", "/Resource/MenuWindow/Đá xay/Phúc bồn tử.jpg", "Cà phê đen", 20000),
-        //            new MenuItem("1001", "/Resource/MenuWindow/Đá xay/Sữa tươi Macchiato.jpg", "Cà phê đen", 20000),
-        //            new MenuItem("1002", "/Resource/MenuWindow/Đá xay/Sữa tươi.jpg", "Cà phê sữa", 25000),
-        //            new MenuItem("1003", "/Resource/MenuWindow/Đá xay/Truyền thống.jpg", "Bạc xỉu", 29000)
-        //        };
-        //    }
-
-        //    private List<MenuItem> GetTraTraiCayItems()
-        //    {
-        //        return new List<MenuItem>
-        //        {
-        //            new MenuItem("1001", "/Resource/MenuWindow/Trà trái cây/Trà đào cam sả.jpg", "Cà phê đen", 20000),
-        //            new MenuItem("1002", "/Resource/MenuWindow/Trà trái cây/Trà hạt sen.jpg", "Cà phê sữa", 25000),
-        //            new MenuItem("1002", "/Resource/MenuWindow/Trà trái cây/Trà phúc bồn tử.jpg", "Cà phê sữa", 25000),
-        //            new MenuItem("1003", "/Resource/MenuWindow/Trà trái cây/Trà vải.jpg", "Bạc xỉu", 29000)
-        //        };
-        //    }
-
-        //    private List<MenuItem> GetMacchiatoItems()
-        //    {
-        //        return new List<MenuItem>
-        //        {
-        //            new MenuItem("1001", "/Resource/MenuWindow/Trà sữa Macchiato/Trà đen Macchiato.jpg", "Cà phê đen", 20000),
-        //            new MenuItem("1001", "/Resource/MenuWindow/Trà sữa Macchiato/Trà lài Macchiato.jpg", "Cà phê đen", 20000),
-        //            new MenuItem("1001", "/Resource/MenuWindow/Trà sữa Macchiato/Trà Matcha Macchiato.jpg", "Cà phê đen", 20000),
-        //            new MenuItem("1002", "/Resource/MenuWindow/Trà sữa Macchiato/Trà sữa trân châu.jpg", "Cà phê sữa", 25000),
-        //            new MenuItem("1003", "/Resource/MenuWindow/Trà sữa Macchiato/Trà xoài Macchiato.jpg", "Bạc xỉu", 29000)
-        //        };
-        //    }
 
         private void LoadMenuItems()
         {
@@ -169,9 +117,25 @@ namespace cafe_management
             TraTraiCayListView.ItemsSource = GetMenu(4);
             MacchiatoListView.ItemsSource = GetMenu(5);
         }
+
+        private void Add(object sender, MouseButtonEventArgs e)
+        {
+            StackPanel stackPanel = sender as StackPanel;
+            var objectList = DataProvider.Ins.DB.MONs;
+            foreach (var item in objectList)
+            {
+                if (item.MaM == stackPanel.Tag.ToString())
+                {
+                    PurchaseList.Add(new PurchaseItem(item.MaM, item.TenMon, 1, Convert.ToInt32(item.DonGia)));
+
+                    dgPurchase.ItemsSource = null;
+                    dgPurchase.ItemsSource = PurchaseList;
+                }
+            }
+        }
     }
 
-    public class MenuItem //Tạo lớp đối tượng riêng dùm má :((
+    public class MenuItem
     {
         public string Id { get; set; }
 
@@ -186,6 +150,25 @@ namespace cafe_management
             Id = id;
             ImagePath = imagePath;
             Name = name;
+            Price = price;
+        }
+    }
+
+    public class PurchaseItem
+    {
+        public string Id { get; set; }
+
+        public string Name { get; set; }
+
+        public long Quantity { get; set; }
+
+        public int Price { get; set; }
+
+        public PurchaseItem(string id, string name, long quantity, int price)
+        {
+            Id = id;
+            Name = name;
+            Quantity = quantity;
             Price = price;
         }
     }

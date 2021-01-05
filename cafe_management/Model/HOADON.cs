@@ -20,7 +20,7 @@ namespace cafe_management.Model
             this.CTHDs = new HashSet<CTHD>();
         }
     
-        public string MaHD { get; set; }
+        public int MaHD { get; set; }
         public Nullable<System.DateTime> NgXuat { get; set; }
         public Nullable<decimal> TongGia { get; set; }
         public Nullable<int> MaTB { get; set; }

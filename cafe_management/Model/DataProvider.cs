@@ -13,7 +13,7 @@ namespace cafe_management.Model
         {
             get
             {
-                if( _ins ==null)
+                if (_ins == null)
                 {
                     _ins = new DataProvider();
                 }
@@ -25,11 +25,11 @@ namespace cafe_management.Model
             }
         }
 
-        public QLCFEntities DB { get; set; }
+        public QLCFEntities1 DB { get; set; }
 
         private DataProvider()
         {
-            DB = new QLCFEntities();
+            DB = new QLCFEntities1();
         }
     }
 }

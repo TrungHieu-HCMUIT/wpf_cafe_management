@@ -118,7 +118,7 @@
         <Grid Grid.Column="1">
             <ScrollViewer Name="scrollViewer">
                 <StackPanel>
-                    <StackPanel>
+                    <StackPanel Name="rectCaPheVietNam">
                     <TextBlock 
                             Text="CÀ PHÊ VIỆT NAM" 
                             Margin="30,30,0,0"
@@ -127,33 +127,33 @@
                             FontWeight="Bold"
                             FontStyle="Normal"/>
                     <StackPanel>
-                        <ItemsControl x:Name="CaPheVietNamListView" ItemsSource="{Binding MenuItem}">
+                        <ItemsControl Name="CaPheVietNamListView" ItemsSource="{Binding MenuItem}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Border Margin="10" Height="325" Width="250">
-                                        <StackPanel>
+                                            <StackPanel MouseDown="Add" Tag="{Binding Id}">
                                             <Border Height="210" Width="210" Margin="0,15,0,0">
                                                 <Border.Background>
                                                     <ImageBrush ImageSource="{Binding ImagePath}"/>
                                                 </Border.Background>
                                             </Border>
-                                            <TextBlock 
-                                    Text="{Binding Name}"
-                                    FontSize="27"
-                                    FontWeight="Bold"
-                                    FontFamily="Roboto"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Top"
-                                    Margin="0,9,0,0"/>
-                                            <TextBlock
-                                    Text="{Binding Price}"
-                                    Margin="0,10,0,0"
-                                    FontSize="27"
-                                    FontWeight="Bold"
-                                    FontFamily="Comfortaa"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Top"
-                                    Foreground="#EA8025"/>
+                                                <TextBlock
+                                                    Text="{Binding Name}"
+                                                    FontSize="27"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Roboto"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Top"
+                                                    Margin="0,9,0,0"/>
+                                                <TextBlock
+                                                    Text="{Binding Price, StringFormat={}{0:0} Đ}"
+                                                    Margin="0,10,0,0"
+                                                    FontSize="27"
+                                                    FontWeight="Bold"
+                                                    FontFamily="Comfortaa"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Top"
+                                                    Foreground="#EA8025"/>
                                         </StackPanel>
                                     </Border>
                                 </DataTemplate>
@@ -166,7 +166,7 @@
                         </ItemsControl>
                     </StackPanel>
                 </StackPanel>
-                    <StackPanel>
+                    <StackPanel Name="rectCaPheMay">
                         <TextBlock 
                             Text="CÀ PHÊ MÁY" 
                             Margin="30,30,0,0"
@@ -179,7 +179,7 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Border Margin="10" Height="325" Width="250">
-                                            <StackPanel>
+                                            <StackPanel MouseDown="Add" Tag="{Binding Id}">
                                                 <Border Height="210" Width="210" Margin="0,15,0,0">
                                                     <Border.Background>
                                                         <ImageBrush ImageSource="{Binding ImagePath}"/>
@@ -194,7 +194,7 @@
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
                                                 <TextBlock
-                                    Text="{Binding Price}"
+                                    Text="{Binding Price, StringFormat={}{0:0} Đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -214,7 +214,7 @@
                             </ItemsControl>
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel>
+                    <StackPanel Name="rectDaXay">
                         <TextBlock 
                             Text="ĐÁ XAY" 
                             Margin="30,30,0,0"
@@ -227,7 +227,7 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Border Margin="10" Height="325" Width="250">
-                                            <StackPanel>
+                                            <StackPanel MouseDown="Add" Tag="{Binding Id}">
                                                 <Border Height="210" Width="210" Margin="0,15,0,0">
                                                     <Border.Background>
                                                         <ImageBrush ImageSource="{Binding ImagePath}"/>
@@ -242,7 +242,7 @@
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
                                                 <TextBlock
-                                    Text="{Binding Price}"
+                                    Text="{Binding Price, StringFormat={}{0:0} Đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -262,7 +262,7 @@
                             </ItemsControl>
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel>
+                    <StackPanel Name="rectTraTraiCay">
                         <TextBlock 
                             Text="TRÀ TRÁI CÂY" 
                             Margin="30,30,0,0"
@@ -275,7 +275,7 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Border Margin="10" Height="325" Width="250">
-                                            <StackPanel>
+                                            <StackPanel MouseDown="Add" Tag="{Binding Id}">
                                                 <Border Height="210" Width="210" Margin="0,15,0,0">
                                                     <Border.Background>
                                                         <ImageBrush ImageSource="{Binding ImagePath}"/>
@@ -290,7 +290,7 @@
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
                                                 <TextBlock
-                                    Text="{Binding Price}"
+                                    Text="{Binding Price, StringFormat={}{0:0} Đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -310,7 +310,7 @@
                             </ItemsControl>
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel>
+                    <StackPanel Name="rectTraSuaMacchiato">
                         <TextBlock 
                             Text="MACCHIATO" 
                             Margin="30,30,0,0"
@@ -323,7 +323,7 @@
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Border Margin="10" Height="325" Width="250">
-                                            <StackPanel>
+                                            <StackPanel MouseDown="Add" Tag="{Binding Id}">
                                                 <Border Height="210" Width="210" Margin="0,15,0,0">
                                                     <Border.Background>
                                                         <ImageBrush ImageSource="{Binding ImagePath}"/>
@@ -338,7 +338,7 @@
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
                                                 <TextBlock
-                                    Text="{Binding Price}"
+                                    Text="{Binding Price, StringFormat={}{0:0} Đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -380,7 +380,7 @@
                     ></TextBlock>
             </Grid>
             <Grid Grid.Row="1">
-                <DataGrid Name="dgCoffee" 
+                <DataGrid Name="dgPurchase"
                                    AutoGenerateColumns="False" 
                                    GridLinesVisibility="None"
                                    SelectionChanged="dgCoffee_SelectionChanged">
