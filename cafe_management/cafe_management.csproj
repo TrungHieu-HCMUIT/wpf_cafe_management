@@ -118,6 +118,9 @@
     <Compile Include="StaffWindow.xaml.cs">
       <DependentUpon>StaffWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControlCF\ControlBarUC.xaml.cs">
+      <DependentUpon>ControlBarUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Page Include="LoginWindow.xaml">
@@ -147,6 +150,10 @@
     <Page Include="StaffWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControlCF\ControlBarUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -194,25 +201,17 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resource\StaffWindow\Logo.png" />
+    <Resource Include="Resource\StaffWindow\Thống kê-01.png" />
+    <Resource Include="Resource\StaffWindow\Tài khoản-01.png" />
+    <Resource Include="Resource\StaffWindow\Tạo hóa đơn-01.png" />
+    <Resource Include="Resource\StaffWindow\Tạo phiếu chi-01.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\LoginWindow\Login_left_image.png" />
     <Resource Include="Resource\LoginWindow\Logo 1_image.png" />
     <Resource Include="Resource\LoginWindow\Password_icon.png" />
     <Resource Include="Resource\LoginWindow\User_icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resource\StaffWindow\Add_black_icon.png" />
-    <Resource Include="Resource\StaffWindow\Add_orange_icon.png" />
-    <Resource Include="Resource\StaffWindow\ChangePassword_black_icon.png" />
-    <Resource Include="Resource\StaffWindow\ChangePassword_orange_icon.png" />
-    <Resource Include="Resource\StaffWindow\History_black_icon.png" />
-    <Resource Include="Resource\StaffWindow\History_orange_icon.png" />
-    <Resource Include="Resource\StaffWindow\Logo 2.png" />
-    <Resource Include="Resource\StaffWindow\Management_black_icon.png" />
-    <Resource Include="Resource\StaffWindow\Management_orange_icon.png" />
-    <Resource Include="Resource\StaffWindow\Revenue_black_icon.png" />
-    <Resource Include="Resource\StaffWindow\Revenue_orange_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\MenuWindow\Add_icon.png" />

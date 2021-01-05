@@ -4,27 +4,40 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cafe_management"
+        xmlns:uc="clr-namespace:cafe_management.UserControlCF"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         DataContext="{StaticResource MainVM}"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="MenuWindow" Height="900" Width="1600" ResizeMode="NoResize">
-    <Grid Focusable="True" MouseDown="UpdateTotalPrice_MouseDown">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="280"></ColumnDefinition>
-            <ColumnDefinition Width="830"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Margin="0,30,0,630">
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <Button
+        Title="MenuWindow" Height="900" Width="1600"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowState="Maximized"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC></uc:ControlBarUC>
+        </Grid>
+        <Grid Grid.Row="1" Focusable="True" MouseDown="UpdateTotalPrice_MouseDown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"></ColumnDefinition>
+                <ColumnDefinition Width="830"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0" Margin="0,30,0,630">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Button
                     Name="btnCaPheVietNam"
                     Height="35"
                     Content="CÀ PHÊ VIỆT NAM"
@@ -35,15 +48,15 @@
                         Margin="0,6,0,0" 
                         BorderBrush="#EA8025"
                         BorderThickness="0"
-                        FontSize="24"
+                        FontSize="20"
                         FontFamily="Roboto"
                         VerticalAlignment="Top"
                         Background="Transparent"
                         Width="230"
                         ></Button>
-            </Grid>
-            <Grid Grid.Row="1">
-                <Button 
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Button 
                         Name="btnCaPheMay"
                         Content="CÀ PHÊ MÁY"
                         Click="CaPheMay_Click"
@@ -53,15 +66,15 @@
                         Margin="25,6,25,0" 
                         BorderBrush="#EA8025"
                         BorderThickness="0"
-                        FontSize="24"
+                        FontSize="20"
                         FontFamily="Roboto"
                         VerticalAlignment="Top"
                         Background="Transparent"
                         Width="230" Grid.ColumnSpan="2" 
                         ></Button>
-            </Grid>
-            <Grid Grid.Row="2">
-                <Button
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Button
                         Name="btnDaXay"
                         Content="ĐÁ XAY"
                         Click="DaXay_Click"
@@ -74,12 +87,12 @@
                         VerticalAlignment="Top"
                         Background="Transparent"
                         Width="230"
-                        FontSize="24"
+                        FontSize="20"
                         FontFamily="Roboto"
                         ></Button>
-            </Grid>
-            <Grid Grid.Row="3">
-                <Button 
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Button 
                         Name="btnTraTraiCay"
                         Content="TRÀ TRÁI CÂY"
                         Click="TraTraiCay_Click"
@@ -88,16 +101,16 @@
                         materialDesign:ButtonAssist.CornerRadius="10" 
                         Margin="0,6,0,0" 
                         BorderBrush="#EA8025"
-                        FontSize="24"
+                        FontSize="20"
                         FontFamily="Roboto"
                         BorderThickness="0"
                         VerticalAlignment="Top"
                         Background="Transparent"
                         Width="230"
                         ></Button>
-            </Grid>
-            <Grid Grid.Row="4">
-                <Button
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Button
                         Name="btnTraSuaMacchiato"
                         Content="MACCHIATO"
                         Click="TraSuaMacchiato_Click"
@@ -107,37 +120,37 @@
                         Margin="0,6,0,0" 
                         BorderBrush="#EA8025"
                         BorderThickness="0"
-                        FontSize="24"
+                        FontSize="20"
                         FontFamily="Roboto"
                         VerticalAlignment="Top"
                         Background="Transparent"
                         Width="230"
                         ></Button>
+                </Grid>
             </Grid>
-        </Grid>
-        <Grid Grid.Column="1">
-            <ScrollViewer Name="scrollViewer">
-                <StackPanel>
-                    <StackPanel Name="rectCaPheVietNam">
-                    <TextBlock 
+            <Grid Grid.Column="1">
+                <ScrollViewer Name="scrollViewer">
+                    <StackPanel>
+                        <StackPanel Name="rectCaPheVietNam">
+                            <TextBlock 
                             Text="CÀ PHÊ VIỆT NAM" 
                             Margin="30,30,0,0"
                             FontSize="40"
                             FontFamily="Roboto"
                             FontWeight="Bold"
                             FontStyle="Normal"/>
-                    <StackPanel>
-                        <ItemsControl Name="CaPheVietNamListView" ItemsSource="{Binding MenuItem}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Border Margin="10" Height="325" Width="250">
-                                            <StackPanel MouseDown="Add" Tag="{Binding Id}">
-                                            <Border Height="210" Width="210" Margin="0,15,0,0">
-                                                <Border.Background>
-                                                    <ImageBrush ImageSource="{Binding ImagePath}"/>
-                                                </Border.Background>
-                                            </Border>
-                                                <TextBlock
+                            <StackPanel>
+                                <ItemsControl Name="CaPheVietNamListView" ItemsSource="{Binding MenuItem}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="10" Height="325" Width="250">
+                                                <StackPanel MouseDown="Add" Tag="{Binding Id}">
+                                                    <Border Height="210" Width="210" Margin="0,15,0,0">
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="{Binding ImagePath}"/>
+                                                        </Border.Background>
+                                                    </Border>
+                                                    <TextBlock
                                                     Text="{Binding Name}"
                                                     FontSize="27"
                                                     FontWeight="Bold"
@@ -145,7 +158,7 @@
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Top"
                                                     Margin="0,9,0,0"/>
-                                                <TextBlock
+                                                    <TextBlock
                                                     Text="{Binding Price, StringFormat={}{0:0} đ}"
                                                     Margin="0,10,0,0"
                                                     FontSize="27"
@@ -154,38 +167,38 @@
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Top"
                                                     Foreground="#EA8025"/>
-                                        </StackPanel>
-                                    </Border>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                        </ItemsControl>
-                    </StackPanel>
-                </StackPanel>
-                    <StackPanel Name="rectCaPheMay">
-                        <TextBlock 
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Name="rectCaPheMay">
+                            <TextBlock 
                             Text="CÀ PHÊ MÁY" 
                             Margin="30,30,0,0"
                             FontSize="40"
                             FontFamily="Roboto"
                             FontWeight="Bold"
                             FontStyle="Normal"/>
-                        <StackPanel>
-                            <ItemsControl x:Name="CaPheMayListView" ItemsSource="{Binding MenuItem}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border Margin="10" Height="325" Width="250">
-                                            <StackPanel MouseDown="Add" Tag="{Binding Id}">
-                                                <Border Height="210" Width="210" Margin="0,15,0,0">
-                                                    <Border.Background>
-                                                        <ImageBrush ImageSource="{Binding ImagePath}"/>
-                                                    </Border.Background>
-                                                </Border>
-                                                <TextBlock 
+                            <StackPanel>
+                                <ItemsControl x:Name="CaPheMayListView" ItemsSource="{Binding MenuItem}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="10" Height="325" Width="250">
+                                                <StackPanel MouseDown="Add" Tag="{Binding Id}">
+                                                    <Border Height="210" Width="210" Margin="0,15,0,0">
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="{Binding ImagePath}"/>
+                                                        </Border.Background>
+                                                    </Border>
+                                                    <TextBlock 
                                     Text="{Binding Name}"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -193,7 +206,7 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
-                                                <TextBlock
+                                                    <TextBlock
                                     Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
@@ -202,38 +215,38 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Foreground="#EA8025"/>
-                                            </StackPanel>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <WrapPanel/>
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ItemsControl>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                    <StackPanel Name="rectDaXay">
-                        <TextBlock 
+                        <StackPanel Name="rectDaXay">
+                            <TextBlock 
                             Text="ĐÁ XAY" 
                             Margin="30,30,0,0"
                             FontSize="40"
                             FontFamily="Roboto"
                             FontWeight="Bold"
                             FontStyle="Normal"/>
-                        <StackPanel>
-                            <ItemsControl x:Name="DaXayListView" ItemsSource="{Binding MenuItem}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border Margin="10" Height="325" Width="250">
-                                            <StackPanel MouseDown="Add" Tag="{Binding Id}">
-                                                <Border Height="210" Width="210" Margin="0,15,0,0">
-                                                    <Border.Background>
-                                                        <ImageBrush ImageSource="{Binding ImagePath}"/>
-                                                    </Border.Background>
-                                                </Border>
-                                                <TextBlock 
+                            <StackPanel>
+                                <ItemsControl x:Name="DaXayListView" ItemsSource="{Binding MenuItem}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="10" Height="325" Width="250">
+                                                <StackPanel MouseDown="Add" Tag="{Binding Id}">
+                                                    <Border Height="210" Width="210" Margin="0,15,0,0">
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="{Binding ImagePath}"/>
+                                                        </Border.Background>
+                                                    </Border>
+                                                    <TextBlock 
                                     Text="{Binding Name}"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -241,7 +254,7 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
-                                                <TextBlock
+                                                    <TextBlock
                                     Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
@@ -250,38 +263,38 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Foreground="#EA8025"/>
-                                            </StackPanel>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <WrapPanel/>
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ItemsControl>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                    <StackPanel Name="rectTraTraiCay">
-                        <TextBlock 
+                        <StackPanel Name="rectTraTraiCay">
+                            <TextBlock 
                             Text="TRÀ TRÁI CÂY" 
                             Margin="30,30,0,0"
                             FontSize="40"
                             FontFamily="Roboto"
                             FontWeight="Bold"
                             FontStyle="Normal"/>
-                        <StackPanel>
-                            <ItemsControl x:Name="TraTraiCayListView" ItemsSource="{Binding MenuItem}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border Margin="10" Height="325" Width="250">
-                                            <StackPanel MouseDown="Add" Tag="{Binding Id}">
-                                                <Border Height="210" Width="210" Margin="0,15,0,0">
-                                                    <Border.Background>
-                                                        <ImageBrush ImageSource="{Binding ImagePath}"/>
-                                                    </Border.Background>
-                                                </Border>
-                                                <TextBlock 
+                            <StackPanel>
+                                <ItemsControl x:Name="TraTraiCayListView" ItemsSource="{Binding MenuItem}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="10" Height="325" Width="250">
+                                                <StackPanel MouseDown="Add" Tag="{Binding Id}">
+                                                    <Border Height="210" Width="210" Margin="0,15,0,0">
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="{Binding ImagePath}"/>
+                                                        </Border.Background>
+                                                    </Border>
+                                                    <TextBlock 
                                     Text="{Binding Name}"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -289,7 +302,7 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
-                                                <TextBlock
+                                                    <TextBlock
                                     Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
@@ -298,38 +311,38 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Foreground="#EA8025"/>
-                                            </StackPanel>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <WrapPanel/>
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ItemsControl>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                    <StackPanel Name="rectTraSuaMacchiato">
-                        <TextBlock 
+                        <StackPanel Name="rectTraSuaMacchiato">
+                            <TextBlock 
                             Text="MACCHIATO" 
                             Margin="30,30,0,0"
                             FontSize="40"
                             FontFamily="Roboto"
                             FontWeight="Bold"
                             FontStyle="Normal"/>
-                        <StackPanel>
-                            <ItemsControl x:Name="MacchiatoListView" ItemsSource="{Binding MenuItem}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <Border Margin="10" Height="325" Width="250">
-                                            <StackPanel MouseDown="Add" Tag="{Binding Id}">
-                                                <Border Height="210" Width="210" Margin="0,15,0,0">
-                                                    <Border.Background>
-                                                        <ImageBrush ImageSource="{Binding ImagePath}"/>
-                                                    </Border.Background>
-                                                </Border>
-                                                <TextBlock 
+                            <StackPanel>
+                                <ItemsControl x:Name="MacchiatoListView" ItemsSource="{Binding MenuItem}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Border Margin="10" Height="325" Width="250">
+                                                <StackPanel MouseDown="Add" Tag="{Binding Id}">
+                                                    <Border Height="210" Width="210" Margin="0,15,0,0">
+                                                        <Border.Background>
+                                                            <ImageBrush ImageSource="{Binding ImagePath}"/>
+                                                        </Border.Background>
+                                                    </Border>
+                                                    <TextBlock 
                                     Text="{Binding Name}"
                                     FontSize="27"
                                     FontWeight="Bold"
@@ -337,7 +350,7 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Margin="0,9,0,0"/>
-                                                <TextBlock
+                                                    <TextBlock
                                     Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
@@ -346,30 +359,30 @@
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Foreground="#EA8025"/>
-                                            </StackPanel>
-                                        </Border>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                                <ItemsControl.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <WrapPanel/>
-                                    </ItemsPanelTemplate>
-                                </ItemsControl.ItemsPanel>
-                            </ItemsControl>
+                                                </StackPanel>
+                                            </Border>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                    <ItemsControl.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ItemsControl.ItemsPanel>
+                                </ItemsControl>
+                            </StackPanel>
                         </StackPanel>
                     </StackPanel>
-                </StackPanel>
-            </ScrollViewer>
-        </Grid>
-        <Grid Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="70"></RowDefinition>
-                <RowDefinition ></RowDefinition>
-                <RowDefinition Height="140"></RowDefinition>
-                <RowDefinition Height="130"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
-                <TextBlock
+                </ScrollViewer>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"></RowDefinition>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition Height="140"></RowDefinition>
+                    <RowDefinition Height="130"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <TextBlock
                     Text="THỦ TỤC THANH TOÁN"
                     FontSize="34"
                     FontFamily="Roboto"
@@ -378,104 +391,104 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     ></TextBlock>
-            </Grid>
-            <Grid Grid.Row="1">
-                <DataGrid Name="dgPurchase"
+                </Grid>
+                <Grid Grid.Row="1">
+                    <DataGrid Name="dgPurchase"
                                    AutoGenerateColumns="False" 
                                    GridLinesVisibility="None">
-                    <DataGrid.Columns>
-                        <DataGridTemplateColumn IsReadOnly="True">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Foreground="{x:Null}" BorderBrush="{x:Null}" Click="Garbage_Click">
-                                        <Button.Background>
-                                            <ImageBrush ImageSource="Garbage_icon.png" Stretch="Uniform"/>
-                                        </Button.Background>
-                                    </Button>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTextColumn Width="150" 
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Foreground="{x:Null}" BorderBrush="{x:Null}" Click="Garbage_Click">
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="Garbage_icon.png" Stretch="Uniform"/>
+                                            </Button.Background>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Width="150" 
                                             Binding="{Binding Name}"
                                             FontSize="18"
                                             FontFamily="Roboto"
                                             Foreground="#7B7B7B"
                                             IsReadOnly="True">
-                            <DataGridTextColumn.Header>
-                                <HeaderedContentControl  FontSize="20" 
+                                <DataGridTextColumn.Header>
+                                    <HeaderedContentControl  FontSize="20" 
                                                          Header="Tên"
                                                          FontFamily="Roboto"
                                                          Foreground="#7B7B7B"
                                                          HorizontalAlignment="Center">
-                                </HeaderedContentControl>
-                            </DataGridTextColumn.Header>
-                        </DataGridTextColumn>
-                        <DataGridTemplateColumn Width="120" 
+                                    </HeaderedContentControl>
+                                </DataGridTextColumn.Header>
+                            </DataGridTextColumn>
+                            <DataGridTemplateColumn Width="120" 
                                                 IsReadOnly="True">
-                            <DataGridTemplateColumn.Header>
-                                <HeaderedContentControl Header="Số lượng"
+                                <DataGridTemplateColumn.Header>
+                                    <HeaderedContentControl Header="Số lượng"
                                                         FontSize="20"
                                                         FontFamily="Roboto"
                                                         Foreground="#7B7B7B">
-                                </HeaderedContentControl>
-                            </DataGridTemplateColumn.Header>
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <Button BorderBrush="{x:Null}"
+                                    </HeaderedContentControl>
+                                </DataGridTemplateColumn.Header>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button BorderBrush="{x:Null}"
                                                 Foreground="{x:Null}"
                                                 HorizontalAlignment="Left"
                                                 Click="MinusQuantity_Click">
-                                            <Button.Background>
-                                                <ImageBrush ImageSource="Minus_icon.png" Stretch="Uniform"/>
-                                            </Button.Background>
-                                        </Button>
-                                        <TextBlock Text="{Binding Quantity}" 
+                                                <Button.Background>
+                                                    <ImageBrush ImageSource="Minus_icon.png" Stretch="Uniform"/>
+                                                </Button.Background>
+                                            </Button>
+                                            <TextBlock Text="{Binding Quantity}" 
                                                    VerticalAlignment="Center"
                                                    FontSize="18"
                                                    FontFamily="Roboto"
                                                    Foreground="#7B7B7B"
                                                    Width="20"
                                                    HorizontalAlignment="Center"/>
-                                        <Button BorderBrush="{x:Null}" 
+                                            <Button BorderBrush="{x:Null}" 
                                                 HorizontalAlignment="Right"
                                                 Foreground="{x:Null}"
                                                 Click="AddQuantity_Click">
-                                            <Button.Background>
-                                                <ImageBrush ImageSource="Add_icon.png" Stretch="Uniform"/>
-                                            </Button.Background>
-                                        </Button>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
-                        <DataGridTextColumn Width="150" Binding="{Binding Price, StringFormat = {}{0:0} đ}"
+                                                <Button.Background>
+                                                    <ImageBrush ImageSource="Add_icon.png" Stretch="Uniform"/>
+                                                </Button.Background>
+                                            </Button>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Width="150" Binding="{Binding Price, StringFormat = {}{0:0} đ}"
                                             FontSize="18"
                                             FontFamily="Roboto"
                                             Foreground="#7B7B7B"
                                             IsReadOnly="True">
-                            <DataGridTextColumn.Header>
-                                <HeaderedContentControl FontSize="20"
+                                <DataGridTextColumn.Header>
+                                    <HeaderedContentControl FontSize="20"
                                                         FontFamily="Roboto"
                                                         Foreground="#7B7B7B"
                                                         Header="Giá" Width="43"
                                                         ></HeaderedContentControl>
-                            </DataGridTextColumn.Header>
-                        </DataGridTextColumn>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-            <Grid Grid.Row="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock
+                                </DataGridTextColumn.Header>
+                            </DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
                         VerticalAlignment="Center"
                         Margin="20,0,0,0"
                         Grid.Column="0"
@@ -484,7 +497,7 @@
                         FontFamily="Roboto"
                         FontStyle="Normal"
                         Foreground="#7B7B7B"></TextBlock>
-                    <TextBox Grid.Column="1"
+                        <TextBox Grid.Column="1"
                              Name ="Discount"
                              Text="0"
                              FontSize="24"
@@ -496,15 +509,15 @@
                              HorizontalAlignment="Right"
                              VerticalAlignment="Center"
                              Margin="0,0,30,0">
-                    </TextBox>
-                </Grid>
-                <Grid Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid Grid.Column="0">
-                        <TextBlock 
+                        </TextBox>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <TextBlock 
                             Text="Tổng"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Left"
@@ -514,9 +527,9 @@
                             FontFamily="Roboto"
                             FontStyle="Normal"
                             Foreground="#7B7B7B"></TextBlock>
-                    </Grid>
-                    <Grid Grid.Column="1">
-                        <TextBlock
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <TextBlock
                              Name="TotalPrice"
                              Text="0"
                              FontSize="24"
@@ -526,17 +539,17 @@
                              HorizontalAlignment="Right"
                              VerticalAlignment="Center"
                              Margin="0,0,30,0">
-                        </TextBlock>
+                            </TextBlock>
+                        </Grid>
                     </Grid>
                 </Grid>
-            </Grid>
-            <Grid Grid.Row="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition></ColumnDefinition>
-                    <ColumnDefinition></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0">
-                    <Button
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <Button
                                 Click="btnThanhToan_Click"
                                 FontSize="24"
                                 Foreground="#000000"
@@ -547,10 +560,10 @@
                                 Height="50"
                                 materialDesign:ButtonAssist.CornerRadius="15"
                                 Style="{StaticResource MaterialDesignRaisedLightButton}">
-                    </Button>
-                </Grid>
-                <Grid Grid.Column="1">
-                    <Button  
+                        </Button>
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <Button  
                                 FontSize="24"
                                 Foreground="#000000"
                                 Content="HỦY BỎ"
@@ -560,7 +573,8 @@
                                 Height="50"
                                 materialDesign:ButtonAssist.CornerRadius="15"
                                 Style="{StaticResource MaterialDesignRaisedLightButton}">
-                    </Button>
+                        </Button>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>

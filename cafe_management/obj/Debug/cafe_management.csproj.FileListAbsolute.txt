@@ -309,3 +309,5 @@ C:\Users\longt\OneDrive\Desktop\DoAnLTTQ\cafe_management\obj\Debug\cafe_manageme
 C:\Users\longt\OneDrive\Desktop\DoAnLTTQ\cafe_management\obj\Debug\cafe_management.csproj.CopyComplete
 C:\Users\longt\OneDrive\Desktop\DoAnLTTQ\cafe_management\obj\Debug\cafe_management.exe
 C:\Users\longt\OneDrive\Desktop\DoAnLTTQ\cafe_management\obj\Debug\cafe_management.pdb
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\UserControlCF\ControlBarUC.g.cs
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\UserControlCF\ControlBarUC.baml

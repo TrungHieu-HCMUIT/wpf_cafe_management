@@ -5,22 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cafe_management"
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:uc="clr-namespace:cafe_management.UserControlCF"
         DataContext="{StaticResource MainVM}"
-        Title="LoginWindow" Height="500" Width="750">
-    <Grid KeyDown="OnKeyDownHandler">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition>
-</ColumnDefinition>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0">
-            <Image Source="Resource/LoginWindow/Login_left_image.png" Stretch="Fill"/>
+        Title="LoginWindow" Height="500" Width="750"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <uc:ControlBarUC>
+            </uc:ControlBarUC>
         </Grid>
-        <Grid Grid.Column="1">
-            <Grid >
-                <TextBlock
+        <Grid KeyDown="OnKeyDownHandler" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition>
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Image Source="Resource/LoginWindow/Login_left_image.png" Stretch="Fill"/>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid >
+                    <TextBlock
                     Text="Welcome!" 
                     FontSize="44"
                     FontFamily="Roboto" 
@@ -31,16 +44,16 @@
                     Margin="77,93,0,0"        
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top">
-                </TextBlock>
-            </Grid>
-            <Grid Margin="45,150,41,68">
-                <Grid.RowDefinitions >
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                    <RowDefinition></RowDefinition>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0" Margin="0,15,0,12">
-                    <TextBox
+                    </TextBlock>
+                </Grid>
+                <Grid Margin="45,150,41,68">
+                    <Grid.RowDefinitions >
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="0,15,0,12">
+                        <TextBox
                             materialDesign:HintAssist.Hint="Tài khoản"
                             FontSize="16"
                             FontFamily="Roboto"
@@ -50,9 +63,9 @@
                             Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                             VerticalAlignment="Center" 
                             />
-                </Grid>
-                <Grid Grid.Row="1" Margin="0,0,0,25">
-                    <PasswordBox 
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="0,0,0,25">
+                        <PasswordBox 
                             Width="281"
                             Height="51"
                             x:Name="FloatingPasswordBox"
@@ -63,10 +76,10 @@
                             FontSize="16"
                             FontFamily="Roboto"
                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
-                </Grid>
-                <Grid Grid.Row="2" Margin="0,30,0,0">
-                    <Grid >
-                        <Button 
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="0,30,0,0">
+                        <Grid >
+                            <Button 
                                 Command="{Binding StaffCommand}" 
                                 FontSize="24"
                                 Foreground="#000000"
@@ -77,7 +90,8 @@
                                 Height="51"
                                 materialDesign:ButtonAssist.CornerRadius="15"
                                 Style="{StaticResource MaterialDesignRaisedLightButton}">
-                        </Button>
+                            </Button>
+                        </Grid>
                     </Grid>
                 </Grid>
             </Grid>
