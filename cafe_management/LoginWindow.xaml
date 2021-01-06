@@ -81,7 +81,7 @@
                     <Grid Grid.Row="2" Margin="0,30,0,0">
                         <Grid >
                             <Button
-                                Command="{Binding StaffCommand}" 
+                                Click="Button_Click" 
                                 FontSize="24"
                                 Foreground="#000000"
                                 Content="ĐĂNG NHẬP"

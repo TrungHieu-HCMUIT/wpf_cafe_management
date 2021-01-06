@@ -564,7 +564,7 @@
                     </Grid>
                     <Grid Grid.Column="1">
                         <Button  
-                                Command="{Binding StaffCommand}"
+                                Click="Terminate_Click"
                                 FontSize="24"
                                 Foreground="#000000"
                                 Content="HỦY BỎ"

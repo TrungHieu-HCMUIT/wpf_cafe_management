@@ -38,7 +38,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column=" 0">
                     <Button 
-                            Command="{Binding MenuCommand}"
+                            Click="Menu_Click"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Height="250"
@@ -51,7 +51,9 @@
                     </Button>
                 </Grid>
                 <Grid Grid.Column=" 1">
-                    <Button HorizontalAlignment="Center"
+                    <Button
+                            Click="Spending_Click"
+                            HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Height="250"
                             Width="690" 
@@ -69,7 +71,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column=" 0">
                     <Button 
-                            Command="{Binding StatisticCommand}"
+                            Click="Statistic_Click"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Height="250"
@@ -82,7 +84,9 @@
                     </Button>
                 </Grid>
                 <Grid Grid.Column=" 1" >
-                    <Button HorizontalAlignment="Center"
+                    <Button
+                            Click="Account_Click"
+                            HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Height="250"
                             Width="690" BorderBrush="{x:Null}" Foreground="#FFEBEBEB"

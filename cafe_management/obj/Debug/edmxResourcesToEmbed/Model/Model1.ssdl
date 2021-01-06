@@ -24,15 +24,8 @@
       <PropertyRef Name="MaNgL" />
     </Key>
     <Property Name="MaPC" Type="int" Nullable="false" />
-    <Property Name="MaNgL" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="MaNgL" Type="int" Nullable="false" />
     <Property Name="SL" Type="int" />
-  </EntityType>
-  <EntityType Name="DONVI">
-    <Key>
-      <PropertyRef Name="MaDV" />
-    </Key>
-    <Property Name="MaDV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TenDV" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="HOADON">
     <Key>
@@ -55,10 +48,10 @@
     <Key>
       <PropertyRef Name="MaNgL" />
     </Key>
-    <Property Name="MaNgL" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="MaNgL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenNgL" Type="nvarchar" MaxLength="100" />
     <Property Name="DonGia" Type="smallmoney" />
-    <Property Name="MaDV" Type="int" />
+    <Property Name="DonVi" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="PHANLOAI">
     <Key>
@@ -154,23 +147,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_NGUYENLIEU_DONVI">
-    <End Role="DONVI" Type="Self.DONVI" Multiplicity="0..1" />
-    <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="DONVI">
-        <PropertyRef Name="MaDV" />
-      </Principal>
-      <Dependent Role="NGUYENLIEU">
-        <PropertyRef Name="MaDV" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="QLCFModelStoreContainer">
     <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CTHD" EntityType="Self.CTHD" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CTPC" EntityType="Self.CTPC" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="DONVI" EntityType="Self.DONVI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MON" EntityType="Self.MON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NGUYENLIEU" EntityType="Self.NGUYENLIEU" Schema="dbo" store:Type="Tables" />
@@ -200,10 +180,6 @@
     <AssociationSet Name="FK_MON_PHANLOAI" Association="Self.FK_MON_PHANLOAI">
       <End Role="PHANLOAI" EntitySet="PHANLOAI" />
       <End Role="MON" EntitySet="MON" />
-    </AssociationSet>
-    <AssociationSet Name="FK_NGUYENLIEU_DONVI" Association="Self.FK_NGUYENLIEU_DONVI">
-      <End Role="DONVI" EntitySet="DONVI" />
-      <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

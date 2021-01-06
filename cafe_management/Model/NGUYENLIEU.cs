@@ -20,13 +20,12 @@ namespace cafe_management.Model
             this.CTPCs = new HashSet<CTPC>();
         }
     
-        public string MaNgL { get; set; }
+        public int MaNgL { get; set; }
         public string TenNgL { get; set; }
         public Nullable<decimal> DonGia { get; set; }
-        public Nullable<int> MaDV { get; set; }
+        public string DonVi { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTPC> CTPCs { get; set; }
-        public virtual DONVI DONVI { get; set; }
     }
 }

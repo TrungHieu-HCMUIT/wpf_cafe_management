@@ -15,7 +15,7 @@ namespace cafe_management.Model
     public partial class CTPC
     {
         public int MaPC { get; set; }
-        public string MaNgL { get; set; }
+        public int MaNgL { get; set; }
         public Nullable<int> SL { get; set; }
     
         public virtual NGUYENLIEU NGUYENLIEU { get; set; }

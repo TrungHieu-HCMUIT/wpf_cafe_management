@@ -321,3 +321,5 @@ C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\AccountWindow.g.cs
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\NotificationWindow.g.cs
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\AccountWindow.baml
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\NotificationWindow.baml
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\SpendingWindow.g.cs
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\SpendingWindow.baml

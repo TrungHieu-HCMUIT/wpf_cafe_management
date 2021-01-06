@@ -10,8 +10,7 @@
         xmlns:uc="clr-namespace:cafe_management.UserControlCF"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize"
-        WindowState="Maximized">
+        ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
@@ -81,7 +80,7 @@
             </Grid>
             <Grid Grid.Column="1">
                 <Button 
-                    Command="{Binding StaffCommand}" 
+                    Click="Terminate_Click" 
                     FontSize="20"
                     Foreground="#000000"
                     Content="TRỞ VỀ"

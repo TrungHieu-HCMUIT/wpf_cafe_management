@@ -308,6 +308,13 @@ namespace cafe_management
         {
             displayTotalPrice();
         }
+
+        private void Terminate_Click(object sender, RoutedEventArgs e)
+        {
+            StaffWindow staffWindow = new StaffWindow();
+            staffWindow.Show();
+            this.Close();
+        }
     }
 
     public class MenuItem

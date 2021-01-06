@@ -29,14 +29,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DONVIs">
-      <EntityTypeMapping TypeName="QLCFModel.DONVI">
-        <MappingFragment StoreEntitySet="DONVI">
-          <ScalarProperty Name="TenDV" ColumnName="TenDV" />
-          <ScalarProperty Name="MaDV" ColumnName="MaDV" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="HOADONs">
       <EntityTypeMapping TypeName="QLCFModel.HOADON">
         <MappingFragment StoreEntitySet="HOADON">
@@ -59,7 +51,7 @@
     <EntitySetMapping Name="NGUYENLIEUx">
       <EntityTypeMapping TypeName="QLCFModel.NGUYENLIEU">
         <MappingFragment StoreEntitySet="NGUYENLIEU">
-          <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
           <ScalarProperty Name="DonGia" ColumnName="DonGia" />
           <ScalarProperty Name="TenNgL" ColumnName="TenNgL" />
           <ScalarProperty Name="MaNgL" ColumnName="MaNgL" />

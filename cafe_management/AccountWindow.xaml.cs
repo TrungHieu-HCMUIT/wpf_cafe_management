@@ -23,5 +23,12 @@ namespace cafe_management
         {
             InitializeComponent();
         }
+
+        private void Terminate_Click(object sender, RoutedEventArgs e)
+        {
+            StaffWindow staffWindow = new StaffWindow();
+            staffWindow.Show();
+            this.Close();
+        }
     }
 }

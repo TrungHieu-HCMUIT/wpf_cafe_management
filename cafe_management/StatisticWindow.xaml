@@ -40,6 +40,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <DatePicker
+                        Name="dpStatistic"
                         SelectedDate="{x:Static sys:DateTime.Now}"
                         Width="230"
                         materialDesign:HintAssist.Hint="Chọn ngày"
@@ -73,7 +74,7 @@
                 </Grid>
                 <Grid Grid.Column="2">
                     <Button
-                        Command="{Binding StaffCommand}"
+                        Click="Terminate_Click"
                         Style="{StaticResource MaterialDesignRaisedLightButton}"
                         FontFamily="Roboto"
                         FontSize="28"

@@ -40,7 +40,21 @@ namespace cafe_management
                     NotificationWindow notice = new NotificationWindow("Sai tài khoản hoặc mật khẩu", "Vui lòng nhập lại");
                     notice.ShowDialog();
                 }
+            }
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (CheckAccount() == true)
+            {
+                StaffWindow staffWindow = new StaffWindow();
+                this.Close();
+                staffWindow.ShowDialog();
+            }
+            else
+            {
+                NotificationWindow notice = new NotificationWindow("Sai tài khoản hoặc mật khẩu", "Vui lòng nhập lại");
+                notice.ShowDialog();
             }
         }
 

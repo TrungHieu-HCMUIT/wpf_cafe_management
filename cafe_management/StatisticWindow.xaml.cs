@@ -66,11 +66,17 @@ namespace cafe_management
         {
 
         }
+
+        private void Terminate_Click(object sender, RoutedEventArgs e)
+        {
+            StaffWindow staffWindow = new StaffWindow();
+            staffWindow.Show();
+            this.Close();
+        }
     }
 
     public class Revenue
     {
-
 
         public int MaHD { get; set; }
 

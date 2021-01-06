@@ -97,9 +97,6 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\DataProvider.cs" />
-    <Compile Include="Model\DONVI.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\HOADON.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -135,6 +132,9 @@
     </Compile>
     <Compile Include="NotificationWindow.xaml.cs">
       <DependentUpon>NotificationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpendingWindow.xaml.cs">
+      <DependentUpon>SpendingWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="StaffWindow.xaml.cs">
       <DependentUpon>StaffWindow.xaml</DependentUpon>
@@ -177,6 +177,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ResourceXAML\MainResource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpendingWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -238,6 +242,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resource\SpendingWindow\Click_to_add.png" />
     <Resource Include="Resource\StaffWindow\Logo.png" />
     <Resource Include="Resource\StaffWindow\Thống kê-01.png" />
     <Resource Include="Resource\StaffWindow\Tài khoản-01.png" />

@@ -23,5 +23,33 @@ namespace cafe_management
         {
             InitializeComponent();
         }
+
+        private void Spending_Click(object sender, RoutedEventArgs e)
+        {
+            SpendingWindow spendingWindow = new SpendingWindow();
+            spendingWindow.Show();
+            this.Close();
+        }
+
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+            MenuWindow menuWindow = new MenuWindow();
+            menuWindow.Show();
+            this.Close();
+        }
+
+        private void Statistic_Click(object sender, RoutedEventArgs e)
+        {
+            StatisticWindow statisticWindow = new StatisticWindow();
+            statisticWindow.Show();
+            this.Close();
+        }
+
+        private void Account_Click(object sender, RoutedEventArgs e)
+        {
+            AccountWindow accountWindow = new AccountWindow();
+            accountWindow.Show();
+            this.Close();
+        }
     }
 }
