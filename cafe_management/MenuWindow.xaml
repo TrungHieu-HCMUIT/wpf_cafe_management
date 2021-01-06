@@ -402,7 +402,7 @@
                                     <DataTemplate>
                                         <Button Foreground="{x:Null}" BorderBrush="{x:Null}" Click="Garbage_Click">
                                             <Button.Background>
-                                                <ImageBrush ImageSource="Garbage_icon.png" Stretch="Uniform"/>
+                                                <ImageBrush ImageSource="/Resource/MenuWindow/Garbage_icon.png" Stretch="Uniform"/>
                                             </Button.Background>
                                         </Button>
                                     </DataTemplate>
@@ -440,7 +440,7 @@
                                                 HorizontalAlignment="Left"
                                                 Click="MinusQuantity_Click">
                                                 <Button.Background>
-                                                    <ImageBrush ImageSource="Minus_icon.png" Stretch="Uniform"/>
+                                                    <ImageBrush ImageSource="/Resource/MenuWindow/Minus_icon.png" Stretch="Uniform"/>
                                                 </Button.Background>
                                             </Button>
                                             <TextBlock Text="{Binding Quantity}" 
@@ -455,7 +455,7 @@
                                                 Foreground="{x:Null}"
                                                 Click="AddQuantity_Click">
                                                 <Button.Background>
-                                                    <ImageBrush ImageSource="Add_icon.png" Stretch="Uniform"/>
+                                                    <ImageBrush ImageSource="/Resource/MenuWindow/Add_icon.png" Stretch="Uniform"/>
                                                 </Button.Background>
                                             </Button>
                                         </StackPanel>

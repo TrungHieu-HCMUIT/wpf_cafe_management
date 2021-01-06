@@ -32,7 +32,7 @@ namespace cafe_management
 
         private void changeColorAnimation(Button btn)
         {
-            ColorAnimation ca = new ColorAnimation((Color)ColorConverter.ConvertFromString("#EA8025"), new Duration(TimeSpan.FromSeconds(0.3)));
+            ColorAnimation ca = new ColorAnimation((Color)ColorConverter.ConvertFromString("#EA8025"), new Duration(TimeSpan.FromSeconds(0.5)));
             btn.Foreground.BeginAnimation(SolidColorBrush.ColorProperty, ca);
         }
 
@@ -50,7 +50,8 @@ namespace cafe_management
             Button[] btn = new Button[] { btnCaPheMay, btnDaXay, btnTraTraiCay, btnTraSuaMacchiato };
             returnDefaultColor(btn);
 
-            scrollViewer.ScrollToVerticalOffset(rectCaPheVietNam.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
+            double scrollTarget = 0;
+            scrollViewer.ScrollToVerticalOffset(scrollTarget);
         }
 
         private void CaPheMay_Click(object sender, RoutedEventArgs e)
@@ -59,7 +60,8 @@ namespace cafe_management
             Button[] btn = new Button[] { btnCaPheVietNam, btnDaXay, btnTraTraiCay, btnTraSuaMacchiato };
             returnDefaultColor(btn);
 
-            scrollViewer.ScrollToVerticalOffset(rectCaPheMay.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);            
+            double scrollTarget = 423;            
+            scrollViewer.ScrollToVerticalOffset(scrollTarget);          
         }
 
         private void DaXay_Click(object sender, RoutedEventArgs e)
@@ -68,7 +70,8 @@ namespace cafe_management
             Button[] btn = new Button[] { btnCaPheVietNam, btnCaPheMay, btnTraTraiCay, btnTraSuaMacchiato };
             returnDefaultColor(btn);
 
-            scrollViewer.ScrollToVerticalOffset(rectDaXay.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
+            double scrollTarget = 1191;
+            scrollViewer.ScrollToVerticalOffset(scrollTarget);
         }
 
         private void TraTraiCay_Click(object sender, RoutedEventArgs e)
@@ -77,7 +80,8 @@ namespace cafe_management
             Button[] btn = new Button[] { btnCaPheVietNam, btnCaPheMay, btnDaXay, btnTraSuaMacchiato };
             returnDefaultColor(btn);
 
-            scrollViewer.ScrollToVerticalOffset(rectTraTraiCay.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
+            double scrollTarget = 1959;
+            scrollViewer.ScrollToVerticalOffset(scrollTarget);
         }
 
         private void TraSuaMacchiato_Click(object sender, RoutedEventArgs e)
@@ -86,7 +90,8 @@ namespace cafe_management
             Button[] btn = new Button[] { btnCaPheVietNam, btnCaPheMay, btnDaXay, btnTraTraiCay };
             returnDefaultColor(btn);
 
-            scrollViewer.ScrollToVerticalOffset(rectTraSuaMacchiato.TransformToVisual(scrollViewer).Transform(new Point(0, 0)).Y);
+            double scrollTarget = 2727;
+            scrollViewer.ScrollToVerticalOffset(scrollTarget);
         }
 
         private List<MenuItem> GetMenu(int type)

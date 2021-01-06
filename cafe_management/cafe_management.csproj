@@ -241,9 +241,6 @@
     <Resource Include="Resource\MenuWindow\1\1001.jpg" />
     <Resource Include="Resource\MenuWindow\1\1002.jpg" />
     <Resource Include="Resource\MenuWindow\1\1003.jpg" />
-    <Resource Include="Garbage_icon.png" />
-    <Resource Include="Minus_icon.png" />
-    <Resource Include="Add_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
