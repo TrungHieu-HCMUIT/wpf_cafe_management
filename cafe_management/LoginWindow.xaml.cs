@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cafe_management.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,10 +29,34 @@ namespace cafe_management
         {
             if (e.Key == Key.Enter)
             {
-                StaffWindow staffWindow = new StaffWindow();
-                this.Close();
-                staffWindow.ShowDialog();
+                if (CheckAccount() == true)
+                {
+                    StaffWindow staffWindow = new StaffWindow();
+                    this.Close();
+                    staffWindow.ShowDialog();
+                }
+                else
+                {
+                    NotificationWindow notice = new NotificationWindow("Sai tài khoản hoặc mật khẩu", "Vui lòng nhập lại");
+                    notice.ShowDialog();
+                }
+
             }
+        }
+
+        private bool CheckAccount()
+        {
+            var objectList = DataProvider.Ins.DB.ACCOUNTs;
+            foreach (var item in objectList)
+            {
+                string id = IdTextBox.Text.Trim();
+                string pw = Convert.ToString(passwordBox.Password.Trim());
+                if (string.Compare(id, item.TK) == 0 && string.Compare(pw, item.MK) == 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }
