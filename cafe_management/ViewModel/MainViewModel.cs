@@ -14,10 +14,12 @@ namespace cafe_management.ViewModel
     {
         public ICommand StaffCommand { get; set; }
         public ICommand MenuCommand { get; set; }
+        public ICommand StatisticCommand { get; set; }
 
         private LoginWindow loginWindow;
         private StaffWindow staffWindow;
         private MenuWindow menuWindow;
+        private StatisticWindow statisticWindow;
 
         public MainViewModel()
         {
@@ -27,12 +29,14 @@ namespace cafe_management.ViewModel
             {
                 return true;
             }, (p) =>
-            { 
+            {
                 if (staffWindow == null)
                 {
                     staffWindow = new StaffWindow();
                 }
-                loginWindow.Close();
+
+                statisticWindow?.Close();
+                loginWindow?.Close();
                 menuWindow?.Close();
                 staffWindow.ShowDialog();
             });
@@ -43,8 +47,18 @@ namespace cafe_management.ViewModel
             }, (p) =>
             {
                 menuWindow = new MenuWindow();
-                staffWindow?.Close();
+                staffWindow?.Hide();
                 menuWindow.ShowDialog();
+            });
+
+            StatisticCommand = new RelayCommand<object>((p) =>
+            {
+                return true;
+            }, (p) =>
+            {
+                statisticWindow = new StatisticWindow();
+                staffWindow?.Hide();
+                statisticWindow.ShowDialog();
             });
         }
     }

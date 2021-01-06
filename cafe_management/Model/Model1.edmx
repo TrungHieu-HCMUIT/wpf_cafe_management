@@ -19,7 +19,7 @@
             <PropertyRef Name="MaHD" />
             <PropertyRef Name="MaM" />
           </Key>
-          <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaHD" Type="int" Nullable="false" />
           <Property Name="MaM" Type="char" MaxLength="4" Nullable="false" />
           <Property Name="SL" Type="int" />
         </EntityType>
@@ -169,7 +169,7 @@
             <PropertyRef Name="MaHD" />
             <PropertyRef Name="MaM" />
           </Key>
-          <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaHD" Type="Int32" Nullable="false" />
           <Property Name="MaM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="SL" Type="Int32" />
           <NavigationProperty Name="HOADON" Relationship="QLCFModel.FK_CTHD_HOADON" FromRole="CTHD" ToRole="HOADON" />

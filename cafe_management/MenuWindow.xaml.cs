@@ -257,26 +257,32 @@ namespace cafe_management
         private void CreateHOADON(List<CTHD> list)
         {
             HOADON hd = new HOADON();
-            string x = TotalPrice.Text.Replace(" đ", "");
-            using (QLCFEntities1 db = new QLCFEntities1())
+            string x = TotalPrice.Text.Replace("đ", "");
+            if (list.Count == 0)
             {
-                var temp = db.HOADONs.Add(new HOADON()
+                return;
+            }
+            else
+            {
+                using (QLCFEntities1 db = new QLCFEntities1())
                 {
-                    NgXuat = DateTime.Now,
-                    TongGia = Convert.ToDecimal(x),
-                    CTHDs = list,
+                    var temp = db.HOADONs.Add(new HOADON()
+                    {
+                        NgXuat = DateTime.Now,
+                        TongGia = Convert.ToDecimal(x),
+                        CTHDs = list,
 
-                });
-                db.SaveChanges();
-                foreach (CTHD cthd in hd.CTHDs)
-                {
+                    });
+                    db.SaveChanges();
+                    foreach (CTHD cthd in hd.CTHDs)
+                    {
 
-                    cthd.MaHD = temp.MaHD;
-                    db.CTHDs.Add(cthd);
+                        cthd.MaHD = temp.MaHD;
+                        db.CTHDs.Add(cthd);
 
+                    }
+                    db.SaveChanges();
                 }
-                db.SaveChanges();
-
             }
         }
         private void btnThanhToan_Click(object sender, RoutedEventArgs e)
@@ -284,6 +290,9 @@ namespace cafe_management
             List<CTHD> cthd = ConvertToCTHD();
             CreateHOADON(cthd);
 
+            StaffWindow staffWindow = new StaffWindow();
+            staffWindow.Show();
+            this.Close();
         }
 
 

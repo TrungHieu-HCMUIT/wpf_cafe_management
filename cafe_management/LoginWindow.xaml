@@ -79,7 +79,7 @@
                     </Grid>
                     <Grid Grid.Row="2" Margin="0,30,0,0">
                         <Grid >
-                            <Button 
+                            <Button
                                 Command="{Binding StaffCommand}" 
                                 FontSize="24"
                                 Foreground="#000000"

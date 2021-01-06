@@ -311,3 +311,9 @@ C:\Users\longt\OneDrive\Desktop\DoAnLTTQ\cafe_management\obj\Debug\cafe_manageme
 C:\Users\longt\OneDrive\Desktop\DoAnLTTQ\cafe_management\obj\Debug\cafe_management.pdb
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\UserControlCF\ControlBarUC.g.cs
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\UserControlCF\ControlBarUC.baml
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\Microsoft.Expression.Interactions.dll
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\Microsoft.Expression.Interactions.xml
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\System.Windows.Interactivity.xml
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\StatisticWindow.g.cs
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\StatisticWindow.baml

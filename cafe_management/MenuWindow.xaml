@@ -162,8 +162,8 @@
                                                     Text="{Binding Price, StringFormat={}{0:0} đ}"
                                                     Margin="0,10,0,0"
                                                     FontSize="27"
-                                                    FontWeight="Bold"
-                                                    FontFamily="Comfortaa"
+                                                    FontWeight="Medium"
+                                                    FontFamily="Roboto"
                                                     HorizontalAlignment="Center"
                                                     VerticalAlignment="Top"
                                                     Foreground="#EA8025"/>
@@ -210,8 +210,8 @@
                                     Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
-                                    FontWeight="Bold"
-                                    FontFamily="Comfortaa"
+                                    FontWeight="Medium"
+                                    FontFamily="Roboto"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Foreground="#EA8025"/>
@@ -258,8 +258,8 @@
                                     Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
-                                    FontWeight="Bold"
-                                    FontFamily="Comfortaa"
+                                    FontWeight="Medium"
+                                    FontFamily="Roboto"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Foreground="#EA8025"/>
@@ -306,8 +306,8 @@
                                     Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
-                                    FontWeight="Bold"
-                                    FontFamily="Comfortaa"
+                                    FontWeight="Medium"
+                                    FontFamily="Roboto"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Foreground="#EA8025"/>
@@ -354,8 +354,8 @@
                                     Text="{Binding Price, StringFormat={}{0:0} đ}"
                                     Margin="0,10,0,0"
                                     FontSize="27"
-                                    FontWeight="Bold"
-                                    FontFamily="Comfortaa"
+                                    FontWeight="Medium"
+                                    FontFamily="Roboto"
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Top"
                                     Foreground="#EA8025"/>
@@ -564,6 +564,7 @@
                     </Grid>
                     <Grid Grid.Column="1">
                         <Button  
+                                Command="{Binding StaffCommand}"
                                 FontSize="24"
                                 Foreground="#000000"
                                 Content="HỦY BỎ"

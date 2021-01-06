@@ -14,7 +14,7 @@
       <PropertyRef Name="MaHD" />
       <PropertyRef Name="MaM" />
     </Key>
-    <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaHD" Type="int" Nullable="false" />
     <Property Name="MaM" Type="char" MaxLength="4" Nullable="false" />
     <Property Name="SL" Type="int" />
   </EntityType>
