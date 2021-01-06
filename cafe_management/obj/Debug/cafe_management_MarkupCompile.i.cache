@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\
+C:\Users\Admin\Desktop\DoAnLTTQ\cafe_management\obj\Debug\
 cafe_management
 none
 false
 DEBUG;TRACE
-C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\App.xaml
-6-1917556386
+C:\Users\Admin\Desktop\DoAnLTTQ\cafe_management\App.xaml
+8-360793945
 2-1556844510
-232084802647
-20-1915187376
-LoginWindow.xaml;MainWindow.xaml;MenuWindow.xaml;ResourceXAML\MainResource.xaml;StaffWindow.xaml;UserControlCF\ControlBarUC.xaml;
+252117218522
+20-1655652913
+AccountWindow.xaml;LoginWindow.xaml;MainWindow.xaml;MenuWindow.xaml;ResourceXAML\MainResource.xaml;StaffWindow.xaml;StatisticWindow.xaml;UserControlCF\ControlBarUC.xaml;
 
-False
+True
 
