@@ -19,9 +19,17 @@ namespace cafe_management
     /// </summary>
     public partial class NotificationWindow : Window
     {
-        public NotificationWindow()
+        public NotificationWindow(string line1, string line2)
         {
             InitializeComponent();
+            Line1.Text = line1;
+            Line2.Text = line2;
+            this.InvalidateVisual();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

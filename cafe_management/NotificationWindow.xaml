@@ -6,15 +6,18 @@
         xmlns:local="clr-namespace:cafe_management"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="NotificationWindow" Height="196" Width="327"
+        Title="NotificationWindow" Height="300" Width="500"
+        Background="#F6F6F6"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="155"></RowDefinition>
         </Grid.RowDefinitions>
+        <Border Height="300" Width="500" CornerRadius="15" materialDesign:ShadowAssist.ShadowDepth="Depth3">
+        </Border>
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
@@ -22,8 +25,8 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <TextBlock
-                    Text="Mật khẩu không chính xác."
-                    FontSize="18"
+                    Name="Line1"
+                    FontSize="27"
                     FontFamily="Roboto"
                     FontWeight="Bold"
                     HorizontalAlignment="Center"
@@ -33,8 +36,8 @@
             </Grid>
             <Grid Grid.Row="1">
                 <TextBlock
-                    Text="Vui lòng nhập lại"
-                    FontSize="18"
+                    Name="Line2"
+                    FontSize="27"
                     FontFamily="Roboto"
                     FontWeight="Bold"
                     HorizontalAlignment="Center"
@@ -44,14 +47,14 @@
         </Grid>
         <Grid Grid.Row="1">
             <Button 
-                    Command="{Binding StaffCommand}" 
-                    FontSize="18"
+                    Click="Button_Click" 
+                    FontSize="27"
                     Foreground="#000000"
                     Content="TRỞ VỀ"
                     FontFamily="Roboto"
                     Background="#EA8025"
-                    Width="160"
-                    Height="33"
+                    Width="240"
+                    Height="50"
                     HorizontalAlignment="Center"
                     Margin="15"
                     materialDesign:ButtonAssist.CornerRadius="15"

@@ -317,3 +317,7 @@ C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\Microsoft.Expressi
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\System.Windows.Interactivity.xml
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\StatisticWindow.g.cs
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\StatisticWindow.baml
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\AccountWindow.g.cs
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\NotificationWindow.g.cs
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\AccountWindow.baml
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\NotificationWindow.baml

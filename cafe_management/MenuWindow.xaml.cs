@@ -220,21 +220,22 @@ namespace cafe_management
         private void displayTotalPrice()
         {
             int totalPrice = 0;
+            for (int i = 0; i < PurchaseList.Count; i++)
+            {
+                totalPrice += PurchaseList[i].Price;
+            }
             if (check_Discount())
-            { 
-                for (int i = 0; i < PurchaseList.Count; i++)
-                {
-                    totalPrice += PurchaseList[i].Price;
-                }
+            {                
                 double discount = Convert.ToDouble(Discount.Text) / 100;
                 totalPrice -= (int) (discount * totalPrice);
                 TotalPrice.Text = totalPrice.ToString() + " đ";
             }
             else
             {
-                MessageBox.Show("Dữ liệu giảm giá sai");
+                NotificationWindow notice = new NotificationWindow("Dữ liệu giảm giá sai","Vui lòng nhập lại");
                 Discount.Text = "0";
-                Discount.Focus();
+                TotalPrice.Text = totalPrice.ToString() + " đ";
+                notice.ShowDialog();
             }            
         }
 
@@ -289,10 +290,17 @@ namespace cafe_management
         {
             List<CTHD> cthd = ConvertToCTHD();
             CreateHOADON(cthd);
-
-            StaffWindow staffWindow = new StaffWindow();
-            staffWindow.Show();
-            this.Close();
+            if(!check_Discount())
+            {
+                NotificationWindow notice = new NotificationWindow("Dữ liệu giảm giá sai", "Vui lòng nhập lại");
+                notice.ShowDialog();
+            }
+            else
+            {
+                StaffWindow staffWindow = new StaffWindow();
+                staffWindow.Show();
+                this.Close();
+            }            
         }
 
 
