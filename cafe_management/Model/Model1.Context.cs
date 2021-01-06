@@ -30,7 +30,6 @@ namespace cafe_management.Model
         public virtual DbSet<HOADON> HOADONs { get; set; }
         public virtual DbSet<MON> MONs { get; set; }
         public virtual DbSet<PHANLOAI> PHANLOAIs { get; set; }
-        public virtual DbSet<THEBAN> THEBANs { get; set; }
         public virtual DbSet<USERROLE> USERROLEs { get; set; }
     }
 }

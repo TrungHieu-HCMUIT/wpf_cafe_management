@@ -109,9 +109,6 @@
     <Compile Include="Model\PHANLOAI.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\THEBAN.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Model\USERROLE.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

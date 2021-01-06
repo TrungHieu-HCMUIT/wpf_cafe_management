@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLCFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QLCFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ACCOUNT">
           <Key>
             <PropertyRef Name="ID" />
@@ -30,7 +30,6 @@
           <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NgXuat" Type="date" />
           <Property Name="TongGia" Type="money" />
-          <Property Name="MaTB" Type="int" />
         </EntityType>
         <EntityType Name="MON">
           <Key>
@@ -47,13 +46,6 @@
           </Key>
           <Property Name="MaLoai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenLoai" Type="nvarchar" MaxLength="100" />
-        </EntityType>
-        <EntityType Name="THEBAN">
-          <Key>
-            <PropertyRef Name="MaTB" />
-          </Key>
-          <Property Name="MaTB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TinhTrang" Type="int" />
         </EntityType>
         <EntityType Name="USERROLE">
           <Key>
@@ -98,18 +90,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_HOADON_THEBAN">
-          <End Role="THEBAN" Type="Self.THEBAN" Multiplicity="0..1" />
-          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="THEBAN">
-              <PropertyRef Name="MaTB" />
-            </Principal>
-            <Dependent Role="HOADON">
-              <PropertyRef Name="MaTB" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MON_PHANLOAI">
           <End Role="PHANLOAI" Type="Self.PHANLOAI" Multiplicity="0..1" />
           <End Role="MON" Type="Self.MON" Multiplicity="*" />
@@ -128,7 +108,6 @@
           <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MON" EntityType="Self.MON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHANLOAI" EntityType="Self.PHANLOAI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="THEBAN" EntityType="Self.THEBAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USERROLE" EntityType="Self.USERROLE" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ACCOUNT_USERROLE" Association="Self.FK_ACCOUNT_USERROLE">
             <End Role="USERROLE" EntitySet="USERROLE" />
@@ -142,29 +121,48 @@
             <End Role="MON" EntitySet="MON" />
             <End Role="CTHD" EntitySet="CTHD" />
           </AssociationSet>
-          <AssociationSet Name="FK_HOADON_THEBAN" Association="Self.FK_HOADON_THEBAN">
-            <End Role="THEBAN" EntitySet="THEBAN" />
-            <End Role="HOADON" EntitySet="HOADON" />
-          </AssociationSet>
           <AssociationSet Name="FK_MON_PHANLOAI" Association="Self.FK_MON_PHANLOAI">
             <End Role="PHANLOAI" EntitySet="PHANLOAI" />
             <End Role="MON" EntitySet="MON" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLCFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QLCFEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCOUNTs" EntityType="QLCFModel.ACCOUNT" />
+          <EntitySet Name="CTHDs" EntityType="QLCFModel.CTHD" />
+          <EntitySet Name="HOADONs" EntityType="QLCFModel.HOADON" />
+          <EntitySet Name="MONs" EntityType="QLCFModel.MON" />
+          <EntitySet Name="PHANLOAIs" EntityType="QLCFModel.PHANLOAI" />
+          <EntitySet Name="USERROLEs" EntityType="QLCFModel.USERROLE" />
+          <AssociationSet Name="FK_ACCOUNT_USERROLE" Association="QLCFModel.FK_ACCOUNT_USERROLE">
+            <End Role="USERROLE" EntitySet="USERROLEs" />
+            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_HOADON" Association="QLCFModel.FK_CTHD_HOADON">
+            <End Role="HOADON" EntitySet="HOADONs" />
+            <End Role="CTHD" EntitySet="CTHDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTHD_MON" Association="QLCFModel.FK_CTHD_MON">
+            <End Role="MON" EntitySet="MONs" />
+            <End Role="CTHD" EntitySet="CTHDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MON_PHANLOAI" Association="QLCFModel.FK_MON_PHANLOAI">
+            <End Role="PHANLOAI" EntitySet="PHANLOAIs" />
+            <End Role="MON" EntitySet="MONs" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="ACCOUNT">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="MK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="IdRole" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="USERROLE" Relationship="Self.FK_ACCOUNT_USERROLE" FromRole="ACCOUNT" ToRole="USERROLE" />
+          <NavigationProperty Name="USERROLE" Relationship="QLCFModel.FK_ACCOUNT_USERROLE" FromRole="ACCOUNT" ToRole="USERROLE" />
         </EntityType>
         <EntityType Name="CTHD">
           <Key>
@@ -172,10 +170,10 @@
             <PropertyRef Name="MaM" />
           </Key>
           <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MaM" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="SL" Type="Int32" />
-          <NavigationProperty Name="HOADON" Relationship="Self.FK_CTHD_HOADON" FromRole="CTHD" ToRole="HOADON" />
-          <NavigationProperty Name="MON" Relationship="Self.FK_CTHD_MON" FromRole="CTHD" ToRole="MON" />
+          <NavigationProperty Name="HOADON" Relationship="QLCFModel.FK_CTHD_HOADON" FromRole="CTHD" ToRole="HOADON" />
+          <NavigationProperty Name="MON" Relationship="QLCFModel.FK_CTHD_MON" FromRole="CTHD" ToRole="MON" />
         </EntityType>
         <EntityType Name="HOADON">
           <Key>
@@ -184,20 +182,18 @@
           <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NgXuat" Type="DateTime" Precision="0" />
           <Property Name="TongGia" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="MaTB" Type="Int32" />
-          <NavigationProperty Name="CTHDs" Relationship="Self.FK_CTHD_HOADON" FromRole="HOADON" ToRole="CTHD" />
-          <NavigationProperty Name="THEBAN" Relationship="Self.FK_HOADON_THEBAN" FromRole="HOADON" ToRole="THEBAN" />
+          <NavigationProperty Name="CTHDs" Relationship="QLCFModel.FK_CTHD_HOADON" FromRole="HOADON" ToRole="CTHD" />
         </EntityType>
         <EntityType Name="MON">
           <Key>
             <PropertyRef Name="MaM" />
           </Key>
-          <Property Name="MaM" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="MaM" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="TenMon" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="DonGia" Type="Decimal" Precision="10" Scale="4" />
           <Property Name="MaLoai" Type="Int32" />
-          <NavigationProperty Name="CTHDs" Relationship="Self.FK_CTHD_MON" FromRole="MON" ToRole="CTHD" />
-          <NavigationProperty Name="PHANLOAI" Relationship="Self.FK_MON_PHANLOAI" FromRole="MON" ToRole="PHANLOAI" />
+          <NavigationProperty Name="CTHDs" Relationship="QLCFModel.FK_CTHD_MON" FromRole="MON" ToRole="CTHD" />
+          <NavigationProperty Name="PHANLOAI" Relationship="QLCFModel.FK_MON_PHANLOAI" FromRole="MON" ToRole="PHANLOAI" />
         </EntityType>
         <EntityType Name="PHANLOAI">
           <Key>
@@ -205,15 +201,7 @@
           </Key>
           <Property Name="MaLoai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLoai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="MONs" Relationship="Self.FK_MON_PHANLOAI" FromRole="PHANLOAI" ToRole="MON" />
-        </EntityType>
-        <EntityType Name="THEBAN">
-          <Key>
-            <PropertyRef Name="MaTB" />
-          </Key>
-          <Property Name="MaTB" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TinhTrang" Type="Int32" />
-          <NavigationProperty Name="HOADONs" Relationship="Self.FK_HOADON_THEBAN" FromRole="THEBAN" ToRole="HOADON" />
+          <NavigationProperty Name="MONs" Relationship="QLCFModel.FK_MON_PHANLOAI" FromRole="PHANLOAI" ToRole="MON" />
         </EntityType>
         <EntityType Name="USERROLE">
           <Key>
@@ -221,11 +209,11 @@
           </Key>
           <Property Name="IdRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ACCOUNTs" Relationship="Self.FK_ACCOUNT_USERROLE" FromRole="USERROLE" ToRole="ACCOUNT" />
+          <NavigationProperty Name="ACCOUNTs" Relationship="QLCFModel.FK_ACCOUNT_USERROLE" FromRole="USERROLE" ToRole="ACCOUNT" />
         </EntityType>
         <Association Name="FK_ACCOUNT_USERROLE">
-          <End Role="USERROLE" Type="Self.USERROLE" Multiplicity="1" />
-          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
+          <End Type="QLCFModel.USERROLE" Role="USERROLE" Multiplicity="1" />
+          <End Type="QLCFModel.ACCOUNT" Role="ACCOUNT" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="USERROLE">
               <PropertyRef Name="IdRole" />
@@ -236,8 +224,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CTHD_HOADON">
-          <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
-          <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+          <End Type="QLCFModel.HOADON" Role="HOADON" Multiplicity="1" />
+          <End Type="QLCFModel.CTHD" Role="CTHD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="HOADON">
               <PropertyRef Name="MaHD" />
@@ -248,8 +236,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CTHD_MON">
-          <End Role="MON" Type="Self.MON" Multiplicity="1" />
-          <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
+          <End Type="QLCFModel.MON" Role="MON" Multiplicity="1" />
+          <End Type="QLCFModel.CTHD" Role="CTHD" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MON">
               <PropertyRef Name="MaM" />
@@ -259,21 +247,9 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_HOADON_THEBAN">
-          <End Role="THEBAN" Type="Self.THEBAN" Multiplicity="0..1" />
-          <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="THEBAN">
-              <PropertyRef Name="MaTB" />
-            </Principal>
-            <Dependent Role="HOADON">
-              <PropertyRef Name="MaTB" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_MON_PHANLOAI">
-          <End Role="PHANLOAI" Type="Self.PHANLOAI" Multiplicity="0..1" />
-          <End Role="MON" Type="Self.MON" Multiplicity="*" />
+          <End Type="QLCFModel.PHANLOAI" Role="PHANLOAI" Multiplicity="0..1" />
+          <End Type="QLCFModel.MON" Role="MON" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PHANLOAI">
               <PropertyRef Name="MaLoai" />
@@ -283,36 +259,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="QLCFEntities1" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="ACCOUNTs" EntityType="Self.ACCOUNT" />
-          <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
-          <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
-          <EntitySet Name="MONs" EntityType="Self.MON" />
-          <EntitySet Name="PHANLOAIs" EntityType="Self.PHANLOAI" />
-          <EntitySet Name="THEBANs" EntityType="Self.THEBAN" />
-          <EntitySet Name="USERROLEs" EntityType="Self.USERROLE" />
-          <AssociationSet Name="FK_ACCOUNT_USERROLE" Association="Self.FK_ACCOUNT_USERROLE">
-            <End Role="USERROLE" EntitySet="USERROLEs" />
-            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTHD_HOADON" Association="Self.FK_CTHD_HOADON">
-            <End Role="HOADON" EntitySet="HOADONs" />
-            <End Role="CTHD" EntitySet="CTHDs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CTHD_MON" Association="Self.FK_CTHD_MON">
-            <End Role="MON" EntitySet="MONs" />
-            <End Role="CTHD" EntitySet="CTHDs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_HOADON_THEBAN" Association="Self.FK_HOADON_THEBAN">
-            <End Role="THEBAN" EntitySet="THEBANs" />
-            <End Role="HOADON" EntitySet="HOADONs" />
-          </AssociationSet>
-          <AssociationSet Name="FK_MON_PHANLOAI" Association="Self.FK_MON_PHANLOAI">
-            <End Role="PHANLOAI" EntitySet="PHANLOAIs" />
-            <End Role="MON" EntitySet="MONs" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -321,63 +268,54 @@
           <EntitySetMapping Name="ACCOUNTs">
             <EntityTypeMapping TypeName="QLCFModel.ACCOUNT">
               <MappingFragment StoreEntitySet="ACCOUNT">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="TK" ColumnName="TK" />
-                <ScalarProperty Name="MK" ColumnName="MK" />
                 <ScalarProperty Name="IdRole" ColumnName="IdRole" />
+                <ScalarProperty Name="MK" ColumnName="MK" />
+                <ScalarProperty Name="TK" ColumnName="TK" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CTHDs">
             <EntityTypeMapping TypeName="QLCFModel.CTHD">
               <MappingFragment StoreEntitySet="CTHD">
-                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
-                <ScalarProperty Name="MaM" ColumnName="MaM" />
                 <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="MaM" ColumnName="MaM" />
+                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HOADONs">
             <EntityTypeMapping TypeName="QLCFModel.HOADON">
               <MappingFragment StoreEntitySet="HOADON">
-                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
-                <ScalarProperty Name="NgXuat" ColumnName="NgXuat" />
                 <ScalarProperty Name="TongGia" ColumnName="TongGia" />
-                <ScalarProperty Name="MaTB" ColumnName="MaTB" />
+                <ScalarProperty Name="NgXuat" ColumnName="NgXuat" />
+                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MONs">
             <EntityTypeMapping TypeName="QLCFModel.MON">
               <MappingFragment StoreEntitySet="MON">
-                <ScalarProperty Name="MaM" ColumnName="MaM" />
-                <ScalarProperty Name="TenMon" ColumnName="TenMon" />
-                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
                 <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+                <ScalarProperty Name="MaM" ColumnName="MaM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PHANLOAIs">
             <EntityTypeMapping TypeName="QLCFModel.PHANLOAI">
               <MappingFragment StoreEntitySet="PHANLOAI">
-                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
                 <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="THEBANs">
-            <EntityTypeMapping TypeName="QLCFModel.THEBAN">
-              <MappingFragment StoreEntitySet="THEBAN">
-                <ScalarProperty Name="MaTB" ColumnName="MaTB" />
-                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+                <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="USERROLEs">
             <EntityTypeMapping TypeName="QLCFModel.USERROLE">
               <MappingFragment StoreEntitySet="USERROLE">
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

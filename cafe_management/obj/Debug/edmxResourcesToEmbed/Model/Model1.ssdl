@@ -25,7 +25,6 @@
     <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="NgXuat" Type="date" />
     <Property Name="TongGia" Type="money" />
-    <Property Name="MaTB" Type="int" />
   </EntityType>
   <EntityType Name="MON">
     <Key>
@@ -42,13 +41,6 @@
     </Key>
     <Property Name="MaLoai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenLoai" Type="nvarchar" MaxLength="100" />
-  </EntityType>
-  <EntityType Name="THEBAN">
-    <Key>
-      <PropertyRef Name="MaTB" />
-    </Key>
-    <Property Name="MaTB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TinhTrang" Type="int" />
   </EntityType>
   <EntityType Name="USERROLE">
     <Key>
@@ -93,18 +85,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_HOADON_THEBAN">
-    <End Role="THEBAN" Type="Self.THEBAN" Multiplicity="0..1" />
-    <End Role="HOADON" Type="Self.HOADON" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="THEBAN">
-        <PropertyRef Name="MaTB" />
-      </Principal>
-      <Dependent Role="HOADON">
-        <PropertyRef Name="MaTB" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_MON_PHANLOAI">
     <End Role="PHANLOAI" Type="Self.PHANLOAI" Multiplicity="0..1" />
     <End Role="MON" Type="Self.MON" Multiplicity="*" />
@@ -123,7 +103,6 @@
     <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MON" EntityType="Self.MON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHANLOAI" EntityType="Self.PHANLOAI" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="THEBAN" EntityType="Self.THEBAN" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USERROLE" EntityType="Self.USERROLE" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_ACCOUNT_USERROLE" Association="Self.FK_ACCOUNT_USERROLE">
       <End Role="USERROLE" EntitySet="USERROLE" />
@@ -136,10 +115,6 @@
     <AssociationSet Name="FK_CTHD_MON" Association="Self.FK_CTHD_MON">
       <End Role="MON" EntitySet="MON" />
       <End Role="CTHD" EntitySet="CTHD" />
-    </AssociationSet>
-    <AssociationSet Name="FK_HOADON_THEBAN" Association="Self.FK_HOADON_THEBAN">
-      <End Role="THEBAN" EntitySet="THEBAN" />
-      <End Role="HOADON" EntitySet="HOADON" />
     </AssociationSet>
     <AssociationSet Name="FK_MON_PHANLOAI" Association="Self.FK_MON_PHANLOAI">
       <End Role="PHANLOAI" EntitySet="PHANLOAI" />

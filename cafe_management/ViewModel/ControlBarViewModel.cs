@@ -33,26 +33,14 @@ namespace cafe_management.ViewModel
             {
                 FrameworkElement window = GetWindowParent(p);
                 var w = window as Window;
-                if (w != null)
-                {
-                    if (w.WindowState != WindowState.Maximized)
-                        w.WindowState = WindowState.Maximized;
-                    else
-                        w.WindowState = WindowState.Normal;
-                }
+                w.ResizeMode = ResizeMode.NoResize;
             }
             );
             MinimizeWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>
             {
                 FrameworkElement window = GetWindowParent(p);
                 var w = window as Window;
-                if (w != null)
-                {
-                    if (w.WindowState != WindowState.Minimized)
-                        w.WindowState = WindowState.Minimized;
-                    else
-                        w.WindowState = WindowState.Maximized;
-                }
+                w.ResizeMode = ResizeMode.NoResize;
             }
             );
             MouseMoveWindowCommand = new RelayCommand<UserControl>((p) => { return p == null ? false : true; }, (p) =>

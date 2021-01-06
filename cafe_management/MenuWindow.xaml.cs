@@ -238,10 +238,54 @@ namespace cafe_management
             }            
         }
 
+        private List<CTHD> ConvertToCTHD()
+        {
+            List<CTHD> list = new List<CTHD>();
+            foreach (var item in PurchaseList)
+            {
+                CTHD cthd = new CTHD()
+                {
+                    MaM = item.Id,
+                    SL = item.Quantity
+
+                };
+                list.Add(cthd);
+            }
+            return list;
+        }
+
+        private void CreateHOADON(List<CTHD> list)
+        {
+            HOADON hd = new HOADON();
+            string x = TotalPrice.Text.Replace(" đ", "");
+            using (QLCFEntities1 db = new QLCFEntities1())
+            {
+                var temp = db.HOADONs.Add(new HOADON()
+                {
+                    NgXuat = DateTime.Now,
+                    TongGia = Convert.ToDecimal(x),
+                    CTHDs = list,
+
+                });
+                db.SaveChanges();
+                foreach (CTHD cthd in hd.CTHDs)
+                {
+
+                    cthd.MaHD = temp.MaHD;
+                    db.CTHDs.Add(cthd);
+
+                }
+                db.SaveChanges();
+
+            }
+        }
         private void btnThanhToan_Click(object sender, RoutedEventArgs e)
         {
+            List<CTHD> cthd = ConvertToCTHD();
+            CreateHOADON(cthd);
 
         }
+
 
         private void UpdateTotalPrice_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -274,11 +318,11 @@ namespace cafe_management
 
         public string Name { get; set; }
 
-        public long Quantity { get; set; }
+        public int Quantity { get; set; }
 
         public int Price { get; set; }
 
-        public PurchaseItem(string id, string name, long quantity, int price)
+        public PurchaseItem(string id, string name, int quantity, int price)
         {
             Id = id;
             Name = name;
