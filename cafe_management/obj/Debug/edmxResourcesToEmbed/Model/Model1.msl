@@ -20,6 +20,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="CTPCs">
+      <EntityTypeMapping TypeName="QLCFModel.CTPC">
+        <MappingFragment StoreEntitySet="CTPC">
+          <ScalarProperty Name="SL" ColumnName="SL" />
+          <ScalarProperty Name="MaNgL" ColumnName="MaNgL" />
+          <ScalarProperty Name="MaPC" ColumnName="MaPC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DONVIs">
+      <EntityTypeMapping TypeName="QLCFModel.DONVI">
+        <MappingFragment StoreEntitySet="DONVI">
+          <ScalarProperty Name="TenDV" ColumnName="TenDV" />
+          <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="HOADONs">
       <EntityTypeMapping TypeName="QLCFModel.HOADON">
         <MappingFragment StoreEntitySet="HOADON">
@@ -39,11 +56,30 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="NGUYENLIEUx">
+      <EntityTypeMapping TypeName="QLCFModel.NGUYENLIEU">
+        <MappingFragment StoreEntitySet="NGUYENLIEU">
+          <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="TenNgL" ColumnName="TenNgL" />
+          <ScalarProperty Name="MaNgL" ColumnName="MaNgL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="PHANLOAIs">
       <EntityTypeMapping TypeName="QLCFModel.PHANLOAI">
         <MappingFragment StoreEntitySet="PHANLOAI">
           <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
           <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PHIEUCHIs">
+      <EntityTypeMapping TypeName="QLCFModel.PHIEUCHI">
+        <MappingFragment StoreEntitySet="PHIEUCHI">
+          <ScalarProperty Name="TongGia" ColumnName="TongGia" />
+          <ScalarProperty Name="NgNhap" ColumnName="NgNhap" />
+          <ScalarProperty Name="MaPC" ColumnName="MaPC" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

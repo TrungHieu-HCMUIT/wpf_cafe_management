@@ -18,6 +18,22 @@
     <Property Name="MaM" Type="char" MaxLength="4" Nullable="false" />
     <Property Name="SL" Type="int" />
   </EntityType>
+  <EntityType Name="CTPC">
+    <Key>
+      <PropertyRef Name="MaPC" />
+      <PropertyRef Name="MaNgL" />
+    </Key>
+    <Property Name="MaPC" Type="int" Nullable="false" />
+    <Property Name="MaNgL" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="SL" Type="int" />
+  </EntityType>
+  <EntityType Name="DONVI">
+    <Key>
+      <PropertyRef Name="MaDV" />
+    </Key>
+    <Property Name="MaDV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDV" Type="nvarchar" MaxLength="100" />
+  </EntityType>
   <EntityType Name="HOADON">
     <Key>
       <PropertyRef Name="MaHD" />
@@ -35,12 +51,29 @@
     <Property Name="DonGia" Type="smallmoney" />
     <Property Name="MaLoai" Type="int" />
   </EntityType>
+  <EntityType Name="NGUYENLIEU">
+    <Key>
+      <PropertyRef Name="MaNgL" />
+    </Key>
+    <Property Name="MaNgL" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="TenNgL" Type="nvarchar" MaxLength="100" />
+    <Property Name="DonGia" Type="smallmoney" />
+    <Property Name="MaDV" Type="int" />
+  </EntityType>
   <EntityType Name="PHANLOAI">
     <Key>
       <PropertyRef Name="MaLoai" />
     </Key>
     <Property Name="MaLoai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TenLoai" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PHIEUCHI">
+    <Key>
+      <PropertyRef Name="MaPC" />
+    </Key>
+    <Property Name="MaPC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NgNhap" Type="date" />
+    <Property Name="TongGia" Type="money" />
   </EntityType>
   <EntityType Name="USERROLE">
     <Key>
@@ -85,6 +118,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_CTPC_NGUYENLIEU">
+    <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="1" />
+    <End Role="CTPC" Type="Self.CTPC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NGUYENLIEU">
+        <PropertyRef Name="MaNgL" />
+      </Principal>
+      <Dependent Role="CTPC">
+        <PropertyRef Name="MaNgL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CTPC_PHIEUCHI">
+    <End Role="PHIEUCHI" Type="Self.PHIEUCHI" Multiplicity="1" />
+    <End Role="CTPC" Type="Self.CTPC" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PHIEUCHI">
+        <PropertyRef Name="MaPC" />
+      </Principal>
+      <Dependent Role="CTPC">
+        <PropertyRef Name="MaPC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MON_PHANLOAI">
     <End Role="PHANLOAI" Type="Self.PHANLOAI" Multiplicity="0..1" />
     <End Role="MON" Type="Self.MON" Multiplicity="*" />
@@ -97,12 +154,28 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_NGUYENLIEU_DONVI">
+    <End Role="DONVI" Type="Self.DONVI" Multiplicity="0..1" />
+    <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DONVI">
+        <PropertyRef Name="MaDV" />
+      </Principal>
+      <Dependent Role="NGUYENLIEU">
+        <PropertyRef Name="MaDV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="QLCFModelStoreContainer">
     <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CTHD" EntityType="Self.CTHD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CTPC" EntityType="Self.CTPC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DONVI" EntityType="Self.DONVI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MON" EntityType="Self.MON" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NGUYENLIEU" EntityType="Self.NGUYENLIEU" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHANLOAI" EntityType="Self.PHANLOAI" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PHIEUCHI" EntityType="Self.PHIEUCHI" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="USERROLE" EntityType="Self.USERROLE" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_ACCOUNT_USERROLE" Association="Self.FK_ACCOUNT_USERROLE">
       <End Role="USERROLE" EntitySet="USERROLE" />
@@ -116,9 +189,21 @@
       <End Role="MON" EntitySet="MON" />
       <End Role="CTHD" EntitySet="CTHD" />
     </AssociationSet>
+    <AssociationSet Name="FK_CTPC_NGUYENLIEU" Association="Self.FK_CTPC_NGUYENLIEU">
+      <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
+      <End Role="CTPC" EntitySet="CTPC" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CTPC_PHIEUCHI" Association="Self.FK_CTPC_PHIEUCHI">
+      <End Role="PHIEUCHI" EntitySet="PHIEUCHI" />
+      <End Role="CTPC" EntitySet="CTPC" />
+    </AssociationSet>
     <AssociationSet Name="FK_MON_PHANLOAI" Association="Self.FK_MON_PHANLOAI">
       <End Role="PHANLOAI" EntitySet="PHANLOAI" />
       <End Role="MON" EntitySet="MON" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NGUYENLIEU_DONVI" Association="Self.FK_NGUYENLIEU_DONVI">
+      <End Role="DONVI" EntitySet="DONVI" />
+      <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

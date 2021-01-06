@@ -23,6 +23,22 @@
           <Property Name="MaM" Type="char" MaxLength="4" Nullable="false" />
           <Property Name="SL" Type="int" />
         </EntityType>
+        <EntityType Name="CTPC">
+          <Key>
+            <PropertyRef Name="MaPC" />
+            <PropertyRef Name="MaNgL" />
+          </Key>
+          <Property Name="MaPC" Type="int" Nullable="false" />
+          <Property Name="MaNgL" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="SL" Type="int" />
+        </EntityType>
+        <EntityType Name="DONVI">
+          <Key>
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="MaDV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenDV" Type="nvarchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="HOADON">
           <Key>
             <PropertyRef Name="MaHD" />
@@ -40,12 +56,29 @@
           <Property Name="DonGia" Type="smallmoney" />
           <Property Name="MaLoai" Type="int" />
         </EntityType>
+        <EntityType Name="NGUYENLIEU">
+          <Key>
+            <PropertyRef Name="MaNgL" />
+          </Key>
+          <Property Name="MaNgL" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="TenNgL" Type="nvarchar" MaxLength="100" />
+          <Property Name="DonGia" Type="smallmoney" />
+          <Property Name="MaDV" Type="int" />
+        </EntityType>
         <EntityType Name="PHANLOAI">
           <Key>
             <PropertyRef Name="MaLoai" />
           </Key>
           <Property Name="MaLoai" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenLoai" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="PHIEUCHI">
+          <Key>
+            <PropertyRef Name="MaPC" />
+          </Key>
+          <Property Name="MaPC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgNhap" Type="date" />
+          <Property Name="TongGia" Type="money" />
         </EntityType>
         <EntityType Name="USERROLE">
           <Key>
@@ -90,6 +123,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CTPC_NGUYENLIEU">
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="1" />
+          <End Role="CTPC" Type="Self.CTPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUYENLIEU">
+              <PropertyRef Name="MaNgL" />
+            </Principal>
+            <Dependent Role="CTPC">
+              <PropertyRef Name="MaNgL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPC_PHIEUCHI">
+          <End Role="PHIEUCHI" Type="Self.PHIEUCHI" Multiplicity="1" />
+          <End Role="CTPC" Type="Self.CTPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUCHI">
+              <PropertyRef Name="MaPC" />
+            </Principal>
+            <Dependent Role="CTPC">
+              <PropertyRef Name="MaPC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MON_PHANLOAI">
           <End Role="PHANLOAI" Type="Self.PHANLOAI" Multiplicity="0..1" />
           <End Role="MON" Type="Self.MON" Multiplicity="*" />
@@ -102,12 +159,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_NGUYENLIEU_DONVI">
+          <End Role="DONVI" Type="Self.DONVI" Multiplicity="0..1" />
+          <End Role="NGUYENLIEU" Type="Self.NGUYENLIEU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONVI">
+              <PropertyRef Name="MaDV" />
+            </Principal>
+            <Dependent Role="NGUYENLIEU">
+              <PropertyRef Name="MaDV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="QLCFModelStoreContainer">
           <EntitySet Name="ACCOUNT" EntityType="Self.ACCOUNT" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CTHD" EntityType="Self.CTHD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CTPC" EntityType="Self.CTPC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DONVI" EntityType="Self.DONVI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HOADON" EntityType="Self.HOADON" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MON" EntityType="Self.MON" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NGUYENLIEU" EntityType="Self.NGUYENLIEU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHANLOAI" EntityType="Self.PHANLOAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHIEUCHI" EntityType="Self.PHIEUCHI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USERROLE" EntityType="Self.USERROLE" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_ACCOUNT_USERROLE" Association="Self.FK_ACCOUNT_USERROLE">
             <End Role="USERROLE" EntitySet="USERROLE" />
@@ -121,9 +194,21 @@
             <End Role="MON" EntitySet="MON" />
             <End Role="CTHD" EntitySet="CTHD" />
           </AssociationSet>
+          <AssociationSet Name="FK_CTPC_NGUYENLIEU" Association="Self.FK_CTPC_NGUYENLIEU">
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
+            <End Role="CTPC" EntitySet="CTPC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPC_PHIEUCHI" Association="Self.FK_CTPC_PHIEUCHI">
+            <End Role="PHIEUCHI" EntitySet="PHIEUCHI" />
+            <End Role="CTPC" EntitySet="CTPC" />
+          </AssociationSet>
           <AssociationSet Name="FK_MON_PHANLOAI" Association="Self.FK_MON_PHANLOAI">
             <End Role="PHANLOAI" EntitySet="PHANLOAI" />
             <End Role="MON" EntitySet="MON" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NGUYENLIEU_DONVI" Association="Self.FK_NGUYENLIEU_DONVI">
+            <End Role="DONVI" EntitySet="DONVI" />
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEU" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -133,9 +218,13 @@
         <EntityContainer Name="QLCFEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ACCOUNTs" EntityType="QLCFModel.ACCOUNT" />
           <EntitySet Name="CTHDs" EntityType="QLCFModel.CTHD" />
+          <EntitySet Name="CTPCs" EntityType="QLCFModel.CTPC" />
+          <EntitySet Name="DONVIs" EntityType="QLCFModel.DONVI" />
           <EntitySet Name="HOADONs" EntityType="QLCFModel.HOADON" />
           <EntitySet Name="MONs" EntityType="QLCFModel.MON" />
+          <EntitySet Name="NGUYENLIEUx" EntityType="QLCFModel.NGUYENLIEU" />
           <EntitySet Name="PHANLOAIs" EntityType="QLCFModel.PHANLOAI" />
+          <EntitySet Name="PHIEUCHIs" EntityType="QLCFModel.PHIEUCHI" />
           <EntitySet Name="USERROLEs" EntityType="QLCFModel.USERROLE" />
           <AssociationSet Name="FK_ACCOUNT_USERROLE" Association="QLCFModel.FK_ACCOUNT_USERROLE">
             <End Role="USERROLE" EntitySet="USERROLEs" />
@@ -148,6 +237,18 @@
           <AssociationSet Name="FK_CTHD_MON" Association="QLCFModel.FK_CTHD_MON">
             <End Role="MON" EntitySet="MONs" />
             <End Role="CTHD" EntitySet="CTHDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPC_NGUYENLIEU" Association="QLCFModel.FK_CTPC_NGUYENLIEU">
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEUx" />
+            <End Role="CTPC" EntitySet="CTPCs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CTPC_PHIEUCHI" Association="QLCFModel.FK_CTPC_PHIEUCHI">
+            <End Role="PHIEUCHI" EntitySet="PHIEUCHIs" />
+            <End Role="CTPC" EntitySet="CTPCs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NGUYENLIEU_DONVI" Association="QLCFModel.FK_NGUYENLIEU_DONVI">
+            <End Role="DONVI" EntitySet="DONVIs" />
+            <End Role="NGUYENLIEU" EntitySet="NGUYENLIEUx" />
           </AssociationSet>
           <AssociationSet Name="FK_MON_PHANLOAI" Association="QLCFModel.FK_MON_PHANLOAI">
             <End Role="PHANLOAI" EntitySet="PHANLOAIs" />
@@ -175,6 +276,25 @@
           <NavigationProperty Name="HOADON" Relationship="QLCFModel.FK_CTHD_HOADON" FromRole="CTHD" ToRole="HOADON" />
           <NavigationProperty Name="MON" Relationship="QLCFModel.FK_CTHD_MON" FromRole="CTHD" ToRole="MON" />
         </EntityType>
+        <EntityType Name="CTPC">
+          <Key>
+            <PropertyRef Name="MaPC" />
+            <PropertyRef Name="MaNgL" />
+          </Key>
+          <Property Name="MaPC" Type="Int32" Nullable="false" />
+          <Property Name="MaNgL" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="SL" Type="Int32" />
+          <NavigationProperty Name="NGUYENLIEU" Relationship="QLCFModel.FK_CTPC_NGUYENLIEU" FromRole="CTPC" ToRole="NGUYENLIEU" />
+          <NavigationProperty Name="PHIEUCHI" Relationship="QLCFModel.FK_CTPC_PHIEUCHI" FromRole="CTPC" ToRole="PHIEUCHI" />
+        </EntityType>
+        <EntityType Name="DONVI">
+          <Key>
+            <PropertyRef Name="MaDV" />
+          </Key>
+          <Property Name="MaDV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenDV" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NGUYENLIEUx" Relationship="QLCFModel.FK_NGUYENLIEU_DONVI" FromRole="DONVI" ToRole="NGUYENLIEU" />
+        </EntityType>
         <EntityType Name="HOADON">
           <Key>
             <PropertyRef Name="MaHD" />
@@ -195,6 +315,17 @@
           <NavigationProperty Name="CTHDs" Relationship="QLCFModel.FK_CTHD_MON" FromRole="MON" ToRole="CTHD" />
           <NavigationProperty Name="PHANLOAI" Relationship="QLCFModel.FK_MON_PHANLOAI" FromRole="MON" ToRole="PHANLOAI" />
         </EntityType>
+        <EntityType Name="NGUYENLIEU">
+          <Key>
+            <PropertyRef Name="MaNgL" />
+          </Key>
+          <Property Name="MaNgL" Type="String" Nullable="false" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="TenNgL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DonGia" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="MaDV" Type="Int32" />
+          <NavigationProperty Name="CTPCs" Relationship="QLCFModel.FK_CTPC_NGUYENLIEU" FromRole="NGUYENLIEU" ToRole="CTPC" />
+          <NavigationProperty Name="DONVI" Relationship="QLCFModel.FK_NGUYENLIEU_DONVI" FromRole="NGUYENLIEU" ToRole="DONVI" />
+        </EntityType>
         <EntityType Name="PHANLOAI">
           <Key>
             <PropertyRef Name="MaLoai" />
@@ -202,6 +333,15 @@
           <Property Name="MaLoai" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenLoai" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="MONs" Relationship="QLCFModel.FK_MON_PHANLOAI" FromRole="PHANLOAI" ToRole="MON" />
+        </EntityType>
+        <EntityType Name="PHIEUCHI">
+          <Key>
+            <PropertyRef Name="MaPC" />
+          </Key>
+          <Property Name="MaPC" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgNhap" Type="DateTime" Precision="0" />
+          <Property Name="TongGia" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="CTPCs" Relationship="QLCFModel.FK_CTPC_PHIEUCHI" FromRole="PHIEUCHI" ToRole="CTPC" />
         </EntityType>
         <EntityType Name="USERROLE">
           <Key>
@@ -247,6 +387,42 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_CTPC_NGUYENLIEU">
+          <End Type="QLCFModel.NGUYENLIEU" Role="NGUYENLIEU" Multiplicity="1" />
+          <End Type="QLCFModel.CTPC" Role="CTPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NGUYENLIEU">
+              <PropertyRef Name="MaNgL" />
+            </Principal>
+            <Dependent Role="CTPC">
+              <PropertyRef Name="MaNgL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CTPC_PHIEUCHI">
+          <End Type="QLCFModel.PHIEUCHI" Role="PHIEUCHI" Multiplicity="1" />
+          <End Type="QLCFModel.CTPC" Role="CTPC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHIEUCHI">
+              <PropertyRef Name="MaPC" />
+            </Principal>
+            <Dependent Role="CTPC">
+              <PropertyRef Name="MaPC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_NGUYENLIEU_DONVI">
+          <End Type="QLCFModel.DONVI" Role="DONVI" Multiplicity="0..1" />
+          <End Type="QLCFModel.NGUYENLIEU" Role="NGUYENLIEU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DONVI">
+              <PropertyRef Name="MaDV" />
+            </Principal>
+            <Dependent Role="NGUYENLIEU">
+              <PropertyRef Name="MaDV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MON_PHANLOAI">
           <End Type="QLCFModel.PHANLOAI" Role="PHANLOAI" Multiplicity="0..1" />
           <End Type="QLCFModel.MON" Role="MON" Multiplicity="*" />
@@ -284,6 +460,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="CTPCs">
+            <EntityTypeMapping TypeName="QLCFModel.CTPC">
+              <MappingFragment StoreEntitySet="CTPC">
+                <ScalarProperty Name="SL" ColumnName="SL" />
+                <ScalarProperty Name="MaNgL" ColumnName="MaNgL" />
+                <ScalarProperty Name="MaPC" ColumnName="MaPC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DONVIs">
+            <EntityTypeMapping TypeName="QLCFModel.DONVI">
+              <MappingFragment StoreEntitySet="DONVI">
+                <ScalarProperty Name="TenDV" ColumnName="TenDV" />
+                <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="HOADONs">
             <EntityTypeMapping TypeName="QLCFModel.HOADON">
               <MappingFragment StoreEntitySet="HOADON">
@@ -303,11 +496,30 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="NGUYENLIEUx">
+            <EntityTypeMapping TypeName="QLCFModel.NGUYENLIEU">
+              <MappingFragment StoreEntitySet="NGUYENLIEU">
+                <ScalarProperty Name="MaDV" ColumnName="MaDV" />
+                <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+                <ScalarProperty Name="TenNgL" ColumnName="TenNgL" />
+                <ScalarProperty Name="MaNgL" ColumnName="MaNgL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="PHANLOAIs">
             <EntityTypeMapping TypeName="QLCFModel.PHANLOAI">
               <MappingFragment StoreEntitySet="PHANLOAI">
                 <ScalarProperty Name="TenLoai" ColumnName="TenLoai" />
                 <ScalarProperty Name="MaLoai" ColumnName="MaLoai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHIEUCHIs">
+            <EntityTypeMapping TypeName="QLCFModel.PHIEUCHI">
+              <MappingFragment StoreEntitySet="PHIEUCHI">
+                <ScalarProperty Name="TongGia" ColumnName="TongGia" />
+                <ScalarProperty Name="NgNhap" ColumnName="NgNhap" />
+                <ScalarProperty Name="MaPC" ColumnName="MaPC" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

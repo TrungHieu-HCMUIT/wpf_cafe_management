@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cafe_management.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,9 +27,42 @@ namespace cafe_management
             InitializeComponent();
 
             LoadListItems();
+            //LoadSpendingListItems();
         }
 
+        private List<Revenue> GetRevenue()
+        {
+            List<Revenue> list = new List<Revenue>();
+            var objectList = DataProvider.Ins.DB.CTHDs;
+            foreach (var item in objectList)
+            {
+                Revenue revenue = new Revenue(item.MaHD, item.MON.TenMon, item.SL, Convert.ToInt64(item.MON.DonGia * item.SL));
+                list.Add(revenue);
+            }
+            return list;
+        }
         private void LoadListItems()
+        {
+            dgRevenue.ItemsSource = GetRevenue();
+        }
+
+        //private List<Spending> GetSpending()
+        //{
+        //    List<Spending> list = new List<Spending>();
+        //    var objectList = DataProvider.Ins.DB.CTPCs;
+        //    foreach (var item in objectList)
+        //    {
+        //        Spending spending = new Spending(item.MaPC, item.NGUYENLIEU.TenNgL, item.SL,item.NGUYENLIEU.DONVI.TenDV, Convert.ToInt64(item.NGUYENLIEU.DonGia * item.SL));
+        //        list.Add(spending);
+        //    }
+        //    return list;
+        //}
+
+        //private void LoadSpendingListItems()
+        //{
+        //    dgSpending.ItemsSource = GetSpending();
+        //}
+        private void dgRevenue_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
@@ -36,21 +70,24 @@ namespace cafe_management
 
     public class Revenue
     {
+
+
         public int MaHD { get; set; }
 
         public string Name { get; set; }
 
-        public int Quantity { get; set; }
+        public int? Quantity { get; set; }
 
-        public int Price { get; set; }
+        public long Price { get; set; }
 
-        public Revenue(int maHD, string name, int quantity, int price)
+        public Revenue(int maHD, string name, int? quantity, long price)
         {
             MaHD = maHD;
             Name = name;
             Quantity = quantity;
             Price = price;
         }
+
     }
 
     public class Spending
@@ -59,14 +96,16 @@ namespace cafe_management
 
         public string Name { get; set; }
 
+        public int? Quantity { get; set; }
         public string Unit { get; set; }
 
-        public int Price { get; set; }
+        public long Price { get; set; }
 
-        public Spending(int maHD, string name, string unit, int price)
+        public Spending(int maHD, string name, int? quantity, string unit, long price)
         {
             MaHD = maHD;
             Name = name;
+            Quantity = quantity;
             Unit = unit;
             Price = price;
         }

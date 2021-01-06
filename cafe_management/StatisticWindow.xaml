@@ -66,7 +66,7 @@
                         materialDesign:ButtonAssist.CornerRadius="15"
                         Background="#EA8025"
                         Foreground="#FFFFFF"
-                        ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                        ToolTip="Thống kê từng ngày"
                         materialDesign:ShadowAssist.ShadowDepth="Depth3">
                         XEM THỐNG KÊ
                     </Button> 
@@ -82,7 +82,7 @@
                         materialDesign:ButtonAssist.CornerRadius="15"
                         Background="#F1F1F1"
                         Foreground="#000000"
-                        ToolTip="Resource name: MaterialDesignRaisedLightButton"
+                        ToolTip="Trở về màn hình chính"
                         HorizontalAlignment="Left"
                         materialDesign:ShadowAssist.ShadowDepth="Depth3">
                         TRỞ VỀ
@@ -185,7 +185,7 @@
                                     </HeaderedContentControl>
                                 </DataGridTextColumn.Header>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Width="350" 
+                            <DataGridTextColumn Width="320" 
                                             Binding="{Binding Name}"
                                             FontSize="18"
                                             FontFamily="Roboto"
@@ -201,7 +201,23 @@
                                     </HeaderedContentControl>
                                 </DataGridTextColumn.Header>
                             </DataGridTextColumn>
-                            <DataGridTextColumn Width="200" 
+                            <DataGridTextColumn Width="120" 
+                                            Binding="{Binding Quantity}"
+                                            FontSize="18"
+                                            FontFamily="Roboto"
+                                            Foreground="#7B7B7B"
+                                            IsReadOnly="True">
+                                <DataGridTextColumn.Header>
+                                    <HeaderedContentControl  FontSize="20"
+                                                         Header="Số lượng"
+                                                         FontFamily="Roboto"
+                                                         Foreground="#000000"
+                                                         HorizontalAlignment="Center">
+                                    </HeaderedContentControl>
+                                </DataGridTextColumn.Header>
+                            </DataGridTextColumn>
+
+                            <DataGridTextColumn Width="100" 
                                             Binding="{Binding Unit}"
                                             FontSize="18"
                                             FontFamily="Roboto"
@@ -209,7 +225,7 @@
                                             IsReadOnly="True">
                                 <DataGridTextColumn.Header>
                                     <HeaderedContentControl  FontSize="20"
-                                                         Header="Số lượng (đơn vị)"
+                                                         Header="Đơn vị"
                                                          FontFamily="Roboto"
                                                          Foreground="#000000"
                                                          HorizontalAlignment="Center">
