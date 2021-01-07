@@ -51,5 +51,12 @@ namespace cafe_management
             accountWindow.Show();
             this.Close();
         }
+
+        private void Image_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
+        }
     }
 }

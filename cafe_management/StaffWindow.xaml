@@ -29,6 +29,9 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
+                <StackPanel VerticalAlignment="Top" HorizontalAlignment="Right" Height="80" Width="80" Margin="20">
+                    <Image Source="/Resource/StaffWindow/Log_out.png" MouseDown="Image_MouseDown"/>
+                </StackPanel>
                 <Image Source="/Resource/StaffWindow/Logo.png" />
             </Grid>
             <Grid Grid.Row="1">

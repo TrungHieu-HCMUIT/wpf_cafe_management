@@ -332,9 +332,14 @@ namespace cafe_management
                 total_price += PurchaseList[i].Price;
                 STT++;
             }
-            Paragraph total = new Paragraph("\nTotal: " + total_price);
+            Paragraph discount = new Paragraph("\nDiscount: " + Discount.Text + "%");
+            Paragraph total = new Paragraph("\nTotal: " + total_price );
+            Paragraph final_total = new Paragraph("\nFinal total: " + (total_price - (int)(total_price * Convert.ToDouble(Discount.Text) / 100)));
+            
             doc.Add(table);
+            doc.Add(discount);
             doc.Add(total);
+            doc.Add(final_total);
 
             doc.Close();
         }

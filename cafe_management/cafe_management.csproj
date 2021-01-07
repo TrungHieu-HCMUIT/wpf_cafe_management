@@ -246,6 +246,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resource\StaffWindow\Log_out.png" />
     <Resource Include="Resource\SpendingWindow\Click_to_add.png" />
     <Resource Include="Resource\StaffWindow\Logo.png" />
     <Resource Include="Resource\StaffWindow\Thống kê-01.png" />
