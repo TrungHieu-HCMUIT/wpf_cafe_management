@@ -11,8 +11,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TK" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="MK" Type="nvarchar" MaxLength="100" />
-          <Property Name="IdRole" Type="int" Nullable="false" />
+          <Property Name="MK" Type="nvarchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="CTHD">
           <Key>
@@ -73,25 +72,6 @@
           <Property Name="NgNhap" Type="date" />
           <Property Name="TongGia" Type="money" />
         </EntityType>
-        <EntityType Name="USERROLE">
-          <Key>
-            <PropertyRef Name="IdRole" />
-          </Key>
-          <Property Name="IdRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DisplayName" Type="nvarchar" MaxLength="100" />
-        </EntityType>
-        <Association Name="FK_ACCOUNT_USERROLE">
-          <End Role="USERROLE" Type="Self.USERROLE" Multiplicity="1" />
-          <End Role="ACCOUNT" Type="Self.ACCOUNT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USERROLE">
-              <PropertyRef Name="IdRole" />
-            </Principal>
-            <Dependent Role="ACCOUNT">
-              <PropertyRef Name="IdRole" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CTHD_HOADON">
           <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
           <End Role="CTHD" Type="Self.CTHD" Multiplicity="*" />
@@ -161,11 +141,6 @@
           <EntitySet Name="NGUYENLIEU" EntityType="Self.NGUYENLIEU" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHANLOAI" EntityType="Self.PHANLOAI" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHIEUCHI" EntityType="Self.PHIEUCHI" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="USERROLE" EntityType="Self.USERROLE" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_ACCOUNT_USERROLE" Association="Self.FK_ACCOUNT_USERROLE">
-            <End Role="USERROLE" EntitySet="USERROLE" />
-            <End Role="ACCOUNT" EntitySet="ACCOUNT" />
-          </AssociationSet>
           <AssociationSet Name="FK_CTHD_HOADON" Association="Self.FK_CTHD_HOADON">
             <End Role="HOADON" EntitySet="HOADON" />
             <End Role="CTHD" EntitySet="CTHD" />
@@ -200,11 +175,6 @@
           <EntitySet Name="NGUYENLIEUx" EntityType="QLCFModel.NGUYENLIEU" />
           <EntitySet Name="PHANLOAIs" EntityType="QLCFModel.PHANLOAI" />
           <EntitySet Name="PHIEUCHIs" EntityType="QLCFModel.PHIEUCHI" />
-          <EntitySet Name="USERROLEs" EntityType="QLCFModel.USERROLE" />
-          <AssociationSet Name="FK_ACCOUNT_USERROLE" Association="QLCFModel.FK_ACCOUNT_USERROLE">
-            <End Role="USERROLE" EntitySet="USERROLEs" />
-            <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
-          </AssociationSet>
           <AssociationSet Name="FK_CTHD_HOADON" Association="QLCFModel.FK_CTHD_HOADON">
             <End Role="HOADON" EntitySet="HOADONs" />
             <End Role="CTHD" EntitySet="CTHDs" />
@@ -232,9 +202,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="IdRole" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="USERROLE" Relationship="QLCFModel.FK_ACCOUNT_USERROLE" FromRole="ACCOUNT" ToRole="USERROLE" />
+          <Property Name="MK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CTHD">
           <Key>
@@ -305,26 +273,6 @@
           <Property Name="TongGia" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="CTPCs" Relationship="QLCFModel.FK_CTPC_PHIEUCHI" FromRole="PHIEUCHI" ToRole="CTPC" />
         </EntityType>
-        <EntityType Name="USERROLE">
-          <Key>
-            <PropertyRef Name="IdRole" />
-          </Key>
-          <Property Name="IdRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ACCOUNTs" Relationship="QLCFModel.FK_ACCOUNT_USERROLE" FromRole="USERROLE" ToRole="ACCOUNT" />
-        </EntityType>
-        <Association Name="FK_ACCOUNT_USERROLE">
-          <End Type="QLCFModel.USERROLE" Role="USERROLE" Multiplicity="1" />
-          <End Type="QLCFModel.ACCOUNT" Role="ACCOUNT" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="USERROLE">
-              <PropertyRef Name="IdRole" />
-            </Principal>
-            <Dependent Role="ACCOUNT">
-              <PropertyRef Name="IdRole" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_CTHD_HOADON">
           <End Type="QLCFModel.HOADON" Role="HOADON" Multiplicity="1" />
           <End Type="QLCFModel.CTHD" Role="CTHD" Multiplicity="*" />
@@ -394,7 +342,6 @@
           <EntitySetMapping Name="ACCOUNTs">
             <EntityTypeMapping TypeName="QLCFModel.ACCOUNT">
               <MappingFragment StoreEntitySet="ACCOUNT">
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
                 <ScalarProperty Name="MK" ColumnName="MK" />
                 <ScalarProperty Name="TK" ColumnName="TK" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
@@ -462,14 +409,6 @@
                 <ScalarProperty Name="TongGia" ColumnName="TongGia" />
                 <ScalarProperty Name="NgNhap" ColumnName="NgNhap" />
                 <ScalarProperty Name="MaPC" ColumnName="MaPC" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="USERROLEs">
-            <EntityTypeMapping TypeName="QLCFModel.USERROLE">
-              <MappingFragment StoreEntitySet="USERROLE">
-                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-                <ScalarProperty Name="IdRole" ColumnName="IdRole" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="2ac8cfccdaf840f88de36cc9bf6f5973" Name="Diagram1">
-        <EntityTypeShape EntityType="QLCFModel.ACCOUNT" Width="1.5" PointX="10" PointY="0.875" />
+        <EntityTypeShape EntityType="QLCFModel.ACCOUNT" Width="1.5" PointX="7.75" PointY="0.75" />
         <EntityTypeShape EntityType="QLCFModel.CTHD" Width="1.5" PointX="5.25" PointY="1" />
         <EntityTypeShape EntityType="QLCFModel.CTPC" Width="1.5" PointX="8" PointY="4.875" />
         <EntityTypeShape EntityType="QLCFModel.HOADON" Width="1.5" PointX="3" PointY="5.125" />
@@ -13,8 +13,6 @@
         <EntityTypeShape EntityType="QLCFModel.NGUYENLIEU" Width="1.5" PointX="5.75" PointY="7.875" />
         <EntityTypeShape EntityType="QLCFModel.PHANLOAI" Width="1.5" PointX="0.75" PointY="1.25" />
         <EntityTypeShape EntityType="QLCFModel.PHIEUCHI" Width="1.5" PointX="5.75" PointY="5" />
-        <EntityTypeShape EntityType="QLCFModel.USERROLE" Width="1.5" PointX="7.75" PointY="1.125" />
-        <AssociationConnector Association="QLCFModel.FK_ACCOUNT_USERROLE" />
         <AssociationConnector Association="QLCFModel.FK_CTHD_HOADON" />
         <AssociationConnector Association="QLCFModel.FK_CTHD_MON" />
         <AssociationConnector Association="QLCFModel.FK_CTPC_NGUYENLIEU" />

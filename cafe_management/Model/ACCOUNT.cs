@@ -17,8 +17,5 @@ namespace cafe_management.Model
         public int ID { get; set; }
         public string TK { get; set; }
         public string MK { get; set; }
-        public int IdRole { get; set; }
-    
-        public virtual USERROLE USERROLE { get; set; }
     }
 }

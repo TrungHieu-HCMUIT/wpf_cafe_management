@@ -25,7 +25,8 @@
             <StackPanel HorizontalAlignment="Center"
                         Margin="0,25,0,0" 
                         Width="281">
-                <PasswordBox 
+                <PasswordBox
+                            Name="pbOld"
                             Width="281"
                             Height="51"
                             materialDesign:HintAssist.Hint="Mật khẩu cũ"
@@ -36,6 +37,7 @@
                             FontFamily="Roboto"
                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                 <PasswordBox 
+                            Name="pbNew"
                             Width="281"
                             Height="51"
                             materialDesign:HintAssist.Hint="Mật khẩu mới"
@@ -46,6 +48,7 @@
                             FontFamily="Roboto"
                             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                 <PasswordBox 
+                            Name="pbNewAgain"
                             Width="281"
                             Height="51"
                             materialDesign:HintAssist.Hint="Nhập lại mật khẩu mới"
@@ -63,8 +66,8 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Button 
-                    Command="{Binding StaffCommand}" 
+                <Button
+                    Click="Confirm_Click"
                     FontSize="20"
                     Foreground="#000000"
                     Content="XÁC NHẬN"

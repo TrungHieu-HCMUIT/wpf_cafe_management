@@ -9,11 +9,6 @@
     <EntitySet Name="NGUYENLIEUx" EntityType="QLCFModel.NGUYENLIEU" />
     <EntitySet Name="PHANLOAIs" EntityType="QLCFModel.PHANLOAI" />
     <EntitySet Name="PHIEUCHIs" EntityType="QLCFModel.PHIEUCHI" />
-    <EntitySet Name="USERROLEs" EntityType="QLCFModel.USERROLE" />
-    <AssociationSet Name="FK_ACCOUNT_USERROLE" Association="QLCFModel.FK_ACCOUNT_USERROLE">
-      <End Role="USERROLE" EntitySet="USERROLEs" />
-      <End Role="ACCOUNT" EntitySet="ACCOUNTs" />
-    </AssociationSet>
     <AssociationSet Name="FK_CTHD_HOADON" Association="QLCFModel.FK_CTHD_HOADON">
       <End Role="HOADON" EntitySet="HOADONs" />
       <End Role="CTHD" EntitySet="CTHDs" />
@@ -41,9 +36,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="TK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="MK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="IdRole" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="USERROLE" Relationship="QLCFModel.FK_ACCOUNT_USERROLE" FromRole="ACCOUNT" ToRole="USERROLE" />
+    <Property Name="MK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="CTHD">
     <Key>
@@ -114,26 +107,6 @@
     <Property Name="TongGia" Type="Decimal" Precision="19" Scale="4" />
     <NavigationProperty Name="CTPCs" Relationship="QLCFModel.FK_CTPC_PHIEUCHI" FromRole="PHIEUCHI" ToRole="CTPC" />
   </EntityType>
-  <EntityType Name="USERROLE">
-    <Key>
-      <PropertyRef Name="IdRole" />
-    </Key>
-    <Property Name="IdRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="DisplayName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="ACCOUNTs" Relationship="QLCFModel.FK_ACCOUNT_USERROLE" FromRole="USERROLE" ToRole="ACCOUNT" />
-  </EntityType>
-  <Association Name="FK_ACCOUNT_USERROLE">
-    <End Type="QLCFModel.USERROLE" Role="USERROLE" Multiplicity="1" />
-    <End Type="QLCFModel.ACCOUNT" Role="ACCOUNT" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="USERROLE">
-        <PropertyRef Name="IdRole" />
-      </Principal>
-      <Dependent Role="ACCOUNT">
-        <PropertyRef Name="IdRole" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_CTHD_HOADON">
     <End Type="QLCFModel.HOADON" Role="HOADON" Multiplicity="1" />
     <End Type="QLCFModel.CTHD" Role="CTHD" Multiplicity="*" />

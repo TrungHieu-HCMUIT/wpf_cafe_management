@@ -40,7 +40,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <DatePicker
-                        Name="dpStatistic"   
+                        Name="dpTime"   
                         Width="230"
                         materialDesign:HintAssist.Hint="Chọn ngày"
                         materialDesign:HintAssist.Foreground="#FFEA8025"
@@ -58,6 +58,7 @@
                 </Grid>
                 <Grid Grid.Column="1">
                     <Button
+                        Click="Display_Click"
                         Style="{StaticResource MaterialDesignRaisedLightButton}"
                         FontFamily="Roboto"
                         FontSize="28"
@@ -259,7 +260,8 @@
                 <Grid Grid.Column="0" Height="80"
                       Background="#F1F1F1">
                     <Grid>
-                        <TextBlock Text="Tổng thu:"
+                        <TextBlock
+                                   Name="tbRevenue"
                                    FontSize="32"
                                    FontFamily="Roboto"
                                    FontWeight="Bold"
@@ -271,7 +273,8 @@
                 <Grid Grid.Column="1"  Background="#EA8025" ></Grid>
                 <Grid Grid.Column="2" Height="80" VerticalAlignment="Top" >
                     <Grid Background="#F1F1F1">
-                        <TextBlock Text="Tổng chi:"
+                        <TextBlock 
+                                   Name="tbSpending"
                                    FontSize="32"
                                    FontFamily="Roboto"
                                    FontWeight="Bold"
@@ -283,9 +286,9 @@
             </Grid>
             <Grid Grid.Row="4" Background="#EA8025"></Grid>
             <Grid Grid.Row="5" Background="#F1F1F1">
-                <TextBlock Text="DOANH THU NGÀY:"
+                <TextBlock Name="tbTotal"
                            FontSize="32"
-                            FontFamily="Roboto"
+                           FontFamily="Roboto"
                            FontWeight="Bold"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"

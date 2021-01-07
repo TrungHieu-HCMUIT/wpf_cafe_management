@@ -294,36 +294,52 @@ namespace cafe_management
         [Obsolete]
         private void PrintHoaDon()
         {
+            var objectList = DataProvider.Ins.DB.HOADONs;
+            int maHD = 0;
+            foreach (var item in objectList)
+            {
+                if (maHD <= item.MaHD)
+                    maHD = item.MaHD;
+            }
+
             int STT = 1;
             int total_price = 0;
             Document doc = new Document(iTextSharp.text.PageSize.A5);
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("1.pdf", FileMode.Create));
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream( maHD+".pdf", FileMode.Create));
             doc.Open();
 
-            Paragraph header = new Paragraph("HÓA ĐƠN THANH TOÁN");
-            header.Alignment = Element.ALIGN_CENTER;
-            doc.Add(header);
+            PdfPTable table = new PdfPTable(5);
 
-            Paragraph body = new Paragraph("TT" + Chunk.CreateTabspace() + "Tên món" + Chunk.CreateTabspace() + "SL" + Chunk.CreateTabspace() + "Đơn giá" + Chunk.CreateTabspace() + "Thành tiền");
-            body.Alignment = Element.ALIGN_JUSTIFIED;
-            doc.Add(body);
+            PdfPCell cell = new PdfPCell(new Phrase("BILL DETAIL"));
+            table.DefaultCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+            cell.Colspan = 5;
+            cell.HorizontalAlignment = 1;
 
-            Paragraph body_content = new Paragraph();
+            table.AddCell(cell);
+            table.AddCell("Number order");
+            table.AddCell("Name");
+            table.AddCell("Quantity");
+            table.AddCell("Unit price");
+            table.AddCell("Price");
+
             for (int i = 0; i < PurchaseList.Count; i++)
             {
-                Chunk item = new Chunk("" + STT + Chunk.CreateTabspace() + PurchaseList[i].Name + Chunk.CreateTabspace() + PurchaseList[i].Quantity + Chunk.CreateTabspace() + PurchaseList[i].Price / PurchaseList[i].Quantity + Chunk.CreateTabspace() + PurchaseList[i].Price + "\n");
-                body_content.Add(item);
+                table.AddCell("" + STT);
+                table.AddCell("" + PurchaseList[i].Name);
+                table.AddCell("" + PurchaseList[i].Quantity);
+                table.AddCell("" + PurchaseList[i].Price / PurchaseList[i].Quantity);
+                table.AddCell("" + PurchaseList[i].Price);
                 total_price += PurchaseList[i].Price;
                 STT++;
             }
-            Chunk total = new Chunk("Tổng tiền: " + total_price);
-            body_content.Add(total);
-            body_content.Alignment = Element.ALIGN_JUSTIFIED;
-            doc.Add(body_content);
+            Paragraph total = new Paragraph("\nTotal: " + total_price);
+            doc.Add(table);
+            doc.Add(total);
 
             doc.Close();
         }
 
+        [Obsolete]
         private void btnThanhToan_Click(object sender, RoutedEventArgs e)
         {
             if(!check_Discount())
@@ -337,7 +353,6 @@ namespace cafe_management
                 CreateHOADON(cthd);
 
                 PrintHoaDon();
-
                 StaffWindow staffWindow = new StaffWindow();
                 staffWindow.Show();
                 this.Close();

@@ -4,7 +4,6 @@
     <EntitySetMapping Name="ACCOUNTs">
       <EntityTypeMapping TypeName="QLCFModel.ACCOUNT">
         <MappingFragment StoreEntitySet="ACCOUNT">
-          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
           <ScalarProperty Name="MK" ColumnName="MK" />
           <ScalarProperty Name="TK" ColumnName="TK" />
           <ScalarProperty Name="ID" ColumnName="ID" />
@@ -72,14 +71,6 @@
           <ScalarProperty Name="TongGia" ColumnName="TongGia" />
           <ScalarProperty Name="NgNhap" ColumnName="NgNhap" />
           <ScalarProperty Name="MaPC" ColumnName="MaPC" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="USERROLEs">
-      <EntityTypeMapping TypeName="QLCFModel.USERROLE">
-        <MappingFragment StoreEntitySet="USERROLE">
-          <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
-          <ScalarProperty Name="IdRole" ColumnName="IdRole" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

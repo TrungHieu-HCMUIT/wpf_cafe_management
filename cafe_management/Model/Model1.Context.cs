@@ -33,6 +33,5 @@ namespace cafe_management.Model
         public virtual DbSet<NGUYENLIEU> NGUYENLIEUx { get; set; }
         public virtual DbSet<PHANLOAI> PHANLOAIs { get; set; }
         public virtual DbSet<PHIEUCHI> PHIEUCHIs { get; set; }
-        public virtual DbSet<USERROLE> USERROLEs { get; set; }
     }
 }
