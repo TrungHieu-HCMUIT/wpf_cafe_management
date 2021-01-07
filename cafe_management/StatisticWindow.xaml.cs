@@ -26,6 +26,7 @@ namespace cafe_management
         {
             InitializeComponent();
 
+            
             LoadListItems();
             //LoadSpendingListItems();
         }

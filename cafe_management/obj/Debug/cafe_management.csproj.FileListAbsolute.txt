@@ -323,3 +323,6 @@ C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\AccountWindow.baml
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\NotificationWindow.baml
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\SpendingWindow.g.cs
 C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\obj\Debug\SpendingWindow.baml
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\itextsharp.dll
+C:\Users\ASUS\source\repos\DoAnLTTQ\cafe_management\bin\Debug\itextsharp.xml

@@ -14,6 +14,10 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using Paragraph = iTextSharp.text.Paragraph;
 
 namespace cafe_management
 {
@@ -286,10 +290,38 @@ namespace cafe_management
                 }
             }
         }
+
+        private void PrintHoaDon()
+        {
+            int STT = 1;
+            int total_price = 0;
+            Document doc = new Document(iTextSharp.text.PageSize.A6);
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("1", FileMode.Create));
+            doc.Open();
+
+            Paragraph header = new Paragraph("HÓA ĐƠN THANH TOÁN", FontFactory.GetFont("Roboto Bold"));
+            header.Alignment = Element.ALIGN_CENTER;
+            doc.Add(header);
+
+            Paragraph body = new Paragraph("TT\tTên món\t\tSL\tĐơn giá\tThành tiền", FontFactory.GetFont("Roboto"));
+            body.Alignment = Element.ALIGN_JUSTIFIED;
+            doc.Add(body);
+
+            Paragraph body_content = new Paragraph();
+            for (int i = 0; i < PurchaseList.Count; i++)
+            {
+                Chunk item = new Chunk("" + STT + "\t" + PurchaseList[i].Name + "\t\t" + PurchaseList[i].Quantity + "\t" + PurchaseList[i].Price / PurchaseList[i].Quantity + "\t" + PurchaseList[i].Price + "\n");
+                body_content.Add(item);
+                total_price += PurchaseList[i].Price;
+                STT++;
+            }
+            Chunk total = new Chunk("Tổng tiền: " + total_price);
+            body_content.Add(total);
+            body_content.Alignment = Element.ALIGN_JUSTIFIED;
+        }
+
         private void btnThanhToan_Click(object sender, RoutedEventArgs e)
         {
-            List<CTHD> cthd = ConvertToCTHD();
-            CreateHOADON(cthd);
             if(!check_Discount())
             {
                 NotificationWindow notice = new NotificationWindow("Dữ liệu giảm giá sai", "Vui lòng nhập lại");
@@ -297,12 +329,16 @@ namespace cafe_management
             }
             else
             {
+                List<CTHD> cthd = ConvertToCTHD();
+                CreateHOADON(cthd);
+
+                PrintHoaDon();
+
                 StaffWindow staffWindow = new StaffWindow();
                 staffWindow.Show();
                 this.Close();
             }            
-        }
-
+        }      
 
         private void UpdateTotalPrice_MouseDown(object sender, MouseButtonEventArgs e)
         {
