@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cafe_management.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -131,8 +132,244 @@ namespace cafe_management
             UpdateList();
         }
 
+        //private List<Revenue> GetRevenue()
+        //{
+        //    List<Revenue> list = new List<Revenue>();
+        //    var objectList = DataProvider.Ins.DB.CTHDs;
+        //    foreach (var item in objectList)
+        //    {
+        //        Revenue revenue = new Revenue(item.MaHD, item.MON.TenMon, item.SL, Convert.ToInt64(item.MON.DonGia * item.SL));
+        //        list.Add(revenue);
+        //    }
+        //    return list;
+        //}
+        //private void CreateNGUYENLIEU(List<CTHD> list)
+        //{
+        //    //NGUYENLIEU hd = new NGUYENLIEU();
+        //    if (list.Count == 0)
+        //    {
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        using (QLCFEntities1 db = new QLCFEntities1())
+        //        {
+        //            NGUYENLIEU hd = new NGUYENLIEU()
+        //            {
+
+        //            }
+        //            //var temp = db.NGUYENLIEUx.Add(new NGUYENLIEU()
+        //            //{
+        //            //    TenNgL=Name,
+        //            //    DonGia= Convert.ToDecimal(Price),
+        //            //    DonVi= Unit
+        //            //});
+        //            //db.SaveChanges();
+
+        //            foreach (var item in ingredients_list)
+        //            {
+
+        //                TenNgl = item.Name;
+
+        //            }
+        //            db.SaveChanges();
+        //        }
+        //    }
+        //}
+
+        //private List<NGUYENLIEU> ConvertToNGUYENLIEU()
+        //{
+        //    List<NGUYENLIEU> list = new List<NGUYENLIEU>();
+        //    foreach (var item in ingredients_list)
+        //    {
+        //        NGUYENLIEU ngl = new NGUYENLIEU()
+        //        {
+        //            TenNgL = item.Name,
+        //            DonGia = Convert.ToDecimal(item.Price),
+        //            DonVi = item.Unit,
+
+        //        };
+        //        list.Add(ngl);
+        //    }
+        //    return list;
+        //}
+        //private void CreateNGUYENLIEU(List<CTPC> list)
+        //{
+        //    NGUYENLIEU ngl = new NGUYENLIEU();
+        //    using (QLCFEntities1 db = new QLCFEntities1())
+        //    {
+        //        foreach (var item in ingredients_list)
+        //        {
+        //            var x = db.NGUYENLIEUx.Add(new NGUYENLIEU()
+        //            {
+        //                TenNgL = item.Name,
+        //                DonGia = Convert.ToDecimal(item.Price),
+        //                DonVi = item.Unit,
+        //                //CTPCs = list  
+
+        //            }) ;
+        //            // db.SaveChanges();
+        //            //foreach (CTPC ctpc in ngl.CTPCs)
+        //            //{
+
+        //            //    ctpc.MaNgL = x.MaNgL;
+        //            //    db.CTPCs.Add(ctpc);
+
+        //            //}
+        //            db.SaveChanges();
+        //        }
+        //        db.SaveChanges();
+        //    }
+        //}
+        //private List<CTPC> ConvertToCTPC()
+        //{
+        //    List<CTPC> list = new List<CTPC>();
+        //    foreach (var item in ingredients_list)
+        //    {
+        //        CTPC ctpc = new CTPC()
+        //        {
+        //           // MaNgL = item.id,                  
+        //            SL = item.Quantity 
+
+        //        };
+        //        list.Add(ctpc);
+        //    }
+        //    return list;
+        //}
+
+        //private void CreatePHIEUCHI(List<CTPC> list)
+        //{
+        //    PHIEUCHI pc = new PHIEUCHI();
+        //    string x = TotalPrice.Text.Replace("đ", "");
+        //    if (list.Count == 0)
+        //    {
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        using (QLCFEntities1 db = new QLCFEntities1())
+        //        {
+        //            var temp = db.PHIEUCHIs.Add(new PHIEUCHI()
+        //            {
+        //                NgNhap = DateTime.Now,
+        //                TongGia = Convert.ToDecimal(x),
+        //                CTPCs = list
+
+        //            }) ;
+        //            db.SaveChanges();
+        //            foreach (CTPC ctpc in pc.CTPCs)
+        //            {
+
+        //                ctpc.MaPC = temp.MaPC;
+        //                db.CTPCs.Add(ctpc);
+
+        //            }
+        //            db.SaveChanges();
+
+        //        }
+        //    }
+        //}
+        //private void Confirm_Click(object sender, RoutedEventArgs e)
+        //{
+        //    List<CTPC> ctpc = ConvertToCTPC();
+        //    CreateNGUYENLIEU(ctpc);
+        //    CreatePHIEUCHI(ctpc);
+
+
+        //    StaffWindow staffWindow = new StaffWindow();
+        //    staffWindow.Show();
+        //    this.Close();
+
+        //}
+        private void CreateNGUYENLIEU(/*List<CTPC> list*/)
+        {
+            NGUYENLIEU ngl = new NGUYENLIEU();
+            using (QLCFEntities1 db = new QLCFEntities1())
+            {
+                foreach (var item in ingredients_list)
+                {
+                    var x = db.NGUYENLIEUx.Add(new NGUYENLIEU()
+                    {
+                        TenNgL = item.Name,
+                        DonGia = Convert.ToDecimal(item.Price),
+                        DonVi = item.Unit,
+                        //CTPCs = list
+
+                    });
+                    db.SaveChanges();
+                    item.ID = x.MaNgL;
+                    //db.SaveChanges();
+                    //foreach (CTPC ctpc in ngl.CTPCs)
+                    //{
+
+                    //    ctpc.MaNgL = x.MaNgL;
+                    //    db.CTPCs.Add(ctpc);
+
+                    //}
+                    //db.SaveChanges();
+                }
+               // db.SaveChanges();
+            }
+        }
+        private List<CTPC> ConvertToCTPC()
+        {
+            List<CTPC> list = new List<CTPC>();
+            foreach (var item in ingredients_list)
+            {
+                CTPC ctpc = new CTPC()
+                {
+                    MaNgL = item.ID,
+                    SL = item.Quantity
+
+                };
+                list.Add(ctpc);
+            }
+            return list;
+        }
+
+        private void CreatePHIEUCHI(List<CTPC> list)
+        {
+            PHIEUCHI pc = new PHIEUCHI();
+            string x = TotalPrice.Text.Replace("đ", "");
+            if (list.Count == 0)
+            {
+                return;
+            }
+            else
+            {
+                using (QLCFEntities1 db = new QLCFEntities1())
+                {
+                    var temp = db.PHIEUCHIs.Add(new PHIEUCHI()
+                    {
+                        NgNhap = DateTime.Now,
+                        TongGia = Convert.ToDecimal(x),
+                        CTPCs = list
+
+                    });
+                    db.SaveChanges();
+                    foreach (CTPC ctpc in pc.CTPCs)
+                    {
+                        ctpc.MaPC = temp.MaPC;
+                        db.CTPCs.Add(ctpc);
+                    }
+                    db.SaveChanges();
+
+                }
+            }
+        }
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            CreateNGUYENLIEU(/*ctpc*/);
+            List<CTPC> ctpc = ConvertToCTPC();
+
+            
+            
+            CreatePHIEUCHI(ctpc);
+
+
+            StaffWindow staffWindow = new StaffWindow();
+            staffWindow.Show();
+            this.Close();
 
         }
 
@@ -146,6 +383,7 @@ namespace cafe_management
 
     public class Ingredient
     {
+        public int ID { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
         public string Unit { get; set; }
@@ -153,6 +391,7 @@ namespace cafe_management
 
         public Ingredient(string name, int quantity, string unit, int price)
         {
+            
             Name = name;
             Quantity = quantity;
             Unit = unit;
@@ -160,3 +399,5 @@ namespace cafe_management
         }
     }
 }
+
+

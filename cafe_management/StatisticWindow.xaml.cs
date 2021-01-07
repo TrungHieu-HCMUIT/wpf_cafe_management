@@ -27,7 +27,7 @@ namespace cafe_management
             InitializeComponent();
 
             LoadListItems();
-            //LoadSpendingListItems();
+            LoadSpendingListItems();
         }
 
         private List<Revenue> GetRevenue()
@@ -46,22 +46,22 @@ namespace cafe_management
             dgRevenue.ItemsSource = GetRevenue();
         }
 
-        //private List<Spending> GetSpending()
-        //{
-        //    List<Spending> list = new List<Spending>();
-        //    var objectList = DataProvider.Ins.DB.CTPCs;
-        //    foreach (var item in objectList)
-        //    {
-        //        Spending spending = new Spending(item.MaPC, item.NGUYENLIEU.TenNgL, item.SL,item.NGUYENLIEU.DONVI.TenDV, Convert.ToInt64(item.NGUYENLIEU.DonGia * item.SL));
-        //        list.Add(spending);
-        //    }
-        //    return list;
-        //}
+        private List<Spending> GetSpending()
+        {
+            List<Spending> list = new List<Spending>();
+            var objectList = DataProvider.Ins.DB.CTPCs;
+            foreach (var item in objectList)
+            {
+                Spending spending = new Spending(item.MaPC, item.NGUYENLIEU.TenNgL, item.SL, item.NGUYENLIEU.DonVi, Convert.ToInt64(item.NGUYENLIEU.DonGia * item.SL));
+                list.Add(spending);
+            }
+            return list;
+        }
 
-        //private void LoadSpendingListItems()
-        //{
-        //    dgSpending.ItemsSource = GetSpending();
-        //}
+        private void LoadSpendingListItems()
+        {
+            dgSpending.ItemsSource = GetSpending();
+        }
         private void dgRevenue_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

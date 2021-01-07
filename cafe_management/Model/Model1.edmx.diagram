@@ -10,9 +10,9 @@
         <EntityTypeShape EntityType="QLCFModel.CTPC" Width="1.5" PointX="8" PointY="4.875" />
         <EntityTypeShape EntityType="QLCFModel.HOADON" Width="1.5" PointX="3" PointY="5.125" />
         <EntityTypeShape EntityType="QLCFModel.MON" Width="1.5" PointX="3" PointY="0.875" />
-        <EntityTypeShape EntityType="QLCFModel.NGUYENLIEU" Width="1.5" PointX="5.75" PointY="7.875" />
+        <EntityTypeShape EntityType="QLCFModel.NGUYENLIEU" Width="1.5" PointX="5.75" PointY="4.875" />
         <EntityTypeShape EntityType="QLCFModel.PHANLOAI" Width="1.5" PointX="0.75" PointY="1.25" />
-        <EntityTypeShape EntityType="QLCFModel.PHIEUCHI" Width="1.5" PointX="5.75" PointY="5" />
+        <EntityTypeShape EntityType="QLCFModel.PHIEUCHI" Width="1.5" PointX="5.75" PointY="8" />
         <EntityTypeShape EntityType="QLCFModel.USERROLE" Width="1.5" PointX="7.75" PointY="1.125" />
         <AssociationConnector Association="QLCFModel.FK_ACCOUNT_USERROLE" />
         <AssociationConnector Association="QLCFModel.FK_CTHD_HOADON" />
