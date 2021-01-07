@@ -27,7 +27,7 @@
                 <ColumnDefinition Width="0.5"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0" Width="400">
+            <Grid Grid.Column="0" Width="400" KeyDown="Enter_add_keydown">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="350"></RowDefinition>
                     <RowDefinition></RowDefinition>

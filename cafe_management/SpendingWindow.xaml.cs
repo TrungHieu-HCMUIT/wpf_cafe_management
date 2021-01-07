@@ -38,9 +38,9 @@ namespace cafe_management
 
             for (int i = 0; i <ingredients_list.Count;i++)
             {
-                totalPrice += ingredients_list[i].Price * ingredients_list[i].Quantity;
+                totalPrice += ingredients_list[i].Price;
             }
-            TotalPrice.Text = totalPrice.ToString() + " đ";            
+            TotalPrice.Text = totalPrice.ToString() + " đ";
         }
 
         private void ResetInputTextBox()
@@ -65,9 +65,11 @@ namespace cafe_management
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             name_input = tbName.Text.Trim();
-            quantity_input = Convert.ToInt32(tbQuantity.Text.Trim());
+            if (Int32.TryParse(tbQuantity.Text, out int quantity))
+                quantity_input = Convert.ToInt32(tbQuantity.Text.Trim());
             unit_input = tbUnit.Text.Trim();
-            price_input = Convert.ToInt32(tbPrice.Text.Trim());
+            if (Int32.TryParse(tbPrice.Text, out int price))
+                price_input = Convert.ToInt32(tbPrice.Text.Trim());
 
             if (CheckInput() == -1)
             {
@@ -88,8 +90,9 @@ namespace cafe_management
             {
                 for (int i = 0; i <ingredients_list.Count; i++)
                 {
-                    if (ingredients_list[i].Name == name_input && ingredients_list[i].Unit == unit_input && ingredients_list[i].Price == price_input)
+                    if (ingredients_list[i].Name == name_input && ingredients_list[i].Unit == unit_input && ingredients_list[i].Price / ingredients_list[i].Quantity == price_input)
                     {
+                        ingredients_list[i].Price += ingredients_list[i].Price / ingredients_list[i].Quantity * quantity_input;
                         ingredients_list[i].Quantity += quantity_input;
                         UpdateList();
                         ResetInputTextBox();
@@ -98,7 +101,7 @@ namespace cafe_management
                     }
                 }
 
-                Ingredient ingredient = new Ingredient(name_input, quantity_input, unit_input, price_input);
+                Ingredient ingredient = new Ingredient(name_input, quantity_input, unit_input, price_input * quantity_input);
                 ingredients_list.Add(ingredient);
                 UpdateList();
                 ResetInputTextBox();
@@ -118,6 +121,7 @@ namespace cafe_management
             var index = dgIngredient.SelectedIndex;
             if (ingredients_list[index].Quantity <= 1)
                 return;
+            ingredients_list[index].Price -= ingredients_list[index].Price / ingredients_list[index].Quantity;
             ingredients_list[index].Quantity--;
 
             UpdateList();
@@ -126,9 +130,16 @@ namespace cafe_management
         private void AddQuantity_Click(object sender, RoutedEventArgs e)
         {
             var index = dgIngredient.SelectedIndex;
+            ingredients_list[index].Price += ingredients_list[index].Price / ingredients_list[index].Quantity;
             ingredients_list[index].Quantity++;
 
             UpdateList();
+        }
+
+        private void Enter_add_keydown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                Add_Click(sender, e);
         }
 
         private void Confirm_Click(object sender, RoutedEventArgs e)
