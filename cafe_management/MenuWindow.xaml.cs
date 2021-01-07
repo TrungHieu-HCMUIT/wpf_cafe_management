@@ -291,26 +291,27 @@ namespace cafe_management
             }
         }
 
+        [Obsolete]
         private void PrintHoaDon()
         {
             int STT = 1;
             int total_price = 0;
-            Document doc = new Document(iTextSharp.text.PageSize.A6);
-            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("1", FileMode.Create));
+            Document doc = new Document(iTextSharp.text.PageSize.A5);
+            PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream("1.pdf", FileMode.Create));
             doc.Open();
 
-            Paragraph header = new Paragraph("HÓA ĐƠN THANH TOÁN", FontFactory.GetFont("Roboto Bold"));
+            Paragraph header = new Paragraph("HÓA ĐƠN THANH TOÁN");
             header.Alignment = Element.ALIGN_CENTER;
             doc.Add(header);
 
-            Paragraph body = new Paragraph("TT\tTên món\t\tSL\tĐơn giá\tThành tiền", FontFactory.GetFont("Roboto"));
+            Paragraph body = new Paragraph("TT" + Chunk.CreateTabspace() + "Tên món" + Chunk.CreateTabspace() + "SL" + Chunk.CreateTabspace() + "Đơn giá" + Chunk.CreateTabspace() + "Thành tiền");
             body.Alignment = Element.ALIGN_JUSTIFIED;
             doc.Add(body);
 
             Paragraph body_content = new Paragraph();
             for (int i = 0; i < PurchaseList.Count; i++)
             {
-                Chunk item = new Chunk("" + STT + "\t" + PurchaseList[i].Name + "\t\t" + PurchaseList[i].Quantity + "\t" + PurchaseList[i].Price / PurchaseList[i].Quantity + "\t" + PurchaseList[i].Price + "\n");
+                Chunk item = new Chunk("" + STT + Chunk.CreateTabspace() + PurchaseList[i].Name + Chunk.CreateTabspace() + PurchaseList[i].Quantity + Chunk.CreateTabspace() + PurchaseList[i].Price / PurchaseList[i].Quantity + Chunk.CreateTabspace() + PurchaseList[i].Price + "\n");
                 body_content.Add(item);
                 total_price += PurchaseList[i].Price;
                 STT++;
@@ -318,6 +319,9 @@ namespace cafe_management
             Chunk total = new Chunk("Tổng tiền: " + total_price);
             body_content.Add(total);
             body_content.Alignment = Element.ALIGN_JUSTIFIED;
+            doc.Add(body_content);
+
+            doc.Close();
         }
 
         private void btnThanhToan_Click(object sender, RoutedEventArgs e)

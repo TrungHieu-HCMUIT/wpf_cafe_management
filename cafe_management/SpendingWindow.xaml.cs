@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cafe_management.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,7 @@ namespace cafe_management
             dgIngredient.ItemsSource = null;
             dgIngredient.ItemsSource = ingredients_list;
 
-            for (int i = 0; i <ingredients_list.Count;i++)
+            for (int i = 0; i < ingredients_list.Count; i++)
             {
                 totalPrice += ingredients_list[i].Price;
             }
@@ -88,9 +89,9 @@ namespace cafe_management
             }
             else
             {
-                for (int i = 0; i <ingredients_list.Count; i++)
+                for (int i = 0; i < ingredients_list.Count; i++)
                 {
-                    if (ingredients_list[i].Name == name_input && ingredients_list[i].Unit == unit_input && ingredients_list[i].Price / ingredients_list[i].Quantity == price_input)
+                    if (ingredients_list[i].Name.ToLower() == name_input.ToLower() && ingredients_list[i].Unit.ToLower() == unit_input.ToLower() && ingredients_list[i].Price / ingredients_list[i].Quantity == price_input)
                     {
                         ingredients_list[i].Price += ingredients_list[i].Price / ingredients_list[i].Quantity * quantity_input;
                         ingredients_list[i].Quantity += quantity_input;
@@ -101,7 +102,7 @@ namespace cafe_management
                     }
                 }
 
-                Ingredient ingredient = new Ingredient(name_input, quantity_input, unit_input, price_input * quantity_input);
+                Ingredient ingredient = new Ingredient(name_input, quantity_input, unit_input.ToLower(), price_input * quantity_input);
                 ingredients_list.Add(ingredient);
                 UpdateList();
                 ResetInputTextBox();
@@ -141,10 +142,85 @@ namespace cafe_management
             if (e.Key == Key.Enter)
                 Add_Click(sender, e);
         }
+        private void CreateNGUYENLIEU()
+        {
+            NGUYENLIEU ngl = new NGUYENLIEU();
+            using (QLCFEntities1 db = new QLCFEntities1())
+            {
+                foreach (var item in ingredients_list)
+                {
+                    var x = db.NGUYENLIEUx.Add(new NGUYENLIEU()
+                    {
+                        TenNgL = item.Name,
+                        DonGia = Convert.ToDecimal(item.Price),
+                        DonVi = item.Unit,
+                        //CTPCs = list
 
+                    });
+                    db.SaveChanges();
+                    item.ID = x.MaNgL;
+                }
+            }
+        }
+        private List<CTPC> ConvertToCTPC()
+        {
+            List<CTPC> list = new List<CTPC>();
+            foreach (var item in ingredients_list)
+            {
+                CTPC ctpc = new CTPC()
+                {
+                    MaNgL = item.ID,
+                    SL = item.Quantity
+
+                };
+                list.Add(ctpc);
+            }
+            return list;
+        }
+
+        private void CreatePHIEUCHI(List<CTPC> list)
+        {
+            PHIEUCHI pc = new PHIEUCHI();
+            string x = TotalPrice.Text.Replace("đ", "");
+            if (list.Count == 0)
+            {
+                return;
+            }
+            else
+            {
+                using (QLCFEntities1 db = new QLCFEntities1())
+                {
+                    var temp = db.PHIEUCHIs.Add(new PHIEUCHI()
+                    {
+                        NgNhap = DateTime.Now,
+                        TongGia = Convert.ToDecimal(x),
+                        CTPCs = list
+
+                    });
+                    db.SaveChanges();
+                    foreach (CTPC ctpc in pc.CTPCs)
+                    {
+                        ctpc.MaPC = temp.MaPC;
+                        db.CTPCs.Add(ctpc);
+                    }
+                    db.SaveChanges();
+
+                }
+            }
+        }
         private void Confirm_Click(object sender, RoutedEventArgs e)
         {
+            CreateNGUYENLIEU(/*ctpc*/);
+            List<CTPC> ctpc = ConvertToCTPC();
 
+
+
+            CreatePHIEUCHI(ctpc);
+
+
+            StaffWindow staffWindow = new StaffWindow();
+            staffWindow.Show();
+            this.Close();
         }
 
         private void Terminate_Click(object sender, RoutedEventArgs e)
@@ -157,6 +233,7 @@ namespace cafe_management
 
     public class Ingredient
     {
+        public int ID { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
         public string Unit { get; set; }
@@ -164,6 +241,7 @@ namespace cafe_management
 
         public Ingredient(string name, int quantity, string unit, int price)
         {
+
             Name = name;
             Quantity = quantity;
             Unit = unit;
