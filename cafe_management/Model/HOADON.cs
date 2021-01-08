@@ -21,7 +21,7 @@ namespace cafe_management.Model
         }
     
         public int MaHD { get; set; }
-        public Nullable<System.DateTime> NgXuat { get; set; }
+        public DateTime NgXuat { get; set; }
         public Nullable<decimal> TongGia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

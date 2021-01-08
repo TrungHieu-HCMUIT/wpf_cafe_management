@@ -1,4 +1,5 @@
-﻿using System;
+﻿using cafe_management.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,6 +55,18 @@ namespace cafe_management
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            //var objectList = DataProvider.Ins.DB.ACCOUNTs;
+            //foreach (var item in objectList)
+            //{
+            //    item.TK = item.TK;
+            //    item.MK = item.MK;
+            //    //string id = IdTextBox.Text.ToString();
+            //    //string pw = Convert.ToString(passwordBox.Password.ToString());
+            //    //if (string.Compare(id, item.TK) == 0 && string.Compare(pw, item.MK) == 0)
+            //    //{
+            //    //    return true;
+            //    //}
+            //}
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();
             this.Close();

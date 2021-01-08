@@ -21,7 +21,7 @@ namespace cafe_management.Model
         }
     
         public int MaPC { get; set; }
-        public Nullable<System.DateTime> NgNhap { get; set; }
+        public DateTime NgNhap { get; set; }
         public Nullable<decimal> TongGia { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

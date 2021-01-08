@@ -63,8 +63,8 @@ namespace cafe_management
             var objectList = DataProvider.Ins.DB.ACCOUNTs;
             foreach (var item in objectList)
             {
-                string id = IdTextBox.Text.Trim();
-                string pw = Convert.ToString(passwordBox.Password.Trim());
+                string id = IdTextBox.Text.ToString();
+                string pw = Convert.ToString(passwordBox.Password.ToString());
                 if (string.Compare(id, item.TK) == 0 && string.Compare(pw, item.MK) == 0)
                 {
                     return true;

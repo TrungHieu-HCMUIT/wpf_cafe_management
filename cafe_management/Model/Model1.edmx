@@ -11,7 +11,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TK" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="MK" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MK" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="CTHD">
           <Key>
@@ -202,7 +202,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="MK" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MK" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="CTHD">
           <Key>
